@@ -23,6 +23,7 @@
 
 \useoutertheme{shadow}
 \linespread{1.4} %1.3 для полуторного
+\graphicspath{{fig/}}
 
 \title{The title of presentation}   
 \author{proft} 
@@ -183,6 +184,92 @@
 		$${\|u^{k+1}-z\|}^2\le{\|u^k-z\|}^2-\nu{\|u^k-u^{k+1}\|}^2.$$
 	\end{block}
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, Е. Н. Акимова, А. Ф. Миниахметова. Итерационные алгоритмы ньютоновского типа и их приложения к обратной задаче гравиметрии // Вестник ЮУрГУ, 6:3 (2013). С. 26–37.}
+\end{frame}
+\begin{frame}
+	\begin{block}{\bf Теорема ~2.1.} 
+		Пусть $A$ --- монотонный оператор, для которого выполнены условия 
+		$$\|A(u)-A(v)\|\le N_1\|u-v\|, \quad \forall u, v \in U,$$ 
+		$$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
+		известна оценка для нормы производной в точке $u^0$, т.е.
+		$$	\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r \quad
+		u^0 \in S_r(u_\alpha),$$ $$r\le \alpha/N_2, \quad 0<\alpha \le \bar\alpha.$$ 
+		
+		\smallskip
+		Тогда для процесса (2.1) c $\gamma=1$ имеет место линейная скорость сходимости метода при аппроксимации единственного решения $u_\alpha$ регуляризованного уравнения (1.2)
+		$$\| u^{k}-u_\alpha \| \le q^kr, \quad q=(1-\frac{\alpha}{2\bar\alpha}).$$
+	\end{block}
+\end{frame}
+\begin{frame}
+	\begin{block}{\bf Теорема ~2.2.}
+		Пусть для монотонного оператора $A$ выполнены условия $$
+		\|A(u)-A(v)\|\le N_1\|u-v\|,
+		\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
+		$$\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r, $$
+		\smallskip
+		$A'(u^0)$ --- самосопряженный оператор, $\|u_\alpha-u^0\|\le r \quad  
+		0\le\alpha\le\bar\alpha,\quad\bar\alpha\ge 4N_1,\quad r\le\alpha/8N_2.$
+		\vspace{3mm}
+		
+		Тогда для оператора
+		$$ F(u)=(A'(u)+\bar\alpha I)^{-1}(A(u)+\alpha(u-u^0)-f_\delta) $$
+		справедлива оценка снизу
+		$$<F(u), u-u_\alpha>\ge\frac{\alpha}{4\bar\alpha}{\|u-u_\alpha\|}^2 \quad \forall u \in S_r(u_\alpha).$$
+	\end{block}
+\end{frame} 
+\begin{frame}
+	\begin{block}{\bf Теорема ~2.3.}
+		Пусть выполнены условия теоремы 2.2. Тогда при
+		$\gamma<\frac{\alpha\bar\alpha}{2(N_1+\alpha)^2}$
+		оператор шага $T$ процесса (2.1) при
+		$$\nu=\frac{\alpha\bar\alpha}{2\gamma(N_1+\alpha)^2}-1$$
+		удовлетворяет неравенству (2.3), для итераций $u^k$ справедливо соотношение (2.4) и имеет место сходимость
+		$$\lim_{k\to\infty}\|u^k-u_\alpha\|=0.$$
+		Если параметр $\gamma$ принимает значение ${\gamma}_{opt}=\frac{\alpha\bar\alpha}{4(N_1+\alpha)^2},$ то справедлива оценка $$\|u^k-u_\alpha\|\le q^k r, \quad q=\sqrt{1-\frac{{\alpha}^2}  {16(N_1+\alpha)^2}}.$$
+	\end{block}
+\end{frame}
+
+\begin{frame}{3.2. Сходимость нелинейных $\alpha$-процессов}
+	\begin{block}{\bf Теорема ~3.1.}
+		Пусть для монотонного оператора $A$ выполнены условия $$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,	$$$$\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r,$$ и $A'(u^0)$ --- самосопряженный оператор. 
+		
+		Кроме того, для ММО параметры $\alpha$, $\bar\alpha$, $r$, $N_2$, $N_0$ удовлетворяют дополнительным соотношениям:
+		$$\alpha \le \bar\alpha, \quad r\le \alpha/8N_2, \quad \bar\alpha \ge N_0.$$
+		
+		Тогда справедливы соотношения
+		$$\|F^\varkappa(u)\|^2 \le \mu_\varkappa<F^\varkappa(u), u-u_\alpha>, \quad \varkappa=-1,0,1,$$ где
+		$$
+		\mu _{-1}=\frac{4(N_1+\alpha)^2}{\alpha\bar\alpha}, \quad \mu _0= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)}{\alpha{\bar\alpha}^2}, $$$$\quad \mu_1= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)^2}{\alpha{\bar\alpha}^3},
+		$$
+		соответственно для ММО, МНС, ММН.
+	\end{block}
+\end{frame}
+\begin{frame}
+	\begin{block}{\bf Теорема ~3.2.}
+		Пусть выполнены условия теоремы 3.1. Тогда при
+		$$\gamma _\varkappa <\frac{2}{\mu _\varkappa}\quad (\varkappa=-1,0,1)$$
+		для последовательности $\{u^k\}$, порождаемой $\alpha$-процессом при соответствующем $\varkappa$, имеет место сходимость $$\lim_{k\to\infty}\|u^k-u_\alpha\|=0, $$ а при 
+		$\gamma{_\varkappa^{opt}}=\frac{1}{\mu_\varkappa}$
+		справедлива оценка $\|u^k-u_\alpha\|\le q{_\varkappa^k}r,$ где
+		$$
+		q_{-1}=\sqrt{1-\frac{\alpha^2}{16(N_1+\alpha)^2}}, \quad q_0=\sqrt{1-\frac{\alpha^2\bar\alpha^2}{(N_1+\alpha)^2(N_1+\bar\alpha)^2}}, \quad $$$$q_1=\sqrt{1-\frac{\alpha^2\bar\alpha^4}{(N_1+\bar\alpha)^4}}.
+		$$
+	\end{block}
+\end{frame}
+\begin{frame}{\small\textbf{Случай монотонного оператора уравнения}}
+	\begin{block}{Теорема 3.5}
+		Пусть выполнены условия $$\|A(u)-A(v)\|\le N_1\|u-v\|,  \quad \forall u, v \in U,$$ 
+		%$$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
+		$$\|A'(u^0)\| \le N_0, \quad \|u^0-u_\alpha\| \le r,$$ 
+		
+		\smallskip
+		Оператор $A$ монотонный, $A'(u^0)$ --- самосопряженный оператор.
+		
+		\smallskip
+		Тогда при $$\gamma=\frac{2\alpha^3}{(N_0+\alpha)(N_1+\alpha)^2}$$ каждая из последовательностей, порождаемых процессами (3.3)-(3.5) сходится к регуляризованному решению $u_\alpha$ и удовлетворяет свойству Фейера.
+		Для $$\gamma=\frac{\alpha^3}{(N_0+\alpha)(N_1+\alpha)^2}$$ справедлива оценка
+		$$\|u^k-u_\alpha\|\le q^k r,$$ где
+		$$q=\sqrt{1-\frac{\alpha^4}{(N_0+\alpha)^2(N_1+\alpha)^2}}.$$
+	\end{block}
 \end{frame}
 
 \begin{frame}{3. Сходимость итерационных процессов с немонотонным оператором уравнения}
@@ -747,133 +834,133 @@
 \begin{frame}\label{lastpage}
 	\Huge{\centerline{Спасибо за внимание!}}
 \end{frame}
-\begin{frame}
-	\begin{block}{\bf Теорема ~2.1.} 
-		Пусть $A$ --- монотонный оператор, для которого выполнены условия 
-		$$\|A(u)-A(v)\|\le N_1\|u-v\|, \quad \forall u, v \in U,$$ 
-		$$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
-		известна оценка для нормы производной в точке $u^0$, т.е.
-		$$	\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r \quad
-		u^0 \in S_r(u_\alpha),$$ $$r\le \alpha/N_2, \quad 0<\alpha \le \bar\alpha.$$ 
-		
-		\smallskip
-		Тогда для процесса (2.1) c $\gamma=1$ имеет место линейная скорость сходимости метода при аппроксимации единственного решения $u_\alpha$ регуляризованного уравнения (1.2)
-		$$\| u^{k}-u_\alpha \| \le q^kr, \quad q=(1-\frac{\alpha}{2\bar\alpha}).$$
-	\end{block}
-\end{frame}
-\begin{frame}
-	\begin{block}{\bf Теорема ~2.2.}
-		Пусть для монотонного оператора $A$ выполнены условия $$
-		\|A(u)-A(v)\|\le N_1\|u-v\|,
-		\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
-		$$\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r, $$
-		\smallskip
-		$A'(u^0)$ --- самосопряженный оператор, $\|u_\alpha-u^0\|\le r \quad  
-		0\le\alpha\le\bar\alpha,\quad\bar\alpha\ge 4N_1,\quad r\le\alpha/8N_2.$
-		\vspace{3mm}
-		
-		Тогда для оператора
-		$$ F(u)=(A'(u)+\bar\alpha I)^{-1}(A(u)+\alpha(u-u^0)-f_\delta) $$
-		справедлива оценка снизу
-		$$<F(u), u-u_\alpha>\ge\frac{\alpha}{4\bar\alpha}{\|u-u_\alpha\|}^2 \quad \forall u \in S_r(u_\alpha).$$
-	\end{block}
-\end{frame} 
-\begin{frame}
-	\begin{block}{\bf Теорема ~2.3.}
-		Пусть выполнены условия теоремы 2.2. Тогда при
-		$\gamma<\frac{\alpha\bar\alpha}{2(N_1+\alpha)^2}$
-		оператор шага $T$ процесса (2.1) при
-		$$\nu=\frac{\alpha\bar\alpha}{2\gamma(N_1+\alpha)^2}-1$$
-		удовлетворяет неравенству (2.3), для итераций $u^k$ справедливо соотношение (2.4) и имеет место сходимость
-		$$\lim_{k\to\infty}\|u^k-u_\alpha\|=0.$$
-		Если параметр $\gamma$ принимает значение ${\gamma}_{opt}=\frac{\alpha\bar\alpha}{4(N_1+\alpha)^2},$ то справедлива оценка $$\|u^k-u_\alpha\|\le q^k r, \quad q=\sqrt{1-\frac{{\alpha}^2}  {16(N_1+\alpha)^2}}.$$
-	\end{block}
-\end{frame}
-\begin{frame}{3.2. Сходимость нелинейных $\alpha$-процессов}
-	\begin{block}{\bf Теорема ~3.1.}
-		Пусть для монотонного оператора $A$ выполнены условия $$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,	$$$$\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r,$$ и $A'(u^0)$ --- самосопряженный оператор. 
-		
-		Кроме того, для ММО параметры $\alpha$, $\bar\alpha$, $r$, $N_2$, $N_0$ удовлетворяют дополнительным соотношениям:
-		$$\alpha \le \bar\alpha, \quad r\le \alpha/8N_2, \quad \bar\alpha \ge N_0.$$
-		
-		Тогда справедливы соотношения
-		$$\|F^\varkappa(u)\|^2 \le \mu_\varkappa<F^\varkappa(u), u-u_\alpha>, \quad \varkappa=-1,0,1,$$ где
-		$$
-		\mu _{-1}=\frac{4(N_1+\alpha)^2}{\alpha\bar\alpha}, \quad \mu _0= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)}{\alpha{\bar\alpha}^2}, $$$$\quad \mu_1= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)^2}{\alpha{\bar\alpha}^3},
-		$$
-		соответственно для ММО, МНС, ММН.
-	\end{block}
-\end{frame}
-\begin{frame}
-	\begin{block}{\bf Теорема ~3.2.}
-		Пусть выполнены условия теоремы 3.1. Тогда при
-		$$\gamma _\varkappa <\frac{2}{\mu _\varkappa}\quad (\varkappa=-1,0,1)$$
-		для последовательности $\{u^k\}$, порождаемой $\alpha$-процессом при соответствующем $\varkappa$, имеет место сходимость $$\lim_{k\to\infty}\|u^k-u_\alpha\|=0, $$ а при 
-		$\gamma{_\varkappa^{opt}}=\frac{1}{\mu_\varkappa}$
-		справедлива оценка $\|u^k-u_\alpha\|\le q{_\varkappa^k}r,$ где
-		$$
-		q_{-1}=\sqrt{1-\frac{\alpha^2}{16(N_1+\alpha)^2}}, \quad q_0=\sqrt{1-\frac{\alpha^2\bar\alpha^2}{(N_1+\alpha)^2(N_1+\bar\alpha)^2}}, \quad $$$$q_1=\sqrt{1-\frac{\alpha^2\bar\alpha^4}{(N_1+\bar\alpha)^4}}.
-		$$
-	\end{block}
-\end{frame}
-\begin{frame}{\small\textbf{Случай монотонного оператора уравнения}}
-	\begin{block}{Теорема 3.5}
-		Пусть выполнены условия $$\|A(u)-A(v)\|\le N_1\|u-v\|,  \quad \forall u, v \in U,$$ 
-		%$$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
-		$$\|A'(u^0)\| \le N_0, \quad \|u^0-u_\alpha\| \le r,$$ 
-		
-		\smallskip
-		Оператор $A$ монотонный, $A'(u^0)$ --- самосопряженный оператор.
-		
-		\smallskip
-		Тогда при $$\gamma=\frac{2\alpha^3}{(N_0+\alpha)(N_1+\alpha)^2}$$ каждая из последовательностей, порождаемых процессами (3.3)-(3.5) сходится к регуляризованному решению $u_\alpha$ и удовлетворяет свойству Фейера.
-		Для $$\gamma=\frac{\alpha^3}{(N_0+\alpha)(N_1+\alpha)^2}$$ справедлива оценка
-		$$\|u^k-u_\alpha\|\le q^k r,$$ где
-		$$q=\sqrt{1-\frac{\alpha^4}{(N_0+\alpha)^2(N_1+\alpha)^2}}.$$
-	\end{block}
-\end{frame}
-\begin{frame}{4. Оценка погрешности двухэтапного метода}
-	Согласно \textbf{\color{red}(Tautenhahn, 2002)}, при условии монотонности оператора и истокообразной представимости решения $\hat{u}$ уравнения (1.1)
-	$$u^0-\hat{u}=A'(\hat{u})v,\eqno (4.1)$$
-	справедлива оценка погрешности регуляризованного решения
-	$$\|u_\alpha^{\delta}-\hat{u}\|\le\|u_\alpha^{\delta}-u_\alpha\|+\|u_\alpha-\hat{u}\|\le\frac{\delta}{\alpha}+k_0\alpha,
-	\eqno (4.2)$$
-	где $k_0=(1+N_2\|v\|/2)\|v\|$, $u_\alpha^{\delta}$, $u_\alpha$ --- решения уравнения (1.2) с возмущенной $f_\delta$ и точной $f$ правой частью уравнения (1.1) соответственно. 
-	
-	Минимизируя правую часть соотношения (4.2) по $\alpha$, имеем $\alpha(\delta)=\sqrt{\delta /k_0}$, что дает оценку
-	$$\|u_{\alpha(\delta)}^{\delta, k}-\hat{u}\|\le 2\sqrt{\delta k_0} \eqno (4.3)$$
-	Для итерационных процессов РМН, ММО, МНС, ММН получены оценки вида 
-	$$\|u_{\alpha(\delta)}^{\delta, k}-u_{\alpha(\delta)}^{\delta}\|\le q^{k}(\delta)r \eqno (4.4)$$
-\end{frame}
-\begin{frame}{4.1. Оценка погрешности в случае монотонного оператора}
-	Объединяя оценки (4.3), (4.4), приходим к следующему утверждению
-	\begin{block}{\bf Теорема~4.1.}
-		Пусть для решения $\hat{u}$ уравнения (1.1) с монотонным оператором справедливо условие (4.1) и для метода (3.1) выполнены условия теоремы (3.1). Тогда при выборе числа итераций по правилу
-		$$ k(\delta)=\left[\frac{\ln(2\sqrt{k_0\delta}/r)}{\ln q(\delta)}\right]$$
-		справедлива оптимальная по порядку оценка погрешности двухэтапного метода
-		$$ \|u_{\alpha(\delta)}^{\delta, k}-u_{\alpha(\delta)}^{\delta}\|\le 4\sqrt{k_0 \delta}.$$
-	\end{block}
-	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин В.В., Скурыдина, А.Ф. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
-\end{frame}
-\begin{frame}{4.2. Оценка погрешности в случае оператора c положительным спектром}
-	В этой ситуации для двухэтапного алгоритма можно установить оценку для невязки --- основной характеристики точности метода при решении задачи с реальными данными.
-	Пусть регуляризованное уравнение разрешимо, тогда для его решения $u_{\alpha(\delta)}^{\delta}$ справедливо соотношение
-	$$\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|=\alpha\|u_{\alpha(\delta)}^{\delta}-u^0\|.\eqno (4.5)$$
-	Пусть для некоторой связи $\alpha(\delta)$ $\|u_{\alpha(\delta)}^{\delta}-u^0\|\le m <\infty$, что влечет оценку
-	$$\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|\le\alpha(\delta)m \eqno (4.6)$$
-	и сходимость $$\lim_{\delta\to 0}\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|=0,$$ при $\alpha(\delta)\to 0$, $\delta\to 0$.
-	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин В.В., Скурыдина, А.Ф. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
-\end{frame}
-\begin{frame}
-	Пусть ${u_{\alpha(\delta)}^{\delta, k}}$ --- итерационные точки, полученные одним из методов рассмотренных выше методов. Имеем
-	$$\|A(u_{\alpha(\delta)}^{\delta, k})-f_\delta\|\le\|A(u_{\alpha(\delta)}^{\delta, k})-A(u_{\alpha(\delta)}^{\delta})\|+\|A(u_{\alpha(\delta)}^{\delta})-f(\delta)\|\le N_1 r q^{k(\delta)}+\alpha(\delta)m.
-	\eqno (4.7)$$
-	Выбирая, например, $\alpha(\delta)=\delta^p$ и приравнивая слагаемые в правой части (4.7), получаем правило выбора числа итерации
-	$$k(\delta)=\left [\ln(m\delta^p/N)/\ln q(\delta)\right ],$$
-	при котором справедлива оценка для невязки двухэтапного метода
-	$$\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|=2m\delta^p.\eqno (4.8)$$
-	\begin{block}{Замечание~4.3} Соотношения (4.5)---(4.8) остаются справедливыми для случая, когда матрицы $A'(u^k)$ содержат набор малых отрицательных собственных значений с тем лишь отличием, что в неравенстве (4.7) параметр $q$ во всех методах теперь вычисляется по формулам из раздела 3, в которых параметр $\bar\alpha$ заменен на $\alpha^*$ (см. замечание 3.2).
-	\end{block}
-	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин В.В., Скурыдина, А.Ф. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
-\end{frame}
+%\begin{frame}
+%	\begin{block}{\bf Теорема ~2.1.} 
+%		Пусть $A$ --- монотонный оператор, для которого выполнены условия 
+%		$$\|A(u)-A(v)\|\le N_1\|u-v\|, \quad \forall u, v \in U,$$ 
+%		$$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
+%		известна оценка для нормы производной в точке $u^0$, т.е.
+%		$$	\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r \quad
+%		u^0 \in S_r(u_\alpha),$$ $$r\le \alpha/N_2, \quad 0<\alpha \le \bar\alpha.$$ 
+%		
+%		\smallskip
+%		Тогда для процесса (2.1) c $\gamma=1$ имеет место линейная скорость сходимости метода при аппроксимации единственного решения $u_\alpha$ регуляризованного уравнения (1.2)
+%		$$\| u^{k}-u_\alpha \| \le q^kr, \quad q=(1-\frac{\alpha}{2\bar\alpha}).$$
+%	\end{block}
+%\end{frame}
+%\begin{frame}
+%	\begin{block}{\bf Теорема ~2.2.}
+%		Пусть для монотонного оператора $A$ выполнены условия $$
+%		\|A(u)-A(v)\|\le N_1\|u-v\|,
+%		\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
+%		$$\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r, $$
+%		\smallskip
+%		$A'(u^0)$ --- самосопряженный оператор, $\|u_\alpha-u^0\|\le r \quad  
+%		0\le\alpha\le\bar\alpha,\quad\bar\alpha\ge 4N_1,\quad r\le\alpha/8N_2.$
+%		\vspace{3mm}
+%		
+%		Тогда для оператора
+%		$$ F(u)=(A'(u)+\bar\alpha I)^{-1}(A(u)+\alpha(u-u^0)-f_\delta) $$
+%		справедлива оценка снизу
+%		$$<F(u), u-u_\alpha>\ge\frac{\alpha}{4\bar\alpha}{\|u-u_\alpha\|}^2 \quad \forall u \in S_r(u_\alpha).$$
+%	\end{block}
+%\end{frame} 
+%\begin{frame}
+%	\begin{block}{\bf Теорема ~2.3.}
+%		Пусть выполнены условия теоремы 2.2. Тогда при
+%		$\gamma<\frac{\alpha\bar\alpha}{2(N_1+\alpha)^2}$
+%		оператор шага $T$ процесса (2.1) при
+%		$$\nu=\frac{\alpha\bar\alpha}{2\gamma(N_1+\alpha)^2}-1$$
+%		удовлетворяет неравенству (2.3), для итераций $u^k$ справедливо соотношение (2.4) и имеет место сходимость
+%		$$\lim_{k\to\infty}\|u^k-u_\alpha\|=0.$$
+%		Если параметр $\gamma$ принимает значение ${\gamma}_{opt}=\frac{\alpha\bar\alpha}{4(N_1+\alpha)^2},$ то справедлива оценка $$\|u^k-u_\alpha\|\le q^k r, \quad q=\sqrt{1-\frac{{\alpha}^2}  {16(N_1+\alpha)^2}}.$$
+%	\end{block}
+%\end{frame}
+%\begin{frame}{3.2. Сходимость нелинейных $\alpha$-процессов}
+%	\begin{block}{\bf Теорема ~3.1.}
+%		Пусть для монотонного оператора $A$ выполнены условия $$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,	$$$$\|A'(u^0)\| \le N_0\le N_1, \quad \|u^0-u_\alpha\| \le r,$$ и $A'(u^0)$ --- самосопряженный оператор. 
+%		
+%		Кроме того, для ММО параметры $\alpha$, $\bar\alpha$, $r$, $N_2$, $N_0$ удовлетворяют дополнительным соотношениям:
+%		$$\alpha \le \bar\alpha, \quad r\le \alpha/8N_2, \quad \bar\alpha \ge N_0.$$
+%		
+%		Тогда справедливы соотношения
+%		$$\|F^\varkappa(u)\|^2 \le \mu_\varkappa<F^\varkappa(u), u-u_\alpha>, \quad \varkappa=-1,0,1,$$ где
+%		$$
+%		\mu _{-1}=\frac{4(N_1+\alpha)^2}{\alpha\bar\alpha}, \quad \mu _0= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)}{\alpha{\bar\alpha}^2}, $$$$\quad \mu_1= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)^2}{\alpha{\bar\alpha}^3},
+%		$$
+%		соответственно для ММО, МНС, ММН.
+%	\end{block}
+%\end{frame}
+%\begin{frame}
+%	\begin{block}{\bf Теорема ~3.2.}
+%		Пусть выполнены условия теоремы 3.1. Тогда при
+%		$$\gamma _\varkappa <\frac{2}{\mu _\varkappa}\quad (\varkappa=-1,0,1)$$
+%		для последовательности $\{u^k\}$, порождаемой $\alpha$-процессом при соответствующем $\varkappa$, имеет место сходимость $$\lim_{k\to\infty}\|u^k-u_\alpha\|=0, $$ а при 
+%		$\gamma{_\varkappa^{opt}}=\frac{1}{\mu_\varkappa}$
+%		справедлива оценка $\|u^k-u_\alpha\|\le q{_\varkappa^k}r,$ где
+%		$$
+%		q_{-1}=\sqrt{1-\frac{\alpha^2}{16(N_1+\alpha)^2}}, \quad q_0=\sqrt{1-\frac{\alpha^2\bar\alpha^2}{(N_1+\alpha)^2(N_1+\bar\alpha)^2}}, \quad $$$$q_1=\sqrt{1-\frac{\alpha^2\bar\alpha^4}{(N_1+\bar\alpha)^4}}.
+%		$$
+%	\end{block}
+%\end{frame}
+%\begin{frame}{\small\textbf{Случай монотонного оператора уравнения}}
+%	\begin{block}{Теорема 3.5}
+%		Пусть выполнены условия $$\|A(u)-A(v)\|\le N_1\|u-v\|,  \quad \forall u, v \in U,$$ 
+%		%$$\|A'(u)-A'(v)\|\le N_2\|u-v\|, \quad \forall u, v \in U,$$
+%		$$\|A'(u^0)\| \le N_0, \quad \|u^0-u_\alpha\| \le r,$$ 
+%		
+%		\smallskip
+%		Оператор $A$ монотонный, $A'(u^0)$ --- самосопряженный оператор.
+%		
+%		\smallskip
+%		Тогда при $$\gamma=\frac{2\alpha^3}{(N_0+\alpha)(N_1+\alpha)^2}$$ каждая из последовательностей, порождаемых процессами (3.3)-(3.5) сходится к регуляризованному решению $u_\alpha$ и удовлетворяет свойству Фейера.
+%		Для $$\gamma=\frac{\alpha^3}{(N_0+\alpha)(N_1+\alpha)^2}$$ справедлива оценка
+%		$$\|u^k-u_\alpha\|\le q^k r,$$ где
+%		$$q=\sqrt{1-\frac{\alpha^4}{(N_0+\alpha)^2(N_1+\alpha)^2}}.$$
+%	\end{block}
+%\end{frame}
+%\begin{frame}{4. Оценка погрешности двухэтапного метода}
+%	Согласно \textbf{\color{red}(Tautenhahn, 2002)}, при условии монотонности оператора и истокообразной представимости решения $\hat{u}$ уравнения (1.1)
+%	$$u^0-\hat{u}=A'(\hat{u})v,\eqno (4.1)$$
+%	справедлива оценка погрешности регуляризованного решения
+%	$$\|u_\alpha^{\delta}-\hat{u}\|\le\|u_\alpha^{\delta}-u_\alpha\|+\|u_\alpha-\hat{u}\|\le\frac{\delta}{\alpha}+k_0\alpha,
+%	\eqno (4.2)$$
+%	где $k_0=(1+N_2\|v\|/2)\|v\|$, $u_\alpha^{\delta}$, $u_\alpha$ --- решения уравнения (1.2) с возмущенной $f_\delta$ и точной $f$ правой частью уравнения (1.1) соответственно. 
+%	
+%	Минимизируя правую часть соотношения (4.2) по $\alpha$, имеем $\alpha(\delta)=\sqrt{\delta /k_0}$, что дает оценку
+%	$$\|u_{\alpha(\delta)}^{\delta, k}-\hat{u}\|\le 2\sqrt{\delta k_0} \eqno (4.3)$$
+%	Для итерационных процессов РМН, ММО, МНС, ММН получены оценки вида 
+%	$$\|u_{\alpha(\delta)}^{\delta, k}-u_{\alpha(\delta)}^{\delta}\|\le q^{k}(\delta)r \eqno (4.4)$$
+%\end{frame}
+%\begin{frame}{4.1. Оценка погрешности в случае монотонного оператора}
+%	Объединяя оценки (4.3), (4.4), приходим к следующему утверждению
+%	\begin{block}{\bf Теорема~4.1.}
+%		Пусть для решения $\hat{u}$ уравнения (1.1) с монотонным оператором справедливо условие (4.1) и для метода (3.1) выполнены условия теоремы (3.1). Тогда при выборе числа итераций по правилу
+%		$$ k(\delta)=\left[\frac{\ln(2\sqrt{k_0\delta}/r)}{\ln q(\delta)}\right]$$
+%		справедлива оптимальная по порядку оценка погрешности двухэтапного метода
+%		$$ \|u_{\alpha(\delta)}^{\delta, k}-u_{\alpha(\delta)}^{\delta}\|\le 4\sqrt{k_0 \delta}.$$
+%	\end{block}
+%	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин В.В., Скурыдина, А.Ф. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
+%\end{frame}
+%\begin{frame}{4.2. Оценка погрешности в случае оператора c положительным спектром}
+%	В этой ситуации для двухэтапного алгоритма можно установить оценку для невязки --- основной характеристики точности метода при решении задачи с реальными данными.
+%	Пусть регуляризованное уравнение разрешимо, тогда для его решения $u_{\alpha(\delta)}^{\delta}$ справедливо соотношение
+%	$$\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|=\alpha\|u_{\alpha(\delta)}^{\delta}-u^0\|.\eqno (4.5)$$
+%	Пусть для некоторой связи $\alpha(\delta)$ $\|u_{\alpha(\delta)}^{\delta}-u^0\|\le m <\infty$, что влечет оценку
+%	$$\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|\le\alpha(\delta)m \eqno (4.6)$$
+%	и сходимость $$\lim_{\delta\to 0}\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|=0,$$ при $\alpha(\delta)\to 0$, $\delta\to 0$.
+%	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин В.В., Скурыдина, А.Ф. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
+%\end{frame}
+%\begin{frame}
+%	Пусть ${u_{\alpha(\delta)}^{\delta, k}}$ --- итерационные точки, полученные одним из методов рассмотренных выше методов. Имеем
+%	$$\|A(u_{\alpha(\delta)}^{\delta, k})-f_\delta\|\le\|A(u_{\alpha(\delta)}^{\delta, k})-A(u_{\alpha(\delta)}^{\delta})\|+\|A(u_{\alpha(\delta)}^{\delta})-f(\delta)\|\le N_1 r q^{k(\delta)}+\alpha(\delta)m.
+%	\eqno (4.7)$$
+%	Выбирая, например, $\alpha(\delta)=\delta^p$ и приравнивая слагаемые в правой части (4.7), получаем правило выбора числа итерации
+%	$$k(\delta)=\left [\ln(m\delta^p/N)/\ln q(\delta)\right ],$$
+%	при котором справедлива оценка для невязки двухэтапного метода
+%	$$\|A(u_{\alpha(\delta)}^{\delta})-f_\delta\|=2m\delta^p.\eqno (4.8)$$
+%	\begin{block}{Замечание~4.3} Соотношения (4.5)---(4.8) остаются справедливыми для случая, когда матрицы $A'(u^k)$ содержат набор малых отрицательных собственных значений с тем лишь отличием, что в неравенстве (4.7) параметр $q$ во всех методах теперь вычисляется по формулам из раздела 3, в которых параметр $\bar\alpha$ заменен на $\alpha^*$ (см. замечание 3.2).
+%	\end{block}
+%	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин В.В., Скурыдина, А.Ф. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
+%\end{frame}
 \end{document}
