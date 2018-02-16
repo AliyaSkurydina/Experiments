@@ -1,0 +1,1459 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[T2A,T1]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{nicefrac}
+\usepackage{soul}
+\usepackage{verbatim}
+\hypersetup{unicode}
+\usepackage{colortbl}
+\usepackage{color,ucs}
+\usepackage{xcolor}
+
+\definecolor{Green}{rgb}{0,1,0}
+\renewcommand\footnotemark{}
+\definecolor{Red}{rgb}{1,.2,.2}
+\renewcommand\footnoterule{}
+\newcommand{\argmin}{\arg\!\min}
+\newcommand\Fontvi{\fontsize{10}{11}\selectfont}
+%\setbeamerfont{footnote}{size=\normal}
+%\renewcommand\footnoterule{\rule{\linewidth}{1pt}}
+\renewcommand\footnoterule{\kern-3pt \hrule width 2in \kern 2.6pt}
+%\renewcommand{\footnotesize}{\normal}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\author[В. Е. Мисилов]{Владимир Евгеньевич Мисилов\\} 
+
+\title{Итерационные методы и параллельные алгоритмы решения нелинейных обратных задач гравиметрии и магнитометрии} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+%\institute[ИММ УрО РАН, ИГФ УрО РАН, УрФУ] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+%{
+\institute[05.13.18]
+{05.13.18 --- Математическое моделирование, численные методы и комплексы программ\\
+\vspace*{1cm}
+Научный руководитель: д. ф.-м. н., вед. н. с. ИММ УрО РАН Е. Н. Акимова}
+%Институт математики и механики им. Н.~Н.~Красовского
+%Уральского отделения Российской академии наук % Your institution for the title page
+ % Your email address
+%}
+\date{2017} % Date, can be changed to a custom date
+
+\begin{document}
+\setbeamerfont{footnote}{size=\tiny}
+\begin{frame}
+\titlepage % Print the title page as the first slide
+%\textit{Специальность: 05.13.18. Математическое моделирование, численные методы и комплексы программ}\\
+%\textit{Научный руководитель: д. ф.-м. н., вед. н. с. Е. Н. Акимова}
+
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Содержание} % Table of contents slide, comment this block out to remove it
+%\tableofcontents[hideallsubsections] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+%\section{Введение} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+\section {Введение}
+\begin{frame}
+\frametitle{Введение}
+%\fontsize{8pt}{9}\selectfont
+Одними из важнейших задач являются обратные задачи гравиметрии и магнитометрии о восстановлении поверхностей раздела слоев в однородно-слоистой среде. Задачи возникают при поиске полезных ископаемых и построении геолого-геофизических моделей. Они описываются интегральными уравнениями первого рода и являются некорректными задачами: имеют неединственное решение, неустойчиво зависящее от входных данных. 
+\\
+Исследованию задач о восстановлении поверхностей посвящены работы В.~Н.~Страхова, А.~В.~Цирульского, П.~С.~Мартышко, И.~Л.~Пруткина, В.~М.~Новоселицкого, В.~Б.~Гласко, Е.~Г.~Булаха, А.~И.~Кобрунова, В.~А.~Кочнева, П.~А.~Миненко и др.
+\\
+\end{frame}
+
+\begin{frame}
+\frametitle{Введение}
+\fontsize{10pt}{12}\selectfont
+После дискретизации и аппроксимации задачи сводятся к системам нелинейных уравнений большой размерности. 
+\\
+Построению численных методов решения систем нелинейных уравнений  посвящены работы Л.~В.~Канторовича, М.~А.~Красносельского, Г.~М.~Вайникко, Б.~Т.~Поляка, J.~C.~Ort\-ega, W.~C.~Rhein\-boldt, M.~Po\-well, J.~E.~Den\-nis, C.~T.~Kel\-ley, R.~B.~Sch\-na\-bel, R.~Flet\-cher, J.~No\-ce\-dal. 
+
+%Основоположниками теории некорректных задач являются А.~Н.~Тихонов, М.~М.~Лаврентьев и В.~К.~Иванов. 
+Методы решения нелинейных уравнений на основе итерационной регуляризации были построены и исследованы в работах А.~Б.~Ба\-ку\-шин\-ско\-го, М.~Ю.~Ко\-ку\-ри\-на, В.~В.~Васина, M. Han\-ke, A.~Neu\-bauer, O.~Scher\-zer, B.~Kal\-ten\-ba\-cher, S.~George. 
+
+Алгоритмы решения обратных задач математической геофизики на основе метода локальных поправок разрабатывались в ИГФ УрО РАН (П.~С.~Мартышко, И.~Л.~Пруткин), на основе итеративно регуляризованных методов типа Левенберга-Марквардта, Ньютона, методов градиентного типа --- в ИММ УрО РАН (В.~В.~Васин, Е.~Н.~Акимова, Г.~Я.~Пересторонина, Л.~Ю.~Тимерханова).
+\\
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Введение}
+Важно отметить, что теоретически доказанная высокая скорость сходимости (сверхлинейная или квадратичная) методов не гарантирует эффективности их  использования при решении практических задач. Например, методы типа Левенберга-Марквардта и Гаусса-Ньютона требуют хранения матриц большой размерности, а также выполнения трудоемких операций матричного умножения.
+%\vspace*{1cm}
+\fontsize{12pt}{14}\selectfont
+\begin{block}{}
+\textbf{Целью} диссертационной работы является построение \textcolor{blue}{экономичных} по времени счета и затратам оперативной памяти итерационных градиентных методов и параллельных алгоритмов решения систем нелинейных уравнений применительно к решению обратных структурных задач гравиметрии и магнитометрии, и реализация алгоритмов в виде комплекса программ для быстрой обработки данных на сетках большой размерности. 
+\end{block}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Защищаемые положения.}
+%1. Разработаны новые итерационные методы решения систем нелинейных уравнений применительно к задачам восстановления формы одной контактной поверхности по гравитационному или магнитному полю: линеаризованный метод сопряженных градиентов и покомпонентный градиентный метод. \\
+%2. Получено интегральное уравнение обратной задачи магнитометрии нахождения поверхности раздела сред для случая произвольно направленной намагниченности, что расширяет класс решаемых задач по сравнению с идеализированным случаем вертикально направленной намагниченности.\\
+%\end{frame}
+%\begin{frame}
+%\frametitle{Защищаемые положения.}
+%3. Для решения обратных задач гравиметрии и магнитометрии о восстановлении %нескольких поверхностей раздела в многослойной среде предложен новый алгоритм, %основанный на применении построенных вариантов градиентных методов с переменными %весовыми множителями, обеспечивающий достаточную точность и уменьшение времени %счета.\\
+%4. На основе предлагаемых методов разработаны параллельные алгоритмы, реализованные в виде комплекса программ для многоядерных процессоров для эффективного решения обратных задач на сетках большой размерности. Комплекс программ протестирован на серии разработанных модельных задач и задач с реальными данными.\\
+%\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Глава 1. Постановки нелинейных обратных задач гравиметрии и магнитометрии о восстановлении поверхностей раздела} 
+%\begin{block}{Содержание:}
+В данной главе рассматриваются постановки обратных структурных
+задач гравиметрии и магнитометрии о восстановлении поверхностей раздела
+слоев в однородно-слоистой среде по гравитационным либо магнитным
+данным. Показано, что рассматриваемые в диссертационной работе
+прикладные задачи сводятся к решению нелинейных уравнений большой
+размерности.
+%\begin{itemize}
+%Н.~В.~Федорова, А.~В.~Цирульский (1976);
+%\item 1.1: постановки структурных обратных задач гравиметрии и магнитометрии для двуслойной среды (П.~С.~Мартышко, И.~Л.~Пруткин, Б.~В.~Нумеров, Н.~Р.~Малкин, В.~Н.~Страхов, Н.~В.~Федорова, А.~В.~Цирульский)
+%\item 1.2: обратная задача магнитометрии о восстановлении контактной поверхности.
+%\item 1.3: Построения быстрых алгоритмов на основе метода сопряженных градиентов. 
+%\item 1.4: Построение экономичного покомпонентного градиентного метода.
+%\end{itemize}
+%\end{block}
+\end{frame}
+
+
+\section {Постановка обратной задачи гравиметрии о восстановлении одной поверхности}
+\subsection {Модель двуслойной среды в задаче гравиметрии}
+\begin{frame}
+\frametitle{1.1 Модель двуслойной среды для задачи гравиметрии}
+  \begin{figure}
+    \centering
+    \includegraphics[width = 0.6\textwidth]{./grav_illust.png}
+  \end{figure}
+\centering
+Асимптотическая плоскость
+$$\lim \limits_{|x|\rightarrow \infty, |y|\rightarrow \infty}| \zeta(x,y)-h | =0$$
+\end{frame}
+\subsection {Прямая задача}
+
+
+
+%\begin{frame}
+%\frametitle{\S 1 Гравитационный эффект от контактной поверхности}
+%\begin{equation}\nonumber
+%\begin{aligned}
+%\Delta g(x_0,y_0,0) & = f  \Delta \sigma \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Bigg [ \frac{1}{\big((x-x_0)^2+(y-y_0)^2+\zeta^2(x,y)\big)^{1/2}} - \\
+%&- \frac{1}{\big((x-x_0)^2+(y-y_0)^2+H^2\big)^{1/2}}\Bigg ] dx dy, %\footnotemark
+%\end{aligned}
+%\end{equation}
+%где $\Delta \sigma=\sigma_2-\sigma_1$, $f$ --- гравитационная постоянная.
+
+%\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\smallП. С. Мартышко, И. В. Ладовский, А. Г. Цидаев. Построение региональных геофизических моделей на основе комплексной интерпретации гравитационных и сейсмических данных. 2010.}
+
+%\end{frame}
+%\subsection{Обратная задача}
+
+
+\begin{frame}
+\frametitle{1.1.1 Обратная задача гравиметрии}
+Гравитационный эффект от поверхности раздела:
+\begin{equation}\nonumber
+\begin{aligned}
+&f  \Delta \sigma \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Bigg [ \frac{1}{\big((x-x_0)^2+(y-y_0)^2+\textcolor{blue}{\zeta^2(x_0,y_0)}\big)^{1/2}} - \\
+&- \frac{1}{\big((x-x_0)^2+(y-y_0)^2+h^2\big)^{1/2}}\Bigg ] dx_0 dy_0 = \Delta g(x,y,0)
+\end{aligned}
+\end{equation}
+Это уравнение является нелинейным интегральным уравнением первого рода от $\zeta$:\footnotemark 
+\begin{equation}\nonumber
+\begin{aligned}
+A(\zeta) = \Delta g(x,y,0).
+\end{aligned}
+\end{equation}
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Нумеров Б. В. Интерпретация гравитационных наблюдений в случае одной контактной поверхности // ДАН СССР. 1930. № 21. С. 569–574. }
+\end{frame}
+%\\ Страхов В. Н. Об обратной задаче логарифмического потенциала для контактной поверхности // Изв. АН СССР. Физика Земли. 1974. № 2. С. 34–40.
+\section {Постановка обратной задачи магнитометрии о восстановлении поверхности раздела}
+\subsection {Модель двуслойной среды в задаче магнитометрии}
+\begin{frame}
+\frametitle{1.1 Модель двуслойной среды для задачи магнитометрии}
+  \begin{figure}
+    \centering
+    \includegraphics[width = 0.6\textwidth]{./magn_vertical.png}
+  \end{figure}
+\centering
+Асимптотическая плоскость
+$$\lim \limits_{|x|\rightarrow \infty, |y|\rightarrow \infty}| \zeta(x,y)-h | =0$$
+\end{frame}
+
+\subsection{Обратная задача}
+
+\begin{frame}
+\frametitle{1.1.2 Обратная задача магнитометрии для случая вертикально направленной намагниченности}
+Магнитный эффект от поверхности раздела
+\begin{equation}\nonumber
+\begin{aligned}
+&\frac{\Delta J}{4\pi} \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Bigg [ \frac{\textcolor{blue}{\zeta(x_0,y_0)}}{\big((x-x_0)^2+(y-y_0)^2+\textcolor{blue}{\zeta^2(x_0,y_0)}\big)^{3/2}} -\\
+& - \frac{H}{\big((x-x_0)^2+(y-y_0)^2+h^2\big)^{3/2}} \Bigg ] dx_0 dy_0 = \Delta Z(x,y,0)  %\footnotemark
+\end{aligned}
+\end{equation}
+Относительно $\zeta$ это нелинейное интегральное уравнение первого рода:\footnotemark
+\begin{equation}\nonumber
+\begin{aligned}
+B(\zeta) = \Delta Z(x,y,0).
+\end{aligned}
+\end{equation}
+%\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\smallВ. В. Васин, Г. Я. Пересторонина, И. Л. Пруткин, Л. Ю. Тимерханова. Решение трехмерных обратных задач гравиметрии и магнитометрии для трехслойной среды. Мат. моделирование. 2003}
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Малкин Н. Р. О решении обратной магнитометрической задачи для случая одной контактной поверхности (случай пластообразно залегающих масс) // ДАН СССР. Сер. А. 1931. № 9. С. 232–235. }
+\end{frame}
+%\\ Страхов В. Н. Об обратной задаче логарифмического потенциала для контактной поверхности // Изв. АН СССР. Физика Земли. 1974. № 2. С. 34–40.
+\begin{frame}
+\fontsize{9pt}{7.2}\selectfont
+\frametitle{1.1 Дискретизация и аппроксимация}
+
+\begin{columns}
+\column{0.60\linewidth}
+
+ \begin{figure}
+   \centering
+   \includegraphics[width = \linewidth]{./indices1.png}
+ \end{figure}
+
+\column{0.30\linewidth}
+\fontsize{8pt}{9}\selectfont
+Поскольку поверхность имеет асимптоту, значения поля вне некоторой прямоугольной области $a \leqslant x \leqslant b, c \leqslant y \leqslant d$ будут близки к нулю, поэтому можно перейти от бесконечных пределов интегрирования к конечной области.
+
+После дискретизации уравнений на сетке $n=MxN$ и аппроксимации интегрального оператора по квадратурным формулам прямоугольников имеем векторы правой части $F$ и решения $z$ размерности $n$.% получаем систему нелинейных уравнений
+%\begin{equation}\nonumber
+%\begin{aligned}
+%&f  \Delta \sigma \Delta x \Delta y \sum \limits_{j=1..n} \Bigg [ \frac{1}{\big((x-x_0)^2+(y-y_0)^2+z^2_j\big)^{1/2}} - \\
+%&- \frac{1}{\big((x-x_0)^2+(y-y_0)^2+H^2\big)^{1/2}}\Bigg ] = F,
+%\end{aligned}
+%\end{equation}
+%и 
+%\begin{equation}\nonumber
+%\begin{aligned}
+%A(z)  = F.% , \quad i=1..n.
+%\end{aligned}
+%\end{equation}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{1.1 Дискретизация и аппроксимация}
+%После дискретизации уравнения на сетке $n=MxN$ и аппроксимации интегрального оператора по квадратурным формулам имеем векторы правой части $F$ и решения $z$ размерности $n$
+%\begin{equation}\nonumber
+%\begin{aligned}
+%&\frac{\Delta J}{4\pi} \Delta x \Delta y \sum \limits_{i=1..n} \Bigg [ \frac{z_j}{\big((x-x_0)^2+(y-y_0)^2+z^2_j\big)^{3/2}} -\\
+%& - \frac{H}{\big((x-x_0)^2+(y-y_0)^2+H^2\big)^{3/2}} \Bigg ] = F
+%\end{aligned}
+%\end{equation}
+\fontsize{8pt}{9}\selectfont
+Уравнения приобретут вид:
+\begin{equation}\nonumber
+\begin{aligned}
+f \Delta \sigma \Delta x \Delta y \sum \limits_{j=1..n} \Bigg [ \frac{1}{\sqrt{(x_i-x_j)^2+(y_i-y_j)^2+z^2_j}} - \\[16pt]
+-\frac{1}{\sqrt{(x_i-x_j)^2+(y_i-y_j)^2+h^2}} \Bigg ] = F_i, \quad i=1..n.\\[32pt]
+\end{aligned}
+\end{equation}
+
+\begin{equation}\nonumber
+\begin{aligned}
+&\frac{\Delta J}{4\pi} \Delta x \Delta y \sum \limits_{j=1..n} \Bigg [ \frac{-h}{\big((x_i-x_j)^2+(y_i-y_j)^2+h^2\big)^{3/2}} -\\[16pt]
+& - \frac{-z_j }{\big((x_i-x_j)^2+(y_i-y_j)^2+z_j^2\big)^{3/2}} \Bigg ] =F_i, \quad i=1..n. \\[16pt]
+\end{aligned}
+\end{equation}
+%и получаем систему нелинейных уравнений
+%\begin{equation}\nonumber
+%\begin{aligned}
+%B_j(z)  = F_j , j=1..n.
+%\end{aligned}
+%\end{equation}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{1.2 Расширенная постановка обратной задачи магнитометрии о восстановлении поверхности для случая произвольно направленной намагниченности}
+
+ \begin{figure}
+   \centering
+   \includegraphics[height = 0.6\textheight]{./magn_arbitrary.png}
+ \end{figure}
+ 
+\end{frame}
+
+\begin{frame}
+\frametitle{1.2 Способ получения уравнения обратной задачи}
+
+\begin{columns}
+\column{0.60\linewidth}
+
+ \begin{figure}
+   \centering
+   \includegraphics[height = 0.60\linewidth]{./magn_layer.png}
+ \end{figure}
+\column{0.40\linewidth}
+\fontsize{8pt}{9}\selectfont
+Исключив слои, ограниченные горизонтальными плоскостями и вносящие нулевой вклад в магнитное поле, сведем прямую задачу к задаче нахождения поля от субгоризонтального слоя между $z_1(x,y)=\zeta(x,y)$ и $z_2(x,y)=h$. \\
+По теореме Пуассона магнитный потенциал $U$ однородного намагниченного тела находится по формуле\\
+\begin{equation} \nonumber
+\begin{aligned}
+&U=- \frac{1}{4\pi} \langle \boldsymbol{J},\nabla V \rangle, \\
+\end{aligned}
+\end{equation}
+\fontsize{9pt}{11}\selectfont
+где $V$ --- гравитационный потенциал тела такой же формы, который можно найти по формуле
+\begin{equation} \nonumber
+\begin{aligned}
+&V(\boldsymbol{r}_0)= f  \sigma \int\limits_D \frac {1}{ | \boldsymbol{r}-\boldsymbol{r}_0 |} dr.
+\end{aligned}
+\end{equation}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{1.2 Интегральное уравнение обратной задачи}
+
+\begin{block}{}
+Подставив в пределы интегрирования нужные параметры, получим выражение для магнитного эффекта поверхности для случая произвольно направленного вектора намагниченности. 
+\begin{equation}\nonumber
+\begin{aligned}
+\Delta Z(x,y,0) & = - \frac{1}{4\pi} \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Bigg [ \frac{\Delta J_x(x_0-x)+ \Delta J_y(y_0-y)-\Delta J_z h}{\big((x-x_0)^2+(y-y_0)^2+h^2\big)^{3/2}} -\\
+& - \frac{\Delta J_x(x_0-x)+\Delta J_y(y_0-y)-\Delta J_z \textcolor{blue}{\zeta(x_0,y_0)} }{\big((x-x_0)^2+(y-y_0)^2+\textcolor{blue}{\zeta^2(x_0,y_0)}\big)^{3/2}} \Bigg ] dx_0 dy_0,
+\end{aligned}
+\end{equation}
+где $\Delta \boldsymbol{J}=\boldsymbol{J}_2-\boldsymbol{J}_1$ ($\boldsymbol{J}=\{J_x, J_y, J_z\}$) - разность намагниченностей.
+Уравнение является нелинейным интегральным уравнением первого рода от $\zeta$. %Для решения был использован ранее предложенный ЛМСГ.
+\end{block}\footnotemark
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\scriptsize Шванк О. А., Люстих Е. Н. Интерпретация гравитационных наблюдений. Л: Гостоптехиздат, 1947. \\ Misilov V. E., On solving the structural inverse magnetic problem of finding a contact surface in the case of arbitrary directed magnetization // 15th EAGE International Conference on Geoinformatics: Theoretical and Applied Aspects (EAGE, Kiev, 2016).}
+\end{frame}
+
+
+% \begin{frame}
+% \frametitle{1.2 Важные частные случаи}
+
+
+
+% \resizebox{!}{2cm} {
+% \begin{minipage}{\textwidth}
+% \begin{block}{Вертикальная намагниченность}
+% \begin{equation}\nonumber
+% \begin{aligned}
+%\fontsize{8pt}{7.2}\selectfont
+% \Delta Z(x,y,0) & = - \frac{\Delta J_z}{4\pi} \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Bigg [ \frac{- h}{\big((x-x_0)^2+(y-y_0)^2+h^2\big)^{3/2}} -\\
+%\fontsize{8pt}{7.2}\selectfont
+% & - \frac{- J_z \zeta(x_0,y_0) }{\big((x-x_0)^2+(y-y_0)^2+\zeta^2(x_0,y_0)\big)^{3/2}} \Bigg ] dx_0 dy_0.
+% \end{aligned}
+% \end{equation}
+% \end{block}
+% \end{minipage}
+% }
+
+% \resizebox{!}{2cm} {
+% \begin{minipage}{\textwidth}
+% \begin{block}{Горизонтальная намагниченность}
+% \begin{equation}\nonumber
+% \begin{aligned}
+%\fontsize{8pt}{7.2}\selectfont
+% \Delta Z(x',y',0) & = \frac{1}{4\pi} \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Big (\Delta J_x(x-x')+ \Delta J_y(y-y')\Big ) \times\\
+%\fontsize{8pt}{7.2}\selectfont
+% & \Bigg [ \frac{1}{\big((x'-x)^2+(y'-y)^2+h^2\big)^{3/2}} -\\
+%\fontsize{8pt}{7.2}\selectfont
+% & - \frac{1}{\big((x'-x)^2+(y'-y)^2+\zeta^2(x,y)\big)^{3/2}} \Bigg ] dx dy.
+% \end{aligned}
+% \end{equation}
+% \end{block}
+% \end{minipage}
+
+
+% }
+% \end{frame}
+
+
+\section{Обратная задача гравиметрии для многослойной среды}
+\subsection{Постановка}
+\begin{frame}
+\frametitle{1.3 Модель многослойной среды для задачи гравиметрии}
+  \begin{figure}
+    \centering
+    \includegraphics[height = 0.8\textheight]{./whitegrav.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{1.3 Модель среды для задачи магнитометрии}
+  \begin{figure}
+    \centering
+    \includegraphics[height = 0.8\textheight]{./whitemagn.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{1.3 Интегральные уравнения}
+\fontsize{8pt}{7.2}\selectfont
+Эффект от нескольких поверхностей равен сумме эффектов от каждой поверхности:
+\begin{equation}\nonumber
+\begin{aligned}
+&f  \sum \limits_{l=1}^{L} \Delta \sigma_l \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Bigg [ \frac{1}{\big((x-x_0)^2+(y-y_0)^2+\zeta_l^2(x_0,y_0)\big)^{1/2}} - \\
+&- \frac{1}{\big((x-x_0)^2+(y-y_0)^2+H_l^2\big)^{1/2}}\Bigg ] dx_0 dy_0 = \Delta g(x,y,0),
+\end{aligned}
+\end{equation}
+\begin{equation}\nonumber
+\begin{aligned}
+&\sum \limits_{l=1}^{L} \frac{\Delta J_l}{4\pi} \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} \Bigg [ \frac{\zeta_l(x_0,y_0)}{\big((x-x_0)^2+(y-y_0)^2+\zeta_l^2(x_0,y_0)\big)^{3/2}} -\\
+& - \frac{H_l}{\big((x-x_0)^2+(y-y_0)^2+H_l^2\big)^{3/2}} \Bigg ] dx_0 dy_0 = \Delta Z(x,y,0).
+\end{aligned}
+\end{equation}\footnotemark
+%Задачи являются недоопределенными, т.к. по \textcolor{blue}{одной} заданной функции $\Delta g(x, y, 0)$ или $\Delta Z(x, y, 0)$ мы  пытаемся найти \textcolor{blue}{несколько неизвестных  функций}  $\zeta_l$.
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Пруткин, И. Л. О решении трехмерной обратной задачи гравиметрии в классе контактных поверхностей методом локальных поправок. Изв. АН СССР. Физика Земли 1 (1986): 67-77.}
+
+\end{frame}
+
+
+\subsection{алгоритмы к решению}
+
+\begin{frame}
+\frametitle{1.3 Этапы решения обратной задачи для случая многослойной среды (<<Традиционный>> алгоритм)}
+\fontsize{9pt}{10}\selectfont
+Предварительная обработка --- разделение суммарного поля на составляющие, которые считаются полями от отдельных искомых поверхностей. \\
+Выделение составляющих осуществляется с помощью технологии повысотных трансформаций, разработанной П.~С. Мартышко и И.~Л. Пруткиным. Основная идея технологии заключается в аналитическом продолжении поля вверх или вниз. Продолжение поля вверх требует вычисления значения интеграла Пуассона для полупространства. Задача продолжения поля вниз сводится к  линейному интегральному уравнению Фредгольма первого рода и решается итерационными градиентными методами. После применения этой технологии общее гравитационное или магнитное поле приближенно разделяется на компоненты, соответствующие отдельным поверхностям. \\
+Дальнейший этап --- независимое решение нескольких задач для одной поверхности. \footnotemark
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize П. С. Мартышко, И. В. Ладовский, А. Г. Цидаев. Построение региональных геофизических моделей на основе комплексной интерпретации гравитационных и сейсмических данных. 2010.}
+%\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\smallП. С. Мартышко, И. Л. Пруткин. Технология разделения источников гравитационного поля по глубине. Геоф. журнал. 2003.}
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, Г. Я. Пересторонина, И. Л. Пруткин, Л. Ю. Тимерханова. Решение трехмерных обратных задач гравиметрии и магнитометрии для трехслойной среды. Мат. моделирование. 2003}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Методы решения}
+%\begin{block}{}
+%\begin{itemize}
+%\item Метод локальных поправок — \textbf{И.~Л.~Пруткин (1983, 1986, 2009); П.~С.~Мартышко и др. (2003--2015)};
+%\item Парные монотонные процессы и градиентные методы — \textbf{В.~В.~Васин, Л.~Ю.~Тимерханова (1998, 1999, 2003), Булах Е. Г. (1999)};
+%\item Метод Левенберга-Марквардта — \textbf{В.~В.~Васин, Г.~Я.~Пересторонина (2003; 2010)};
+%\item Метод Ньютона и модифицированный метод Ньютона с решением СЛАУ на каждой итерации градиентными методами и параллельная реализация на МВС — \textbf{В.~В.~Васин, Е.~Н.~Акимова, (2003--2013)}.
+%\end{itemize} 
+%\end{block}
+%\end{frame}
+
+\section{Методы решения задачи для двуслойной среды}
+%\subsection{Линеаризованные градиентные методы}
+%\begin{frame}
+%\fontsize{9pt}{7.2}\selectfont
+%\frametitle{Методы градиентного типа}
+%\begin{block}{}
+%Обозначим $S(z^k)=A'(z^k)^T(A(z^k)-F)$. 
+%\begin{itemize}
+%\item Линеаризованный метод наискорейшего спуска (ЛМНС) \footnotemark
+%\begin{equation} \nonumber
+%z^{k+1}=z^k - \psi \frac{\left \| S(z^k) \right \|^2}{\left \|A'(z^k)S(z^k) \right \|^2} S(z^k);
+%\end{equation}
+%\item Линеаризованный метод минимальной ошибки (ЛММО)
+%\begin{equation} \nonumber
+%z^{k+1}=z^k - \psi \frac{\left \| A(z_k)-F \right \|^2}{\left \| S(z^k) \right \|^2} S(z^k).
+%\end{equation}
+%\end{itemize}
+%\vspace*(-2cm)
+%где $\psi$ --- демпфирующий множитель. \\
+%\vspace*{4mm}
+%Условие останова: $\left \| A(z) - F \right \|/\left \| F \right \| < \varepsilon$ при достаточно малом $\varepsilon$, начальное приближение $z^0 \equiv H$.
+%\end{block}
+%\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\smallB. Kaltenbacher, A. Neubauer, O. Scherzer. Iterative regularization methods for nonlinear ill-posed problems. 2008.}
+%\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\smallВ. В. Васин, И. И. Еремин. Операторы и итерационные процессы фейеровского типа. 2005.}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Глава 2. Алгоритмы решения структурных обратных задач гравиметрии и магнитометрии о восстановлении поверхностей раздела} 
+%\begin{block}{Содержание:}
+%\begin{itemize}
+%\item \S 1: постановки задач ( В. И. Старостенко, П. С. Мартышко, И. Л. Пруткин);
+%\item \S 2: традиционный способ решения (ИГФ УрО РАН)
+%\item \S 3: предлагаемый алгоритм, градиентные методы с весовыми множителями
+%\item \S 4: способы выбора весовых множителей
+%\end{itemize}
+%\end{block}
+\small
+Данная глава посвящена построению оригинальных экономичных алгоритмов
+решения задач, поставленных в первой главе.
+Построены быстрые алгоритмы решения нелинейных уравнений структурных
+обратных задач гравиметрии и магнитометрии о восстановлении
+одной поверхности на основе нелинейного метода сопряженных градиентов.
+Получено нелинейное уравнение обратной задачи магнитометрии о
+восстановлении поверхности раздела сред для случая произвольно направленной
+суммарной намагниченности и предложен алгоритм его решения.
+Построены экономичные алгоритмы решения нелинейных уравнений
+о восстановлении одной поверхности на основе идеи локальности.
+Предложен новый алгоритм решения задач о восстановлении нескольких
+поверхностей раздела, основанный на применении градиентных методов
+с весовыми множителями, позволяющий восстанавливать форму нескольких поверхностей раздела сред одновременно. Строятся быстрые алгоритмы
+решения базового нелинейного уравнения для задач о восстановлении
+нескольких поверхностей. Рассматривается вопрос выбора весовых
+множителей.%\end{block}
+\end{frame}
+
+
+\subsection{Линеаризованный метод сопряженных градиентов}
+
+\begin{frame}
+\fontsize{9pt}{7.2}\selectfont
+\frametitle{2.1 Построение быстрых алгоритмов на основе метода сопряженных градиентов}
+Получен из варианта нелинейного метода сопряженных градиентов для корректных задач оптимизации (Р.~Флетчер, Б.~Т.~Поляк, Х.~Носедаль) с~добавлением демпфирующего параметра, впервые введенного В.~В.~Васиным. \\
+Рассматривается система вида
+\begin{equation}\nonumber
+A[z]=F
+\end{equation}
+\fontsize{9pt}{7.2}\selectfont
+В общем виде нелинейный метод сопряженных градиентов имеет следующий вид
+\begin{equation}\nonumber
+\begin{aligned}
+& z^{k+1} = z^k - \chi^k p^k, \\
+& p^k=S(z^k)+\beta^k p^{k-1}, \quad p^0=S(z^0), \\
+& S(z^k)=A'(z^k)^T(A(z^k)-F).\\
+\end{aligned}
+\end{equation}
+\fontsize{9pt}{7.2}\selectfont
+Для параметра $\beta$ применим формулу Полака-Рибьера-Поляка 
+\begin{equation} \nonumber
+\beta^k=\max \left \{ \frac{<S(z^k),(S(z^k)-S(z^{k-1}))>}{\left \| S(z^{k-1})\right \|^2},0 \right \}
+\end{equation}
+%\fontsize{8pt}{7.2}\selectfont
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Vasin V. V., Eremin I. I. Operators and iterative processes of Fejer type: theory and applications. Walter de Gruyter, 2009. Vol. 53.}
+\end{frame}
+
+\begin{frame}
+%\fontsize{8pt}{7.2}\selectfont
+\frametitle{2.1 Получение явной приближенной формулы для размера шага}
+В классических методах размер шага $\chi$ находится на каждой итерации из задачи одномерной минимизации
+\begin{equation}\nonumber
+\chi^k=\argmin\limits_{\chi} {\left \{ \left \|A(z^k-\chi p^k)-F \right \|^2\right \} }.
+\end{equation}
+Заменим эту процедуру \textcolor{blue}{явной формулой} с использованием линейного приближения $A(z)\cong A(z^k)+A'(z^k)(z-z^k)$:
+\begin{equation} \nonumber
+\widetilde{\chi_k} = \argmin\limits_{\chi} \Big \{\left \|A(z^k)+A'(z^k)(z^k+\chi p^k-z^k)-F \right \|^2 \Big \}.
+\end{equation}
+Получим выражение для размера шага
+\begin{equation} \nonumber
+\textcolor{blue}{\chi_k \approx \widetilde{\chi_k}= -\frac{\langle p^k, S(z^k) \rangle}{\left \|A'(z^k) p^k \right \|^2}.}
+\end{equation}
+
+\end{frame}
+
+\begin{frame}
+\fontsize{8pt}{7.2}\selectfont
+\frametitle{2.1 Линеаризованный метод сопряженных градиентов}
+Метод ЛМСГ приобретет следующий вид 
+\fontsize{12pt}{7.2}\selectfont
+\begin{equation}\nonumber
+\begin{aligned}
+& z^{k+1} = z^k - \textcolor{blue}{\psi \frac{<p^k, S(z^k)>}{\left \| A'(z^k)p^k\right \|^2}}p^k, \\\nonumber
+& p^k=S(z^k)+\beta^k p^{k-1}, \quad p^0=S(z^0), \\\nonumber
+& \beta^k=\max \left \{ \frac{<S(z^k),(S(z^k)-S(z^{k-1}))>}{\left \| S(z^{k-1})\right \|^2},0 \right \},\\\nonumber
+& S(z^k)=A'(z^k)^T(A(z^k)-F).
+\end{aligned}
+\end{equation}
+\fontsize{8pt}{7.2}\selectfont
+
+Условие останова: $\left \| A(z) - F \right \|/\left \| F \right \| < \varepsilon$ при достаточно малом $\varepsilon$, начальное приближение $z^0 \equiv H$ либо априорно известная поверхность. \\
+\vspace{10pt}
+Демпфирующий параметр $\psi \leqslant 1$ выбирается экспериментально: максимальный, при котором уменьшается норма невязки.
+
+\fontsize{8pt}{7.2}\selectfont
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Акимова, Е. Н., Мисилов, В. Е., Скурыдина, А. Ф., Третьяков, А. И. Градиентные методы решения структурных обратных задач гравиметрии и магнитометрии на суперкомпьютере “Уран” // Вычислительные методы и программирование, 2015. Т. 16, 155–164.}
+%\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\smallEngl, Heinz Werner, Martin Hanke, and Andreas Neubauer. Regularization of inverse problems. Vol. 375. Springer Science \& Business Media, 1996.}.
+\end{frame}
+
+\begin{frame}
+\frametitle{2.1 Регуляризованный вариант метода}
+%\begin{block}{}
+\fontsize{8pt}{7.2}\selectfont
+Применим к задаче регуляризацию по методу Тихонова:
+\begin{equation} \nonumber
+S_{\alpha}(z)=A'(z)^T(A(z)-F)+\textcolor{blue}{\alpha (z-z^0)}.
+\end{equation}
+Получим регуляризованный линеаризованный метод сопряженных градиентов (РЛМСГ):
+\begin{equation}\nonumber
+\begin{aligned}
+& z^{k+1} = z^k - \psi \frac{ \langle p^k, S_{\alpha}(z^k) \rangle}{\left \| A'(z^k)p^k\right \|^2 + \textcolor{blue}{\alpha \left \| p^k \right \|^2}}p^k, \quad p^k=S_{\alpha}(z^k)+\beta^k p^{k-1},\\
+& p^0=S_{\alpha}(z^0), \quad \beta^k=\max \left \{ \frac{\langle S_{\alpha}(z^k),(S_{\alpha}(z^k)-S_{\alpha}(z^{k-1}))\rangle }{\left \| S_{\alpha}(z^{k-1})\right \|^2},0 \right \},%\\
+%& S(z)=A'(z)^T(A(z)-F)+\textcolor{blue}{\alpha(z-z^0)}.
+\end{aligned}
+\end{equation}
+\fontsize{8pt}{7.2}\selectfont
+где $z^0$ --- начальное приближение, $\alpha$ --- параметр регуляризации.
+%\end{block}\footnotemark
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E.N., Misilov V.E., Tretyakov A.I. Regularized methods for solving nonlinear inverse gravity problem // EAGE Geoinformatics 2016 – 15th Intern. Conference on Geoinformatics – Theoretical and Applied Aspects}
+\end{frame}
+
+\subsection {Покомпонентный градиентный метод}
+
+\begin{frame}
+\frametitle{2.2 Построение \textcolor{blue}{нового} экономичного покомпонентного градиентного метода}
+\fontsize{9pt}{11}\selectfont
+Возьмем одно из уравнений системы: $A_i(z)=F_i$. Задача нахождения из него $z$ эквивалентна задаче минимизации $\min\left \{\frac{1}{2} ( A_i(z)-F_i  )^2:z \in R^n\right \}$. Построим для ее решения промежуточный процесс градиентного типа:
+\begin{equation}\nonumber
+z^{k+1}={z}^{k}+ \chi  (A_i(z^k)-F_i) \nabla A_i(z^k)^T.
+\end{equation}
+Размер шага $\chi^k$ находится из задачи одномерной минимизации $\chi^k=\argmin\limits_{\chi^k}\{(A_i(z^{k+1})-F_i)^2\}.$
+%\begin{equation}\nonumber
+%\alpha^k=\argmin\limits_{\alpha^k}\{(A_i(z^{k+1})-F_i)^2\}.
+%\end{equation}
+Воспользовавшись линейным приближением $A_i(z)\simeq A_i(z^k)+\nabla A_i(z^k)(z-z^k)$, получим 
+\begin{equation}\nonumber
+\chi_k\approx -\frac{1}{\left \| \nabla A_i(z^k) \right \|^2}.
+\end{equation}
+Воспользуемся следующей идеей: оставим из процесса только ту часть, которая отвечает за получение $i$-го элемента $z^{k+1}_i$ вектора приближенного решения на следующей итерации. %Кроме того, введем демпфирующий параметр $\psi$.
+\end{frame}
+
+%\begin{frame}
+%\frametitle{1.4 Построение нового экономичного покомпонентного градиентного метода}
+%\fontsize{8pt}{9}\selectfont
+%Получим промежуточный процесс:
+%\begin{equation}\nonumber
+%z^{k+1}=z^{k}- \frac{A_i(z^k)-F_i}{\left \| \nabla A_i(z^k) \right \|^2} \nabla A_i(z^k).
+%\end{equation}
+
+%Воспользуемся следующей идеей: оставим из этого процесса только ту часть, которая %отвечает за получение $i$ элемента вектора приближенного решения на следующей %итерации $z^{k+1}$, получим процесс
+
+%\begin{equation}\nonumber
+%z^{k+1}_i=z^{k}_i- \frac{A_i(z^k)-F_i}{\left \| \nabla A_i(z^k) \right \|^2} \left( \frac{\partial A_i(z_i^k)}{\partial z_i}\right).
+%\end{equation}
+%\fontsize{8pt}{9}\selectfont
+%Условие останова: $\left \| A(z) - F \right \|/\left \| F \right \| < \varepsilon$ при достаточно малом $\varepsilon$, начальное приближение $z^0 \equiv H$.
+%\normalsize
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{2.2 Построение \textcolor{blue}{нового} экономичного покомпонентного градиентного метода}
+\fontsize{9pt}{11}\selectfont
+После введения демпфирующего множителя, \textcolor{blue}{получим метод}\footnotemark:
+\begin{equation}\nonumber
+\textcolor{blue}{z^{k+1}_i=z^{k}_i- \psi \frac{A_i(z^k)-F_i}{\left \| \nabla A_i(z^k) \right \|^2} \left( \frac{\partial A_i(z_i^k)}{\partial z_i}\right),}
+\end{equation}
+%\fontsize{7pt}{7}\selectfont
+где $\psi$ — демпфирующий параметр, $i=1..n$ --- номер одного из уравнений системы и индекс компоненты вектора решения, $k>1$ --- номер итерации, $A_i(z^k)$ --- значение оператора в $i$-ом узле сетки, $F_i$ --- $i$-ая компонента правой части, $\frac{\partial A_i(z_i^k)}{\partial z_i}$ --- диагональные элементы матрицы производных $A'(z^k)$, $\left \| \nabla A_i(z^k) \right \|^2$ --- норма строки матрицы производных.
+
+\textcolor{blue}{На каждой итерации $k$ вычисляется каждая компонента вектора решения $z^{k+1}_i$.}
+
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{ \footnotesize Akimova E.N., Misilov V. E., A fast componentwise gradient method for solving structural inverse gravity problem // International Multidisciplinary Scientific GeoConference Surveying Geology and Mining Ecology Management-SGEM. 2015. Vol. 3, Issue 1. P. 775-781 }
+%\fontsize{9pt}{10}\selectfont
+\end{frame}
+
+
+\begin{frame}
+\frametitle{2.2 Покомпонентный градиентный метод}
+%\fontsize{8pt}{9}\selectfont
+
+\begin{block}{Преимущества метода}
+Меньшее число действий на итерации по сравнению с классическими градиентными методами, по сравнению с методами типа Левенберга-Марквардта и Ньютона.
+Снижение времени счета.
+\end{block}%\footnotemark
+
+\begin{block}{Ограничения метода}
+Применим к классу задач, в которых наибольшее влияние на значение $F_i$ оказывает $z_i$.%к тем, в которых в которых подинтегральное выражение принимает наибольшие значения при $x_i=x_j, y_i=y_j$.
+%\begin{itemize}
+%\item В задаче гравиметрии $\frac{1}{\sqrt{(x_i-x_j)^2+(y_i-y_j)^2+z^2_j}}$;
+%\item В задаче магнитометрии для вертикальной намагниченности $\frac{-z_j }{\big((x_i-x_j)^2+(y_i-y_j)^2+z_j^2\big)^{3/2}}$.
+%\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{2.2 Регуляризованный вариант метода}
+%\fontsize{8pt}{9}\selectfont
+
+Введя параметр регуляризации, получаем 
+
+\begin{equation}\nonumber
+\textcolor{blue}{z^{k+1}_i=z^{k}_i- \psi \frac{A_i(z^k)-F_i+\alpha(z^k_i-z^0_i)}{\left \| \nabla A_i(z^k) \right \|^2+\alpha} \left( \frac{\partial A_i(z_i^k)}{\partial z_i}\right),}
+\end{equation}
+где $\psi$ --- демпфирующий параметр, $\alpha$ --- параметр регуляризации, $z^0$ --- начальное приближение.
+\end{frame}
+
+
+
+
+
+
+
+
+\subsection{2.3 Новый алгоритм}
+\begin{frame}
+\frametitle{2.3 Новый алгоритм решения обратной задачи для случая многослойной среды}
+\begin{block}{}
+Новый алгоритм решения интегральных уравнений позволяет по суммарному полю из уравнения находить несколько структурных границ одновременно. Алгоритм основан на применении градиентных методов с переменными весовыми множителями. \\
+%Первоначальная идея (И. Л. Пруткин): для каждой поверхности один весовой коэффициент. \\ 
+\textcolor{blue}{Идея: используются весовые коэффициенты} для каждой из поверхностей и для каждого узла сетки по отдельности. Это обеспечивает более тонкую настройку, и дает возможность за счет выбора весовых множителей отсеивать нефизичные решения, что снижает неопределенность.
+
+%Весовые множители выбираются с использованием полей, выделенных из наблюденных данных по методике повысотных трансформаций либо с использованием начальных приближений поверхностей.\\
+\end{block}
+\begin{block}{Преимущества алгоритма}
+Как показали численные эксперименты, применение нового алгоритма существенно сокращает число итераций и время счета.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{2.3.1 Способ дискретизации уравнений}
+После дискретизации правой части на сетке $n=MxN$ и аппроксимации интегрального оператора по квадратурным формулам прямоугольников имеем векторы правой части $F$ размерности $n$ и решения $z$ размерности $Ln$. 
+\begin{equation}\nonumber
+\begin{aligned}
+&f \sum \limits_{l=1}^{L} \Delta \sigma_l \Delta x \Delta y \sum \limits_{j=1}^{Ln}  \Bigg [ \frac{1}{\big((x-x_0)^2+(y-y_0)^2+z_j^2\big)^{1/2}} - \\
+&- \frac{1}{\big((x-x_0)^2+(y-y_0)^2+H_l^2\big)^{1/2}}\Bigg ] = F,
+\end{aligned}
+\end{equation}
+
+\begin{equation}\nonumber
+\begin{aligned}
+&\sum \limits_{l=1}^{L} \frac{\Delta J_l}{4\pi} \Delta x \Delta y \sum \limits_{j=1}^{Ln} \Bigg [ \frac{z_j}{\big((x-x_0)^2+(y-y_0)^2+z_j^2\big)^{3/2}} -\\
+& - \frac{H_l}{\big((x-x_0)^2+(y-y_0)^2+H_l^2\big)^{3/2}} \Bigg ] = F.
+\end{aligned}
+\end{equation}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{2.3.1 Способ дискретизации уравнений}
+\begin{columns}
+\column{0.70\linewidth}
+ \begin{figure}
+   \centering
+   \includegraphics[width = \linewidth]{./indices3.png}
+ \end{figure}
+\column{0.30\linewidth}
+\fontsize{10pt}{12}\selectfont
+Правая часть размерности $n=M\cdot N$.\\
+\vspace*{48pt}
+Общий вектор решения размерности $L \cdot n$.
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{2.3.2 Выбор весовых множителей}
+Весовые множители $\gamma_i$ для каждой компоненты $z_i(i=1..Ln)$ можно выбирать двумя способами:
+\begin{itemize}
+\item используя начальные приближения (если известны)
+\begin{equation} \nonumber
+\begin{aligned}
+\hat{Z} &= [\hat{Z_1},\hat{Z_2},...,\hat{Z_L}]=(\hat{z}_1,\hat{z}_2,...,\hat{z}_{Ln}) \longrightarrow(\gamma_1,\gamma_2,...,\gamma_{Ln}), \\
+\hat{Z_l} &\longrightarrow (\gamma_{(l-1)n+1},\gamma_{(l-1)n+2},...,\gamma_{ln)}), \quad \textcolor{blue}{\gamma_i=\frac{|\nicefrac{\hat{z_i}}{H_l}-1|^\beta}{\max \limits_{i}|\nicefrac{\hat{z_i}}{H_l}-1|^\beta},}
+\end{aligned}
+\end{equation}
+\item используя выделенные поля
+\begin{equation} \nonumber
+\begin{aligned}
+F &\longrightarrow [F_1, F_2,...,F_L]=(f_1,f_2,...,f_{Ln}) \longrightarrow(\gamma_1,\gamma_2,...,\gamma_{ln}), \\
+F_l &\longrightarrow (\gamma_{(l-1)n+1},\gamma_{(l-1)n+2},...,\gamma_{ln}), \quad \textcolor{blue}{\gamma_i=\frac{|f_i|^\beta}{\max \limits_{i}|f_i|^\beta},}
+\end{aligned}
+\end{equation}
+\end{itemize}
+где $\beta>1$ — параметр сглаживания.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{2.3.3 Градиентные методы с переменными весовыми множителями}
+\fontsize{8pt}{9}\selectfont
+%Модификация методов с постоянным множителем. 
+%\scalebox{0.7} {
+%\begin{minipage}{\textwidth}
+\begin{block}{}
+\begin{itemize}
+\item линеаризованный метод наискорейшего спуска (ЛМНС)
+\begin{equation} \nonumber
+z^{k+1}=z^k - \textcolor{blue}{\gamma} \circ \frac{\left \| S(z^k) \right \|^2}{\left \|A'(z^k)S(z^k) \right \|^2} S(z^k);
+\end{equation}
+\item линеаризованный метод минимальной ошибки (ЛММО)
+\begin{equation} \nonumber
+z^{k+1}=z^k - \textcolor{blue}{\gamma} \circ \frac{\left \| A(z_k)-F \right \|^2}{\left \| S(z^k) \right \|^2} S(z^k),
+\end{equation}
+\end{itemize}
+\begin{equation} \nonumber
+S(z)=A'(z)^T(A(z)-F),
+\end{equation}
+где $k$ --- номер итерации, $\gamma=\{\gamma_1,\gamma_2,...,\gamma_{Ln}\}$ — вектор весовых множителей, $\circ$ --- покомпонентное перемножение векторов.
+\end{block}\footnotemark
+%\end{minipage}
+%}
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Акимова Е. Н., Мартышко П. С., Мисилов В. Е.  Алгоритмы решения структурной задачи гравиметрии в многослойной среде // ДАН. 2013. Т. 453. № 6. C. 676-679.}
+\end{frame}
+
+
+\begin{frame}
+\fontsize{8pt}{7.2}\selectfont
+\frametitle{2.3.4 Модифицированные методы с весовыми множителями}
+\begin{block}{}
+\begin{itemize}
+\item Модифицированный метод наискорейшего спуска (ЛММНС)
+\begin{equation} \nonumber
+z^{k+1}=z^k- \psi \frac {<\textcolor{blue}{v^k}, S(z^k)>}{\left \| A'(z^k) \textcolor{blue}{v^k} \right \|^2} \textcolor{blue}{v^k};
+\end{equation}
+\item Модифицированный метод сопряженных градиентов (ЛММСГ)
+\begin{equation}\nonumber
+\begin{aligned}
+& z^{k+1} = z^k -  \psi \frac{<p^k, S(z^k)>}{\left \| A'(z^k)p^k\right \|^2}p^k, \quad p^k=\textcolor{blue}{v^k}+\beta^k p^{k-1}, \\
+& \quad p^0=\textcolor{blue}{v^0},  \beta^k=\max \left \{ \frac{<\textcolor{blue}{v^k},(\textcolor{blue}{v^k}-\textcolor{blue}{v^{k-1}})>}{\left \| \textcolor{blue}{v^{k-1}}\right \|^2},0 \right \},\\
+& S(z)=A'(z)^T(A(z)-F), \textcolor{blue}{v^k= \gamma \circ S(z^k)},
+\end{aligned}
+\end{equation}
+\end{itemize}
+где $z_i$ --- $i$-я компонента результирующего вектора $z$, $k$ --- номер итерации, $\gamma$ — весовые множители, $\psi$ --- демпфирующий параметр.
+\textcolor{blue}{Преимущество — снижение числа итераций.}
+\end{block}\footnotemark
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\tiny Акимова, Е. Н., Мисилов, В. Е., Скурыдина, А. Ф., Третьяков, А. И. Градиентные методы решения структурных обратных задач гравиметрии и магнитометрии на суперкомпьютере “Уран” // Вычислительные методы и программирование, 2015. Т. 16, 155–164.}
+\end{frame}
+
+
+%\subsection{2.4 Выбор весовых множителей}
+
+\section{Численная реализация и распараллеливание}
+
+
+\begin{frame}
+\frametitle{Глава 3. Построение параллельных алгоритмов, разработка комплекса программ для многоядерных процессоров, численные эксперименты} 
+\fontsize{10pt}{12}\selectfont
+Данная глава посвящена разработке параллельных алгоритмов на основе методов, предложенных в первых двух главах, их реализации в виде комплекса программ для  многоядерных процессоров и его тестированию для модельных задач и задач с реальными данными.\\[10pt]
+В настоящее время развитие вычислительной техники привело к ситуации, когда каждый персональный компьютер представляет собой многопроцессорную систему с общей памятью --- многоядерный процессор с общим для всех ядер ОЗУ. \\[10pt]
+%Таким образом, любой исследователь, даже не имея доступа к суперкомпьютеру, может воспользоваться преимуществами параллельных вычислений для быстрой обработки данных.\\[10pt]
+Типичным размером сеток при решении практических задач является $10^3 \times 10^3$. Матрица производных при этом имеет \textcolor{blue}{размерность $10^6 \times 10^6$ и занимает более 7500~ГБ в оперативной памяти}.
+%\begin{block}{Содержание:}
+%\begin{itemize}
+%\item \S 1: построение параллельных алгоритмов и разработка комплекса программ для многоядерных процессоров.
+%\item \S 2: построение модельных задач, проведение численных экспериментов, сравнение с традиционными методами, исследование эффективности и ускорения параллельных алгоритмов.
+%\end{itemize}
+%\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{3.1 Разработка параллельных алгоритмов}
+\fontsize{10pt}{12}\selectfont
+\begin{itemize}
+\item На основе предложенных автором методов и алгоритмов разработаны параллельные варианты алгоритмов и составлены программы для \textcolor{blue}{многоядерных процессоров} с использованием технологии OpenMP и средств оптимизации компилятора Intel C++ Compiler. Использование OpenMP дает возможность портирования параллельных программ на \textcolor{blue}{сопроцессоры Intel Xeon Phi}, имеющие до 60 ядер.
+\item Значительное время занимает вычисление значений интегральных операторов и матрицы производных на каждой итерации (4 вложенных цикла). Каждый элемент матрицы производных и значения интегрального оператора вычисляется независимо --- однородное распределение данных по параллельным потокам.
+\item Вектор решения и матрица производных делятся горизонтальными полосами на блоки, число которых соответствует числу процессорных ядер. Основной поток исполнения (кроме выполнения своего фрагмента расчетов) занимается созданием и синхронизацией дополнительных OpenMP-потоков. На текущей итерации каждый поток вычисляет свой блок матрицы производных и значений оператора. Используется директива \textcolor{blue}{\#pragma omp parallel} для внешних циклов.\\
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{3.1 Схема разбиения данных по потокам исполнения}
+  \begin{figure}
+    \centering
+    \includegraphics[height = 0.6\textwidth]{./parallel3.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{3.1 Разработка параллельных алгоритмов}
+\fontsize{10pt}{12}\selectfont
+\begin{itemize}
+\item Для более эффективного использования процессорных ядер также используются возможности \textcolor{blue}{наборов векторных инструкций SSE, SSE2, AVX, AVX2}. В программном коде это выражается в использовании для внутренних циклов директива компилятора \textcolor{blue}{\#pragma simd} для автоматического использования векторного набора инструкций.\\
+\item Для оптимизации работы с памятью при вычислениях используется следующий прием. Для сеток довольно большой размерности, когда данные могут не входить в оперативную память, наилучшим по быстродействию оказывается метод \textcolor{blue}{вычисления элементов матрицы $A'$ «на лету»}, т.е. вычисление значения элемента матрицы происходит в момент обращения к этому элементу без сохранения его в оперативную память. Это позволяет за счета отказа от хранения гигантских (7,5 ТБ) матриц существенно снизить количество обращений к памяти и заметно ускорить процесс вычислений по сравнению с полным хранением матрицы и частым переключением страниц виртуальной памяти.\\
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{3.2 Комплекс программ для многоядерных процессоров}
+\centering
+Структура комплекса программ при решении обратных задач о восстановлении одной поверхности
+\begin{figure}
+    \centering
+    \includegraphics[height = 0.7\textheight]{./complex1.png}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{3.2 Комплекс программ для многоядерных процессоров}
+\centering
+Структура комплекса программ при решении обратных задач о восстановлении нескольких  поверхностей
+\begin{figure}
+    \centering
+    \includegraphics[height = 0.7\textheight]{./complex2.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{3.2 Рекомендации по использованию методов}
+\begin{itemize}
+\item Для решения задач гравиметрии и магнитометрии о восстановлении одной структурной границы по \textcolor{blue}{\textbf{сильно возмущенным}} данным --- \textbf{РЛМСГ}.
+\item Для решения задач магнитометрии в случае \textcolor{blue}{\textbf{произвольно направленной намагниченности}} --- \textbf{ЛМСГ}. 
+\item В остальных случаях при решении задач о восстановлении одной структурной границы на \textcolor{blue}{\textbf{сетках большой размерности}} \textbf{ПГМ} даст значительное снижение времени счета по сравнению с другими методами.
+\item При решении задач о восстановлении \textcolor{blue}{\textbf{нескольких}} структурных границ --- \textbf{ЛММСГ} с весовыми множителями.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{3.2 Ускорение и эффективность}
+Для оценки производительности параллельных алгоритмов использованы коэффициенты ускорения и эффективности:
+\begin{equation}\nonumber
+\begin{aligned}
+ S_m=\frac{T_1}{T_m}, \quad E_m=\frac{S_m}{m},
+ \end{aligned}
+\end{equation}
+где $T_m$ --- общее время выполнения на $m$ процессорных ядрах, включающее накладные расходы на создание и синхронизацию потоков исполнения.
+При идеальном распараллеливании
+\begin{equation}\nonumber
+\begin{aligned}
+S_m \rightarrow m, \quad E_m \rightarrow 1,
+\end{aligned}
+\end{equation}
+но при решении практических задач показатели уменьшается за счет накладных расходов.
+%\begin{frame}
+%\frametitle{}
+\end{frame}
+
+\section{3.3 Численные эксперименты}
+
+
+\begin{frame}
+\frametitle{Задача 1: гравиметрия по зашумленным данным, одна поверхность, модельные данные}
+Область $256 \times 256 \textup{ км}^2$ \\ [16pt]
+$h=6 \textup{ км}$, $\Delta \sigma=0,1 \textup{ г/см}^3$. \\[16pt]
+%В поле был внесен белый шум с уровнем в 10\% от максимального значения поля.\\[16pt]
+
+Метод РЛМНС с параметрами $\psi=1,      \alpha=10^{-4}$. \\ 
+Метод РЛМСГ с параметрами $\psi=1,      \alpha=10^{-4}$. \\ 
+Метод РПГМ с параметрами $\psi=0.05,    \alpha=10^{-4}$. \\ 
+Регуляризованный метод локальных поправок с параметром $\alpha=10^{-2}$. \\ 
+
+%Размер сетки $2^{10}\times 2^{10}$.\\[16pt]
+%Условие останова $\varepsilon<0,05$. \\[16pt]
+	\end{frame}
+
+	\begin{frame}
+	\frametitle{Задача 1: Модельное гравитационное поле}
+	
+%Задача магнитометрии о восстановлении одной границы по синтетическим данным. 
+	\begin{figure}
+    \centering
+	 %Модельное гравитационное поле. шум 10%.\\
+    \includegraphics[width = 0.8\textwidth]{./m3_geo_field.png}
+	\end{figure}
+	Аддитивный белый шум 10\%
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 1: исходная поверхность}
+	\begin{figure}
+    \centering
+	%Исходная поверхность\\
+    \includegraphics[width = 0.8\textwidth]{./m3_geo_orig.png}
+	\end{figure}
+	
+	\end{frame}
+
+	\begin{frame}
+	\frametitle{Задача 1: восстановленная поверхность}
+	
+	\begin{figure}
+    \centering
+	%Восстановленная поверхность\\
+    \includegraphics[width = 0.8\textwidth]{./m3_geo_recon.png}
+	\end{figure}
+	\begin{center}
+	\renewcommand{\arraystretch}{1.5}  
+%Погрешность решения методом РЛМСГ составила 10\%, методом ПГМ --- 40\%.
+%Задача решена РЛМСГ с условием останова $\varepsilon = 0.01$
+
+\end{center}
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Задача 1: гравиметрия, времена выполнения, ускорение и эффективность}
+
+Задача была решена четырьмя методами на 1 и 8 ядрах процессора Intel Xeon E5-2660 (2.2 GHz). Условие останова $\varepsilon = 0,05$, размер сетки \textcolor{blue}{$2^{10} \times 2^{10}$}, размер матрицы производных \textcolor{blue}{$2^{20} \times 2^{20}$}. \\
+Относительная погрешность $\delta = \left \| \bar{z} - z  \right \|/\left \| \bar{z} \right \|$, \\
+Уровень шума 10\%.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}  
+$$
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+Метод  & Итерации & $\delta$ & 1 ядро & 8 ядер & $S_8$ & $E_8$\\ \hline
+%\rowcolor{Yellow}
+РЛМНС  & 80 & 10\% & 68 мин. & 8.6 мин. & 7,9 & 0,98 \\ \hline
+\rowcolor{Green}
+РЛМСГ  & 20 & 10\%& 17 мин. & 2 мин. & 7,8 & 0,97 \\ \hline
+РМЛП   & 100 & 40\% & 56 мин. & 7,63 мин. & 7,33 & 0,92 \\ \hline
+\rowcolor{Green}
+РПГМ & 40 & 25\% & 25 мин. & 3,3 мин. & 7,5 & 0,93\\ \hline
+\end{tabular}
+$$
+\end{center}
+\textcolor{blue}{Вывод}: наиболее быстрые и экономичные --- метод сопряженных градиентов и покомпонентный градиентный метод.
+\end{frame}
+%\begin{table}
+%$$
+%\begin{tabular}{|c|c|c|c|}
+%\hline
+%\begin{tabular}[c]{@{}c@{}}Число \\ ядер \end{tabular} & \begin{tabular}[c]{@{}c@{}}Время ,\\ мин.\end{tabular} & Ускорение & Эффективность \\ \hline
+%1                                                       & 108                                                               &      &      \\ \hline
+%2                                                       & 55                                                               & 1,96 & 0,98 \\ \hline
+%3                                                       & 37                                                             & 2,91 & 0,97 \\ \hline
+%4                                                       & 28,5                                                                & 3,8 & 0,95 \\ \hline
+%5                                                       & 23                                                                & 4,75 & 0,93 \\ \hline
+%6                                                       & 20                                                                & 5,4 & 0,9 \\ \hline
+%7                                                       & 18                                                                & 6,02 & 0,86 \\ \hline
+%8                                                       & 16                                                                & 6,72  & 0,84  \\ \hline
+%\end{tabular}
+%$$
+%\end{table}
+
+\begin{frame}
+\frametitle{Задача 2: магнитометрия с произвольной намагниченностью, одна поверхность, модельные данные}
+\begin{columns}
+\column{0.60\linewidth}
+	\begin{figure}
+    %\centering
+	 Модельное магнитное поле.\\
+    \includegraphics[width = 0.9\linewidth]{./model2_field.png}
+	\end{figure}
+\column{0.40\linewidth}	
+%Задача магнитометрии о восстановлении одной поверхности по синтетическим данным. 
+Исходная поверхность \\[16pt]
+\begin{equation} \nonumber
+\begin{aligned}
+z=&10+\sin(x/10) \cos(y/20) \times \\
+&\times e^{-(x/60)^2 -(y/60)^2} \\[16pt]
+\end{aligned}
+\end{equation}
+$h=10 \textup{ км}$\\[16pt]
+$\boldsymbol{J}=(0,57;0,57;0,57) \textup{ А}/\textup{м}$ \\[16pt]
+\end{columns}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Задача 2: Модельное магнитное поле}
+
+%	\begin{figure}
+ %   \centering
+%	 Модельное магнитные поле.\\
+%    \includegraphics[width = 0.8\textwidth]{./model2_field.png}
+%	\end{figure}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Задача 2: исходная и восстановленная поверхности}
+\begin{columns}
+\column{0.50\linewidth}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{./model2_surf.png}
+	\end{figure}
+\column{0.50\linewidth}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{./model2_surf.png}
+	\end{figure}
+\end{columns}
+\vspace*{16pt}
+Использовался линеаризованный метод сопряженных градиентов (ЛМСГ) с условием останова $\left \| A(z) - F \right \|/\left \| F \right \| < \varepsilon$, $\varepsilon = 10^{-2}$.\\
+\vspace*{16pt}
+Процесс занял 7 итераций.\\
+\vspace*{16pt}
+Относительная погрешность $\delta = \left \| \bar{z} - z  \right \|/\left \| \bar{z} \right \|  = 0,01$.
+
+\end{frame}
+%\begin{center}
+%\renewcommand{\arraystretch}{1.5}  
+
+%Задача решена ЛМСГ с условием останова $\varepsilon = 0.01$
+
+%\end{center}
+%\end{frame}
+
+\begin{frame}
+
+\frametitle{Задача 2: магнитометрия, времена выполнения, ускорение и эффективность}
+\fontsize{10pt}{12}\selectfont
+\vspace{10pt}
+Размер сетки $2^{10} \times 2^{10}$\\
+Матрица производных $2^{20} \times 2^{20}$
+\begin{table}
+\renewcommand{\arraystretch}{.9}  
+$$
+\begin{tabular}{|c|c|c|c|}
+\hline
+\begin{tabular}[c]{@{}c@{}}Число \\ ядер\end{tabular} & \begin{tabular}[c]{@{}c@{}}Время,\\  мин.\end{tabular} & Ускорение    & Эффективность    \\ \hline
+1                                                       & 180                                                               &      &      \\ \hline
+2                                                       & 91                                                                & 1,98 & 0,99 \\ \hline
+3                                                       & 61                                                                & 2,94 & 0,98 \\ \hline
+4                                                       & 46                                                                & 3,88 & 0,97 \\ \hline
+5                                                       & 38                                                                & 4,75 & 0,95 \\ \hline
+6                                                       & 32                                                                & 5,64 & 0,94 \\ \hline
+7                                                       & 28                                                                & 6,44 & 0,92 \\ \hline
+8                                                       & 25                                                                & 7,2  & 0,9  \\ \hline
+\end{tabular}
+$$
+\end{table}
+%\end{frame}
+
+%\begin{frame}
+
+%\frametitle{Задача 2: графики зависимости ускорения и эффективности от числа задействованных ядер}
+
+%\begin{figure}[H]
+%\center{\includegraphics[width=.9\textwidth]{model2_graphs.png}}
+%\end{figure}
+
+\textcolor{blue}{Вывод}: Построенный алгоритм позволяет решить задачу магнитометрии для случая произвольно направленной намагниченности, эффективность больше 90\%.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Задача 3: магнитометрия, две поверхности, модельные данные, сравнение двух алгоритмов}
+Исходные поверхности
+  \begin{figure}
+    \centering
+    \includegraphics[width = 0.8\textwidth]{./mod3_origs.png}
+	\end{figure}
+Суммарные магнитные поля — «чистое» и с 15\% шумом.
+   \begin{figure}
+    \centering
+    \includegraphics[width = 0.8\textwidth]{./mod3_fields.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 3: восстановленные поверхности}
+Без шума
+  \begin{figure}
+    \centering
+    \includegraphics[width = 0.8\textwidth]{./mod3_sol1.png}
+  \end{figure}
+С шумом
+    \begin{figure}
+    \centering
+    \includegraphics[width = 0.8\textwidth]{./mod3_sol2.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 3: сравнение <<традиционного>> и нового алгоритмов}
+Две поверхности с асимптотами $H_1=5 \textup{км}, H_2=20\textup{км}$. \\ 
+$\Delta J_1=0.2 \textup{А/м}, \Delta J_2=0.2 \textup{А/м}$. \\
+Размер сетки $2^{10} \times 2^{10}$, размер матрицы производных $2^{20} \times 2^{20}$. \\
+$T_1, T_8$, — времена выполнения на 1 ядре Intel Xeon X5675 и на 8 ядрах. \\
+ $\delta = \left \| \bar{z} - z  \right \|/\left \| \bar{z} \right \| $ — относительные погрешности по каждой из поверхностей.\\
+Условие останова $\varepsilon = 0.1$. Метод ЛМНС.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}  
+$$
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+Алгоритм  & $\delta_1$  & $\delta_2$ & $N$ & $T_1$& $T_8$  \\ \hline
+%\rowcolor{Red}
+Трад. алгоритм & 0.2 & 0.06 & 89 & 10 часов & 70 мин. \\ \hline
+\rowcolor{Green}
+Новый алгоритм  & 0.2 & 0.04 & 39 & 4 часа & 36 мин. \\ \hline
+%1&2&3&4&5&6
+\end{tabular}
+$$
+\end{center}
+
+\textbf{Вывод}: новый алгоритм обеспечивает сокращение числа итераций и времени счета в два раза при некотором повышении точности решения в случае возмущенных данных.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 4: гравиметрия, три поверхности, реальные данные, сравнение алгоритмов }
+\fontsize{9pt}{11}\selectfont
+Для гравитационных данных для района Среднего Урала на площади $S=62 \times 146 \textnormal{км}^2$ решена задача о восстановлении трех поверхностей.\\
+$\Delta \sigma_1 = 0.3, \Delta \sigma_2 = 0.2, \Delta \sigma_3 = 0.1 \textup{г/см}^3$. $H_1 = 15 \textup{км}, H_2 = 20 \textnormal{км}, H_3 = 25 \textnormal{км}.$ \\
+  \begin{figure}
+    \centering
+	Гравитационное поле\\
+    \includegraphics[width = 0.8\textwidth]{./mod4_field.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 4: восстановленные поверхности}
+ \begin{figure}
+	<<Традиционный>> алгоритм\\
+    \includegraphics[width = 0.33\textwidth]{./m4old_b1.png}
+	\includegraphics[width = 0.33\textwidth]{./m4old_b2.png}
+	\includegraphics[width = 0.33\textwidth]{./m4old_b3.png} 
+\end{figure}
+\begin{figure}
+	Новый алгоритм\\
+	\includegraphics[width = 0.33\textwidth]{./m4new_b1.png}
+	\includegraphics[width = 0.33\textwidth]{./m4new_b2.png}
+	\includegraphics[width = 0.33\textwidth]{./m4new_b3.png} 
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 4: сравнение алгоритмов}
+\fontsize{10pt}{12}\selectfont
+\vspace{10pt}
+ Сетка $82 \times 108$.
+\vspace{-16pt}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}  
+$$
+\begin{tabular}{|c|c|c|c|}\hline
+Алгоритм  & $\varepsilon$  & $N$ & $T$ \\ \hline
+<<Традиционный>>  & 0.015 & 288 & 102 c \\ \hline
+\rowcolor{Green}
+Новый   & 0.015 & 70 & 73 c \\ \hline
+\end{tabular}
+$$
+\end{center}
+%\begin{figure}
+%	Разрез по линии $y=46\textup{км}$ \\ 
+%	\includegraphics[width = 0.5\textwidth]{./m4_slice.jpg}
+%\end{figure}
+
+\textcolor{blue}{Вывод}: новый алгоритм дает результаты, сравнимые с <<традиционным>> при меньшем времени выполнения. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 5: гравиметрия, три поверхности, пример обработки реальных данных}
+Площадь $S=360 \times 636 \textup{км}^2$.\\
+$H_1 = 8 \textup{км}, H_2 = 15 \textnormal{км}, H_3 = 30 \textup{км}$ \\
+$\Delta \sigma_1 = 0.2, \Delta \sigma_2 = 0.15, \Delta \sigma_3 = 0.1 \textup{г/см}^3$. \\
+Размер сетки $168 \times 256$, условие останова $\varepsilon = 0.05$.\footnotemark
+\begin{figure}
+	Суммарное гравитационное поле \\
+	\centering
+	\includegraphics[width = 0.4\textwidth]{./model5_field.png}
+\end{figure}
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Мартышко П. С., Акимова Е. Н., Мисилов В. Е. О решении структурной обратной задачи гравиметрии модифицированными методами градиентного типа // Физика Земли, 2016, №5, 82-86.}
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 5: результаты}
+\begin{figure}
+	Разделенные поля и найденные поверхности \\
+	\centering
+	\includegraphics[width = 0.7\textwidth]{./model5_solution.png}
+\end{figure}
+По разделенным на грубой сетке полям строились весовые множители.
+\end{frame}
+
+\begin{frame}
+\frametitle{Задача 5: Результаты}
+
+\begin{table}[H]
+  \centering
+%  \renewcommand{\arraystretch}{1.5}
+$$
+\begin{tabular}{|c|c|c|c|}\hline
+Метод  & Число итераций  & $T_1$ & $T_8$ \\ \hline
+ЛМНС  & 200 & 8.7 часа & 67 мин \\ \hline
+ЛММНС  & 171 & 7.5 часа & 57.4 мин \\ \hline
+ЛММСГ  & 31 & 1.4 часа & 10.4 мин \\ \hline
+\end{tabular}
+$$
+%\caption{Результаты численных экспериментов}\label{table:6}
+\end{table}
+\textbf{Вывод}: построен пример решения практической задачи о восстановлении трех поверхностей по реальным гравитационным данным. Линеаризованный модифицированный метод сопряженных градиентов для случая нескольких поверхностей является наиболее экономичным по времени.
+\end{frame}
+
+\begin{frame}
+\frametitle{Положения, выносимые на защиту}
+%\fontsize{10pt}{12}\selectfont
+
+1. Построены новые экономичные итерационные методы решения нелинейных
+уравнений трехмерных структурных обратных задач гравиметрии
+и магнитометрии о восстановлении одной поверхности раздела сред: линеаризованный
+метод сопряженных градиентов, покомпонентный градиентный
+метод и их регуляризованные варианты. На основе линеаризованного
+метода сопряженных градиентов построен алгоритм решения структурной
+обратной задачи магнитометрии о восстановлении одной поверхности раздела
+для случая произвольно направленного вектора суммарной намагниченности. \\[16pt]
+
+2. Для решения структурных обратных задач о нахождении нескольких
+поверхностей раздела сред предложен и исследован оригинальный алгоритм,
+основанный на применении построенных градиентных методов с
+переменными весовыми множителями: методов наискорейшего спуска и минимальной
+ошибки, модифицированных методов наискорейшего спуска и
+сопряженных градиентов.
+\end{frame}
+
+\begin{frame}
+\frametitle{Положения, выносимые на защиту}
+%\fontsize{10pt}{12}\selectfont
+3. Разработан и реализован для многоядерных процессоров комплекс
+параллельных программ решения структурных обратных задач гравиметрии
+и магнитометрии о нахождении поверхностей раздела сред на основе
+предложенных методов. Разработанные алгоритмы и параллельные программы
+протестированы на построенных модельных задачах и задачах на
+основе реальных данных.\\[16pt]
+%4. На основе построенных методов разработаны параллельные алгоритмы, реализованные в виде комплекса программ для многоядерных процессоров, для эффективного решения обратных задач на сетках большой размерности. Комплекс программ протестирован на серии модельных задач и задач с квазиреальными данными.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Апробация работы.} 
+
+Основные положения диссертационной работы докладывались и обсуждались на всероссийских и международных конференциях и семинарах: международной научной  конференции «Параллельные вычислительные технологии (Новосибирск, 2012; Челябинск, 2013; Ростов-на-Дону, 2014; Екатеринбург, 2015), XIII Уральской молодежной научной школе по геофизике (Екатеринбург, 2012), XIV Уральской молодежной научной школе по геофизике (Пермь, 2013) 41-ой сессия международного семинара имени Д.Г. Успенского «Вопросы теории и практики геологической интерпретации гравитационных, магнитных и электрических полей» (Екатеринбург, 2014), 2-м, 3-м и 4-м Национальном Суперкомпьютерном Форуме (Переславль-Залесский, 2013; 2014; 2015), международная конференция «Алгоритмический анализ неустойчивых задач» (Челябинск, 2014).
+\end{frame}
+
+\begin{frame}
+\frametitle{Публикации ВАК, SCOPUS, Web of Science} 
+
+\fontsize{10pt}{12}\selectfont
+\begin{enumerate}
+\item Акимова Е. Н., Белоусов Д. В., Мисилов В. Е. Алгоритмы решения обратных геофизических задач на многопроцессорных вычислительных системах // СибЖВМ. 2013. Т. 16. № 2. С. 107–121. 
+\item Акимова Е. Н., Мартышко П. С., Мисилов В. Е.  Алгоритмы решения структурной задачи гравиметрии в многослойной среде // ДАН. 2013. Т. 453. № 6. C. 676-679.  
+\item Акимова Е. Н., Васин В. В., Мисилов В. Е. Алгоритмы решения обратных задач гравиметрии о нахождении поверхностей раздела сред на МВС // Вестник УГАТУ. 2014. Т.18. № 2 (63). С. 208 -217.
+\item Акимова, Е. Н., Мисилов В. Е., Скурыдина А. Ф. Параллельные алгоритмы решения структурной обратной задачи магнитометрии на МВС // Вестник УГАТУ. 2014. Т.18, № 4 (65). C. 206-215.
+\item Акимова, Е. Н., Мисилов, В. Е., Скурыдина, А. Ф., Третьяков, А. И. Градиентные методы решения структурных обратных задач гравиметрии и магнитометрии на суперкомпьютере “Уран” // Вычислительные методы и программирование, 2015. Т. 16, 155–164.
+\item Мартышко П. С., Акимова Е. Н., Мисилов В. Е. О решении структурной обратной задачи гравиметрии модифицированными методами градиентного типа // Физика Земли, 2016, №5, 82-86.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Публикации ВАК, SCOPUS, Web of Science} 
+\fontsize{10pt}{12}\selectfont
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item Akimova E.N., Misilov V. E., A fast componentwise gradient method for solving structural inverse gravity problem // International Multidisciplinary Scientific GeoConference Surveying Geology and Mining Ecology Management-SGEM. 2015. Vol. 3, Issue 1. P. 775-781.
+\item Akimova E.N., Martyshko P.S., Misilov V.E.  A fast parallel gradient algorithm for solving structural inverse gravity problem // AIP Conf. Proc. 1648, 850063. 2015. Rhodes, Greece, 22–28 Sept. 2014.
+\item Martyshko P. S., Pyankov V. A. Akimova E. N., Vasin V. V., Misilov V. E.  On solving a structural gravimetry problem on supercomputer «Uran»  for the Bashkir Predural’s  area // Proc. of XII th International Conference on Geoinformatics – Theoretical and Applied Aspects. Kiev, Ukraine. 13–16 May 2013.
+\item Akimova E.N., Martyshko P.S., Misilov V.E. Parallel algorithms for solving structural inverse magnetometry problem on multucore and graphics processors // Proc. of 14th International multidisciplinary scientific GeoConference SGEM 2014. Albena, Bulgaria, 17–26 June 2014. Vol. 1. P. 713–720.
+\end{enumerate}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Другие публикации} 
+\fontsize{10pt}{12}\selectfont
+\begin{enumerate}
+\setcounter{enumi}{10}
+
+\item Akimova E.N., Misilov V.E., Tretyakov A.I. Regularized methods for solving nonlinear inverse gravity problem // EAGE Geoinformatics 2016 – 15th Intern. Conference on Geoinformatics – Theoretical and Applied Aspects. Kiev, Ukraine. 10–13 May 2016. 5p.
+\item Misilov V. E., On solving the structural inverse magnetic problem of finding a contact surface in the case of arbitrary directed magnetization // 15th EAGE International Conference on Geoinformatics: Theoretical and Applied Aspects (EAGE, Kiev, 2016).
+%\item Akimova E.N., Martyshko P.S., Misilov V.E., Tretyakov A.I. On Solving the Inverse Structural Magnetic Problem for Large Grids on GPUs // Proc. of  Intern. Conf.  ICNAAM. Rhodes, Greece, 19–26 Sept. 2016. (принято к печати) 
+\item Мисилов В.Е., Миниахметова А.Ф., Дергачев Е.А. Решение обратной задачи гравиметрии итерационными методами на суперкомпьютере «Уран» // Труды XIV Уральской молодежной научной школы по геофизике. Пермь: ГИ УрО РАН.  2013. С. 187–190.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Другие публикации} 
+\fontsize{10pt}{12}\selectfont
+\begin{enumerate}
+\setcounter{enumi}{14}
+\item Акимова Е.Н., Мисилов В.Е., Дергачев Е.А. Алгоритмы решения структурной обратной задачи магнитометрии // Материалы 41-ой сессии межд. семинара им. Д.Г. Успенского «Вопросы теории и практики геологической интерпретации гравитационных, магнитных и электрических полей».  Екатеринбург: ИГФ УрО РАН, 2014. С. 4-6.
+\item Akimova E.N., Miniakhmetova A.F., Misilov V.E.  Fast stable parallel algorithms for solving gravimetry and magnetometry inverse problems // Abstracts of International conference “Advanced mathematics, computations and applications – 2014”. Institute of Comp. Math. and Math. Geophysics of SB RAS, Novosibirsk, Russia, June 8–11, 2014. Novosibirsk: Akademizdat, 2014. P. 53.
+\item Акимова Е.Н., Мисилов В.Е. Итеративно регуляризованные методы решения структурных обратных задач гравиметрии и магнитометрии в многослойной среде // Тез. докл. Всерос. конф. с междунар. участием, посвящ. памяти В.К. Иванова «Алгоритмический анализ неустойчивых задач». Челябинск: ЮУрГУ, 10-14 ноября 2014. C. 94–95.
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Другие публикации} 
+\fontsize{9pt}{10}\selectfont
+\begin{enumerate}
+\setcounter{enumi}{17}
+\item Акимова Е.Н., Белоусов Д.В., Мисилов В.Е. Алгоритмы решения обратных геофизических задач на многопроцессорных вычислительных системах // Труды межд. конференции «Параллельные вычислительные технологии (ПАВТ’2012)», Новосибирск,  26-30 марта 3012 г. Челябинск: ЮУрГУ. 2012. С. 28-41. 
+\item Акимова Е.Н., Васин В.В., Мисилов В.Е. Алгоритмы решения обратных задач гравиметрии о нахождении поверхностей раздела сред на многопроцессорных вычислительных системах // Труды межд. конференции «Параллельные вычислительные технологии (ПАВТ’2013)», Челябинск, 31 мар. –5 апр. 2013 г. Челябинск:  ЮУрГУ. 2013. С. 27–37.
+\item Акимова Е.Н., Мисилов В.Е., Миниахметова А.Ф. Параллельные алгоритмы решения структурной обратной задачи магнитометрии на многопроцессорных вычислительных системах  // Труды межд. конференции «Параллельные вычислительные технологии (ПАВТ’2014)», Ростов-на-Дону, 31 мар. – 4 апр. 2014 г. Челябинск:  ЮУрГУ. 2014. С. 19–29.
+\item Акимова, Е. Н., Мисилов, В. Е., Скурыдина, А. Ф., Третьяков, А. И. Градиентные методы решения структурных обратных задач гравиметрии и магнитометрии на суперкомпьютере “Уран” // Труды межд. конференции «Параллельные вычислительные технологии (ПАВТ’2015)», Екатеринбург, 31 мар. – 2 апр. 2015 г. Челябинск: ЮУрГУ.  2015. С. 8–18.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\Huge{\centerline{Спасибо за внимание!}}
+\end{frame}
+
+
+
+
+
+
+\end{document} 
