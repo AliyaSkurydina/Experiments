@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.2.27)  16 FEB 2018 12:48
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.2.27)  16 FEB 2018 12:49
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1261,7 +1265,24 @@ Package: beamerouterthemeshadow 2010/06/17  (rcs-revision d02a7cf4d8ae)
 (c:/Program Files/texlive/2014/texmf-dist/tex/latex/beamer/themes/outer/beamero
 uterthemesplit.sty
 Package: beamerouterthemesplit 2012/10/16  (rcs-revision 51a8c72084af)
+<<<<<<< HEAD
 )) (./Slides.aux)
+=======
+)) (./Slides.aux
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.143 <
+       <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 \openout1 = `Slides.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
@@ -1282,8 +1303,12 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
 LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 37.
 LaTeX Font Info:    Try loading font information for T2A+cmr on input line 37.
+<<<<<<< HEAD
 
 (c:/Program Files/texlive/2014/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+=======
+ (c:/Program Files/texlive/2014/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
 LaTeX Font Info:    ... okay on input line 37.
@@ -1413,8 +1438,21 @@ File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 43.
 
+! Too many }'s.
+l.54 	\vspace*{1cm}}
+                    
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+! Too many }'s.
+l.56 ...ММ УрО РАН Е. Н. Акимова}
+                                                  
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
 
 LaTeX Font Warning: Font shape `T2A/lmss/bx/n' undefined
+<<<<<<< HEAD
 (Font)              using `T2A/lmss/m/n' instead on input line 53.
 
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 53.
@@ -1422,34 +1460,64 @@ LaTeX Font Info:    Try loading font information for OT1+lmr on input line 53.
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 53.
+=======
+(Font)              using `T2A/lmss/m/n' instead on input line 59.
+
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 59.
+(c:/Program Files/texlive/2014/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 59.
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 
 (c:/Program Files/texlive/2014/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
+<<<<<<< HEAD
 LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 53.
+=======
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 59.
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 
 
 (c:/Program Files/texlive/2014/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
+<<<<<<< HEAD
 LaTeX Font Info:    Try loading font information for OMX+lmex on input line 53.
+=======
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 59.
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 
 
 (c:/Program Files/texlive/2014/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
+<<<<<<< HEAD
 (Font)              <9> on input line 53.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 53.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 53.
 LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+=======
+(Font)              <9> on input line 59.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 59.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 59.
+LaTeX Font Info:    Try loading font information for U+msa on input line 59.
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 
 (c:/Program Files/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+<<<<<<< HEAD
 LaTeX Font Info:    Try loading font information for U+msb on input line 53.
+=======
+LaTeX Font Info:    Try loading font information for U+msb on input line 59.
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 
 (c:/Program Files/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1459,11 +1527,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 LaTeX Font Warning: Font shape `T2A/lmss/m/n' in size <4> not available
+<<<<<<< HEAD
 (Font)              size <5> substituted on input line 53.
 
 
 LaTeX Font Warning: Font shape `T2A/lmss/m/it' undefined
 (Font)              using `T2A/lmss/m/n' instead on input line 53.
+=======
+(Font)              size <5> substituted on input line 59.
+
+
+LaTeX Font Warning: Font shape `T2A/lmss/m/it' undefined
+(Font)              using `T2A/lmss/m/n' instead on input line 59.
 
 
 Overfull \hbox (98.40067pt too wide) has occurred while \output is active
@@ -1471,21 +1546,53 @@ Overfull \hbox (98.40067pt too wide) has occurred while \output is active
  []
 
 
-LaTeX Warning: Reference `lastpage' on page 1 undefined on input line 53.
-
-
-Overfull \hbox (4.72493pt too wide) has occurred while \output is active
+Overfull \hbox (5.07207pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [1
 
 {c:/Program Files/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
+
+
 Overfull \hbox (98.40067pt too wide) has occurred while \output is active
  [][]  
  []
 
 
+<<<<<<< HEAD
+LaTeX Warning: Reference `lastpage' on page 1 undefined on input line 53.
+=======
+Overfull \hbox (5.07207pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[2]
+Overfull \hbox (98.40067pt too wide) has occurred while \output is active
+ [][]  
+ []
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
+
+
+Overfull \hbox (4.72493pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+<<<<<<< HEAD
+[1
+
+{c:/Program Files/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+=======
+[3]
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
+Overfull \hbox (98.40067pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+<<<<<<< HEAD
 LaTeX Warning: Reference `lastpage' on page 2 undefined on input line 53.
 
 
@@ -1494,11 +1601,25 @@ Overfull \hbox (4.72493pt too wide) has occurred while \output is active
  []
 
 [2]
+=======
+Overfull \hbox (5.07207pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[4
+
+]
+Overfull \vbox (140.12578pt too high) detected at line 96
+ []
+
+
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 Overfull \hbox (98.40067pt too wide) has occurred while \output is active
  [][]  
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: Reference `lastpage' on page 3 undefined on input line 64.
 
 
@@ -1542,11 +1663,24 @@ Overfull \hbox (4.72493pt too wide) has occurred while \output is active
 [5
 
 ]
+=======
+Overfull \hbox (5.07207pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[5
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 104.
+
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 Overfull \hbox (98.40067pt too wide) has occurred while \output is active
  [][]  
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: Reference `lastpage' on page 6 undefined on input line 88.
 
 
@@ -1558,6 +1692,28 @@ Overfull \hbox (4.72493pt too wide) has occurred while \output is active
 
 ]
 Overfull \vbox (82.64534pt too high) detected at line 109
+=======
+Overfull \hbox (5.07207pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[6
+
+]
+Overfull \hbox (98.40067pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (5.07207pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[7
+
+]
+Overfull \vbox (94.3901pt too high) detected at line 141
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
  []
 
 
@@ -1566,6 +1722,7 @@ Overfull \hbox (98.40067pt too wide) has occurred while \output is active
  []
 
 
+<<<<<<< HEAD
 LaTeX Warning: Reference `lastpage' on page 7 undefined on input line 109.
 
 
@@ -1579,6 +1736,18 @@ Overfull \hbox (4.72493pt too wide) has occurred while \output is active
 Runaway argument?
 \let \AtEndDocument \@firstofone \@enddocumenthook \@checkend {docume\ETC.
 ! File ended while scanning use of \beamer@collect@@body.
+=======
+Overfull \hbox (5.07207pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[8
+
+])
+Runaway argument?
+ 
+! File ended while scanning use of \frame.
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
 <inserted text> 
                 \par 
 <*> Slides.tex
@@ -1595,10 +1764,17 @@ you'd better type `E' or `X' now and fix your file.
 
  
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  21058 strings out of 493109
  380939 string characters out of 6132291
  563358 words of memory out of 5000000
  24031 multiletter control sequences out of 15000+600000
+=======
+ 21064 strings out of 493109
+ 381013 string characters out of 6132291
+ 565001 words of memory out of 5000000
+ 24035 multiletter control sequences out of 15000+600000
+>>>>>>> 49404718cc786938067e1420a998f859faf3c14e
  25832 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,16n,53p,1919b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
