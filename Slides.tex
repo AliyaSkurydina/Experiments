@@ -470,7 +470,7 @@
 	Параллельные алгоритмы реализованы в виде комплекса программ на многоядерных и графических процессорах (видеокартах) для вычислений на сетках большого размера. Приводятся результаты расчетов на многоядерных процессорах и графических ускорителях. 
 	
 \end{frame}
-\begin{frame}{\small\textbf{3.1. Покомпонентный метод типа Ньютона для обратных задач гравиметрии (new)}}
+\begin{frame}{\small\textbf{Постановка задачи}}
 	Рассмотрим уравнение гравиметрии в декартовой системе координат с осью $z$, направленной вниз 
 	\begin{equation*}
 	\begin{aligned}
@@ -479,8 +479,6 @@
 	\end{aligned} 
 	\end{equation*}
 	где $\gamma$ --- гравитационная постоянная, равная $6.67\cdot10^{-8}$ см$^3/$г$\cdot c^2$, $\Delta\sigma=\sigma_2-\sigma_1$ --- скачок плотности на поверхности раздела сред, описываемой функцией $u(x,y)$ и подлежащей определению, $\Delta g(x,y)$ --- аномальное гравитационное поле, вызванное отклонением поверхности от асимптотической плоскости $z=H$ для искомого решения $u(x,y)$.
-	
-	Уравнение задачи магнитометрии приводилось на слайде 26.
 \end{frame}
 
 \begin{frame}{\small\textbf{Модель двуслойной среды}}
@@ -520,18 +518,18 @@
 		\item в задаче магнитометрии
 		$$ [A'(u^0)]h=\iint_{D} \frac{(x-x')^2+(y-y')^2-2(u^0(x',y'))^2}{[(x-x')^2+(y-y')^2+(u^0(x',y'))^2]^{5/2}}h(x',y')dx'dy'.$$
 	\end{itemize}
-
-\begin{block}{Замечание 3.1.}
-	В структурных обратных задачах грави- магнитометрии при решении методом Ньютона без существенной потери точности можно не учитывать значения элементов, отстоящих от диагонали далее, чем на  $\beta$-ю часть  размерности матрицы производной.
-\end{block}
-\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Miniakhmetova A., Martyshko M. Optimization and parallelization of Newton type methods for solving structurial gravimetry and magnetometry inverse problems // EAGE Geoinformatics 2014 – 13th Intern. Conference on Geoinformatics. Kiev, Ukraine. 12–15 May 2014}
+Как видим, элементы матрицы $A'(u^0)$ принимают наибольшие значения при малых значениях $(x-x')$ и $(y-y')$.
+\begin{figure}
+	\includegraphics[width=0.4\linewidth, height=0.4\textheight]{Matrix}
+\end{figure}
+\centering Схема матрицы производной оператора $A$
 \end{frame}
-%\begin{frame}
-%	\begin{block}{Замечание 3.1.}
-%		В структурных обратных задачах грави- магнитометрии при решении методом Ньютона без существенной потери точности можно не учитывать значения элементов, отстоящих от диагонали далее, чем на  $\beta$-ю часть  размерности матрицы производной, то есть те значения $a_{ij}$, для которых  $j \in \{i-h(\beta),..i+h(\beta)\} $, где $h(\beta)$ --- полуширина ленты матрицы, $i, j$ --- индекс элемента.
-%	\end{block}
-%	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Miniakhmetova A., Martyshko M. Optimization and parallelization of Newton type methods for solving structurial gravimetry and magnetometry inverse problems // EAGE Geoinformatics 2014 – 13th Intern. Conference on Geoinformatics – Theoretical and Applied Aspects. Kiev, Ukraine. 12–15 May 2014}
-%\end{frame}
+\begin{frame}
+	\begin{block}{Замечание 3.1.}
+		В структурных обратных задачах грави- магнитометрии при решении методом Ньютона без существенной потери точности можно не учитывать значения элементов, отстоящих от диагонали далее, чем на  $\beta$-ю часть  размерности матрицы производной, то есть те значения $a_{ij}$, для которых  $j \in \{i-h(\beta),..i+h(\beta)\} $, где $h(\beta)$ --- полуширина ленты матрицы, $i, j$ --- индекс элемента.
+	\end{block}
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Miniakhmetova A., Martyshko M. Optimization and parallelization of Newton type methods for solving structurial gravimetry and magnetometry inverse problems // EAGE Geoinformatics 2014 – 13th Intern. Conference on Geoinformatics – Theoretical and Applied Aspects. Kiev, Ukraine. 12–15 May 2014}
+\end{frame}
 %\begin{frame}{\small\textbf{Регуляризованный метод Левенберга -- Марквардта (Васин В.В.)}}
 %	Регуляризованный метод Левенберга -- Марквардта \textbf{\color{red}(Васин, 2012)}
 %	\begin{equation}\label{LM_Vasin}
@@ -542,15 +540,6 @@
 %	\end{equation}
 %	где $\gamma$ --- демпфирующий множитель, $u^0$ --- некоторое приближение к $u_\alpha$, $\alpha>0$.
 %\end{frame}
-\begin{frame}{Модель многослойной среды}
-	\begin{figure}[h]
-		\centering
-		\includegraphics[height=7.0cm]{whitegrav.png}
-		\label{fig:multlayer}
-	\end{figure}
-	\centering
-	%Рис.3. Модель многослойной среды.
-\end{frame}
 \begin{frame}{Постановка задачи}
 	Суммарное гравитационное поле получаем путем сложения гравитационных полей от каждой поверхности:
 	\begin{equation*}
@@ -560,6 +549,19 @@
 	\end{aligned}
 	\end{equation*}
 	где $L$~--- число границ раздела.
+	
+	
+	Регуляризованный метод Левенберга -- Марквардта %\textbf{\color{red}(Васин, 2012)}
+	$$	u^{k+1}=u^k-\gamma[A'(u^k)^*A'(u^k)+\alpha I]^{-1} [A'(u^k)^*(A(u^k)-f_\delta)]$$
+\end{frame}
+\begin{frame}{Модель многослойной среды}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=7.0cm]{whitegrav.png}
+		\label{fig:multlayer}
+	\end{figure}
+	\centering
+	%Рис.3. Модель многослойной среды.
 \end{frame}
 \begin{frame}{\small\textbf{3.3. Покомпонентный метод типа Левенберга Марквардта для решения задач гравиметрии для модели многослойной среды \textbf{(new)}}}
 	По аналогии с покомпонентным методом Ньютона предложен покомпонентный метод типа Левенберга -- Марквардта:
@@ -818,31 +820,32 @@
 	\end{figure}
 	
 	$H_1=8$ км, $H_2=15$ км и $H_3=30$ км. Скачки плотности $\Delta\sigma_1=0.2$ г/см$^3$, $\Delta\sigma_2=0.1$ г/см$^3$, $\Delta\sigma_3=0.1$ г/см$^3$. Шаги сетки $\Delta x=2$ км, $\Delta y=3$ км.
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Мартышко П.С., Акимова Е.Н., Мисилов В.Е. О решении структурной обратной задачи гравиметрии модифицированными методами градиентного типа // Физика земли. 2016. № 5. С. 82-86.}
 \end{frame}
-%\begin{frame}
-%	\begin{figure}
-%		\centering
-%		\includegraphics[height=0.2\textheight]{levmar}
-%	\end{figure}
-%	\centering\textit{Границы, восстановленные ЛМ $\tilde{u}_0(x,y)$, $\tilde{u}_1(x,y)$, $\tilde{u}_2(x,y)$.}
-%	\begin{figure}
-%		\centering
-%		\includegraphics[height=0.2\textheight]{clm}
-%	\end{figure}
-%	\centering\textit{Границы, восстановленные ПЛМ $\hat{u}_0(x,y)$, $\hat{u}_1(x,y)$, $\hat{u}_2(x,y)$.}
-%\end{frame}
-%\begin{frame}
-%	\begin{figure}
-%		\centering
-%		\includegraphics[height=0.2\textheight]{lm_noise}
-%	\end{figure}
-%	\centering\textit{Границы, восстановленные ЛМ для данных с шумом $\tilde{u}_0(x,y)$, $\tilde{u}_1(x,y)$, $\tilde{u}_2(x,y)$.}
-%	\begin{figure}
-%		\centering
-%		\includegraphics[height=0.2\textheight]{clm_noise}
-%	\end{figure}
-%	\centering\textit{Границы, восстановленные ПЛМ для данных с шумом $\hat{u}_0(x,y)$, $\hat{u}_1(x,y)$, $\hat{u}_2(x,y)$.}
-%\end{frame}
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.2\textheight]{levmar}
+	\end{figure}
+	\centering\textit{Границы, восстановленные ЛМ $\tilde{u}_0(x,y)$, $\tilde{u}_1(x,y)$, $\tilde{u}_2(x,y)$.}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.2\textheight]{clm}
+	\end{figure}
+	\centering\textit{Границы, восстановленные ПЛМ $\hat{u}_0(x,y)$, $\hat{u}_1(x,y)$, $\hat{u}_2(x,y)$.}
+\end{frame}
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.2\textheight]{lm_noise}
+	\end{figure}
+	\centering\textit{Границы, восстановленные ЛМ для данных с шумом $\tilde{u}_0(x,y)$, $\tilde{u}_1(x,y)$, $\tilde{u}_2(x,y)$.}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.2\textheight]{clm_noise}
+	\end{figure}
+	\centering\textit{Границы, восстановленные ПЛМ для данных с шумом $\hat{u}_0(x,y)$, $\hat{u}_1(x,y)$, $\hat{u}_2(x,y)$.}
+\end{frame}
 \begin{frame}
 	\begin{itemize}
 		\item сетка $1000\times1000$,
