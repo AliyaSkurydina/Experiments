@@ -261,10 +261,17 @@
 	$$	F(u)=y, \quad [F(u)](t)=c_0 e^{\int_{0}^{t}u(\tau)d\tau},$$
 %	где $$[F(u)](t)=c_0 e^{\int_{0}^{t}u(\tau)d\tau}$$
 	$F$ действует из $L^2[0,1]$ в $L^2[0,1]$. 
+<<<<<<< HEAD
 	
 	Правая часть задана с шумом $$y^\delta(t)=y(t)e^{\frac{\delta}{5} sin(t/{\delta}^2)},$$
 	При $y^\delta\to y$ в $L^2[0,1]$,  $\|u-u^\delta\|=\|\frac{1}{\delta}cos(t/{\delta}^2)\|\to\infty$ при $\delta\to 0$.
 	
+=======
+	
+	Правая часть задана с шумом $$y^\delta(t)=y(t)e^{\frac{\delta}{5} sin(t/{\delta}^2)},$$
+	При $y^\delta\to y$ в $L^2[0,1]$,  $\|u-u^\delta\|=\|\frac{1}{\delta}cos(t/{\delta}^2)\|\to\infty$ при $\delta\to 0$.
+	
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 	{\textbf{\color{blue}Данные:}} $\delta=0.1$, $\|y-y^{\delta}\|=0.07<\delta$. Точное решение --- функция $z(t)=t^2$. Начальное приближение $u^0(t)=0$, $\gamma=1$, $\bar\alpha=1$, $\alpha=10^{-3}$, критерий останова $\frac{\|u^k-z\|}{\|z\|}\leqslant\varepsilon=0.25$, где $u^k$ --- приближение на $k$-й итерации.
 	
 	{\textbf{\color{blue}Результаты:}} методы сходятся к $\varepsilon$ за 8--9 итераций.
@@ -470,14 +477,20 @@
 	Параллельные алгоритмы реализованы в виде комплекса программ на многоядерных и графических процессорах (видеокартах) для вычислений на сетках большого размера. Приводятся результаты расчетов на многоядерных процессорах и графических ускорителях. 
 	
 \end{frame}
+<<<<<<< HEAD
 \begin{frame}{\small\textbf{Постановка обратной задачи гравиметрии восстановления поверхности раздела сред}}
 %	Рассмотрим уравнение гравиметрии в декартовой системе координат с осью $z$, направленной вниз
+=======
+\begin{frame}{\small\textbf{Постановка задачи}}
+	Рассмотрим уравнение гравиметрии в декартовой системе координат с осью $z$, направленной вниз 
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 	\begin{equation*}
 	\begin{aligned}
 	A(u)=f\Delta\sigma \bigg\{ &\iint_{D} \frac{1}{[(x-x')^2+(y-y')^2+H^2]^{1/2}}dx'dy' \\
 	- &\iint_{D} \frac{1}{[(x-x')^2+(y-y')^2+u^2(x',y')]^{1/2}}dx'dy'\bigg\}=\Delta g(x,y,0),
 	\end{aligned} 
 	\end{equation*}
+<<<<<<< HEAD
 	\begin{columns}
 		\column{0.5\linewidth}
 		где $f$ --- гравитационная постоянная, равная $6.67\cdot10^{-8}$ см$^3/$г$\cdot c^2$, $\Delta\sigma=\sigma_2-\sigma_1$ --- скачок плотности на поверхности раздела сред $u(x,y)$, $\Delta g(x,y,0)$ --- аномальное гравитационное поле%, вызванное отклонением поверхности от асимптотической плоскости $z=H$ для искомого решения $u(x,y)$.
@@ -513,12 +526,40 @@
 	$$u^{k+1}(x',y')=u^k(x',y')-\gamma{\color{blue}\frac{1}{\varPsi(x',y')}}([A(u^k)](x',y')-f(x',y')),$$
 	где $$\varPsi(x',y')=f\Delta\sigma\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y)) dxdy.$$
 	\vskip 0.5 cm
+=======
+	где $\gamma$ --- гравитационная постоянная, равная $6.67\cdot10^{-8}$ см$^3/$г$\cdot c^2$, $\Delta\sigma=\sigma_2-\sigma_1$ --- скачок плотности на поверхности раздела сред, описываемой функцией $u(x,y)$ и подлежащей определению, $\Delta g(x,y)$ --- аномальное гравитационное поле, вызванное отклонением поверхности от асимптотической плоскости $z=H$ для искомого решения $u(x,y)$.
+\end{frame}
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 
 	Регуляризованный покомпонентный метод типа Ньютона:
 	$$u^{k+1}(x',y')=u^k(x',y')-\frac{1}{\varPsi(x',y')+\bar{\alpha}}([A(u^k)](x',y')+\alpha (u^k(x',y')-u^0(x',y'))-f_\delta(x',y')),$$
 	где $\alpha, \bar{\alpha}$ --- положительные параметры регуляризации.
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Skurydina A. A componentwise Newton type method for solving the structural inverse gravity problem // EAGE Geoinformatics 2015}
 \end{frame}
+<<<<<<< HEAD
+=======
+\begin{frame}{3.1. Покомпонентный метод типа Ньютона (new)}
+	Запишем исходное операторное уравнение (1.1) в виде:
+	$$P(u)=A(u)-f,$$
+	где $A(u)=\int_{a}^{b}\int_{c}^{d}K(x,y, x',y',u^k(x,y))dxdy$ --- интегральный оператор задачи гравиметрии.
+	
+	Итерации в методе Ньютона строятся по схеме
+	$$A'(u^k)(\Delta u^k)=-(A(u^k)-f),$$ где $\Delta u^k=u^{k+1}-u^k$.
+	Для задачи гравиметрии
+	$$f\Delta\sigma\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y))\Delta u^k dxdy=A(u(x',y'))-f(x',y').$$
+\end{frame}
+\begin{frame}{}
+	В задаче гравиметрии {\textbf{\color{blue}на изменение гравитационного поля в правой части наибольшее значение оказывает отклонение от асимптотической плоскости в точке $(x',y')$}}. Тогда можем записать
+	$$f\Delta\sigma(\Delta u^k)\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y)) dxdy=A(u(x',y'))-f(x',y').$$
+	Итерации осуществляются по схеме:
+	$$u^{k+1}(x',y')=u^k(x',y')-\gamma\frac{1}{\varPsi(x',y')}([A(u^k)](x',y')-f(x',y')),$$
+	где $$\varPsi(x',y')=f\Delta\sigma\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y)) dxdy.$$
+	Регуляризованный вариант:
+	$$u^{k+1}(x',y')=u^k(x',y')-\frac{1}{\varPsi(x',y')+\bar{\alpha}}([A(u^k)](x',y')+\alpha (u(x',y')-u^0(x',y'))-f_\delta(x',y')),$$
+	где $\alpha, \bar{\alpha}$ --- положительные параметры регуляризации.
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Skurydina A. A componentwise Newton type method for solving the structural inverse gravity problem // EAGE Geoinformatics 2015 – 14th Intern. Conference on Geoinformatics. Kiev, Ukraine. 11–14 May 2015}
+\end{frame}
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 \begin{frame}{\small\textbf{3.2. Оптимизация метода Ньютона для задач гравиметрии и магнитометрии}}
 	Прозводная оператора $A$ в точке $u^0(x,y)$ определяется формулой:
 	\begin{itemize}
@@ -527,6 +568,7 @@
 		\item в задаче магнитометрии
 		$$ [A'(u^0)]h=\iint_{D} \frac{(x-x')^2+(y-y')^2-2(u^0(x',y'))^2}{[(x-x')^2+(y-y')^2+(u^0(x',y'))^2]^{5/2}}h(x',y')dx'dy'.$$
 	\end{itemize}
+<<<<<<< HEAD
 Элементы матрицы $A'(u^0)$ принимают наибольшие значения при малых значениях $(x-x')$ и $(y-y')$.
 \begin{figure}
 	\includegraphics[width=0.32\linewidth, height=0.32\textheight]{Matrix}
@@ -538,6 +580,19 @@
 		В структурных обратных задачах грави- магнитометрии при решении методом Ньютона без существенной потери точности можно не учитывать значения элементов, отстоящих от диагонали далее, чем на  $\beta$-ю часть  размерности матрицы производной, то есть те значения $a_{ij}$, для которых  $j \in \{i-h(\beta),..i+h(\beta)\} $, где $h(\beta)$ --- полуширина ленты матрицы, $i, j$ --- индекс элемента.
 	\end{block}
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Miniakhmetova A., Martyshko M. Optimization and parallelization of Newton type methods for solving structurial gravimetry and magnetometry inverse problems // EAGE Geoinformatics 2014}
+=======
+Как видим, элементы матрицы $A'(u^0)$ принимают наибольшие значения при малых значениях $(x-x')$ и $(y-y')$.
+\begin{figure}
+	\includegraphics[width=0.4\linewidth, height=0.4\textheight]{Matrix}
+\end{figure}
+\centering Схема матрицы производной оператора $A$
+\end{frame}
+\begin{frame}
+	\begin{block}{Замечание 3.1.}
+		В структурных обратных задачах грави- магнитометрии при решении методом Ньютона без существенной потери точности можно не учитывать значения элементов, отстоящих от диагонали далее, чем на  $\beta$-ю часть  размерности матрицы производной, то есть те значения $a_{ij}$, для которых  $j \in \{i-h(\beta),..i+h(\beta)\} $, где $h(\beta)$ --- полуширина ленты матрицы, $i, j$ --- индекс элемента.
+	\end{block}
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Miniakhmetova A., Martyshko M. Optimization and parallelization of Newton type methods for solving structurial gravimetry and magnetometry inverse problems // EAGE Geoinformatics 2014 – 13th Intern. Conference on Geoinformatics – Theoretical and Applied Aspects. Kiev, Ukraine. 12–15 May 2014}
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 \end{frame}
 %\begin{frame}{\small\textbf{Регуляризованный метод Левенберга -- Марквардта (Васин В.В.)}}
 %	Регуляризованный метод Левенберга -- Марквардта \textbf{\color{red}(Васин, 2012)}
@@ -549,9 +604,13 @@
 %	\end{equation}
 %	где $\gamma$ --- демпфирующий множитель, $u^0$ --- некоторое приближение к $u_\alpha$, $\alpha>0$.
 %\end{frame}
+<<<<<<< HEAD
 \begin{frame}{Постановка обратной задачи гравиметрии восстановления нескольких поверхностей раздела}
 	\begin{columns}
 \column{0.6\linewidth}
+=======
+\begin{frame}{Постановка задачи}
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 	Суммарное гравитационное поле получаем путем сложения гравитационных полей от каждой поверхности:
 	\begin{equation*}
 	\begin{aligned}
@@ -560,6 +619,7 @@
 	&-\frac{1}{[(x-x')^2+(y-y')^2+H_l^2]^{1/2}}\bigg\}=\Delta g(x',y'),
 	\end{aligned}
 	\end{equation*}
+<<<<<<< HEAD
 	где $L$~--- число границ раздела, \\ 
 	$f=6.67\cdot10^{-8}$ см$^3/$г$\cdot c^2$, $\Delta\sigma=\sigma_2-\sigma_1$ --- скачок плотности на поверхности раздела сред $u(x,y)$, $\Delta g(x,y,0)$ --- аномальное гравитационное поле.
 \column{0.4\linewidth}
@@ -570,6 +630,22 @@
 %	\end{figure}
 \end{columns}
 	
+=======
+	где $L$~--- число границ раздела.
+	
+	
+	Регуляризованный метод Левенберга -- Марквардта %\textbf{\color{red}(Васин, 2012)}
+	$$	u^{k+1}=u^k-\gamma[A'(u^k)^*A'(u^k)+\alpha I]^{-1} [A'(u^k)^*(A(u^k)-f_\delta)]$$
+\end{frame}
+\begin{frame}{Модель многослойной среды}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=7.0cm]{whitegrav.png}
+		\label{fig:multlayer}
+	\end{figure}
+	\centering
+	%Рис.3. Модель многослойной среды.
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 \end{frame}
 %\begin{frame}{Модель многослойной среды}
 %	\begin{figure}[h]
@@ -842,7 +918,11 @@
 	\end{figure}
 %	
 	$H_1=8$ км, $H_2=15$ км и $H_3=30$ км. Скачки плотности $\Delta\sigma_1=0.2$ г/см$^3$, $\Delta\sigma_2=0.1$ г/см$^3$, $\Delta\sigma_3=0.1$ г/см$^3$. Шаги сетки $\Delta x=2$ км, $\Delta y=3$ км.
+<<<<<<< HEAD
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize * Мартышко П.С., Акимова Е.Н., Мисилов В.Е. О решении структурной обратной задачи гравиметрии модифицированными методами градиентного типа // Физика земли. 2016. № 5. С. 82-86.}
+=======
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Мартышко П.С., Акимова Е.Н., Мисилов В.Е. О решении структурной обратной задачи гравиметрии модифицированными методами градиентного типа // Физика земли. 2016. № 5. С. 82-86.}
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 \end{frame}
 \begin{frame}
 	\begin{figure}
@@ -929,8 +1009,12 @@
 	Ньютона и его модифицированного варианта при решении задач 
 	с матрицей производной, близкой к ленточной. 
 	
+<<<<<<< HEAD
 	\vskip 0.5cm
 	3. Разработан комплекс параллельных программ для многоядерных и графических процессоров (видеокарт) решения обратных задач гравиметрии и магнитометрии на сетках большой размерности методами ньютоновского типа и покомпонентными методами. 
+=======
+	3. Разработан комплекс параллельных программ для многоядерных и графических процессоров (видеокарт) решения обратных задач гравиметрии и магнитометрии на сетках большой размерности методами Ньютоновского типа и покомпонентными методами. 
+>>>>>>> 3250a974c23335ffc2ae8ed35f887cb2d3ffc658
 \end{frame}
 	
 \begin{frame}{Апробация работы}
