@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.2.27)  13 MAR 2018 17:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.2.27)  19 MAR 2018 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1505,6 +1505,13 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [10
 
 ]
+Overfull \hbox (14.8029pt too wide) detected at line 231
+[] []\OML/cmm/m/it/8 ;  u[] \OT1/cmr/m/n/8 = \OML/cmm/m/it/8 u[] \OMS/cmsy/m/n/
+8 ^^@ []\OML/cmm/m/it/8 S[]\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 u[]\OT1/cmr/m/n/8 )\
+OML/cmm/m/it/8 ;
+ []
+
+
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1529,6 +1536,10 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [12
 
 ]
+Overfull \vbox (6.64856pt too high) detected at line 290
+ []
+
+
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1565,10 +1576,6 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [15
 
 ]
-Overfull \vbox (3.40994pt too high) detected at line 405
- []
-
-
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1581,6 +1588,10 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [16
 
 ]
+Overfull \vbox (3.40994pt too high) detected at line 426
+ []
+
+
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1593,10 +1604,6 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [17
 
 ]
-Overfull \vbox (4.21854pt too high) detected at line 475
- []
-
-
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1609,6 +1616,10 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [18
 
 ]
+Overfull \vbox (4.21854pt too high) detected at line 497
+ []
+
+
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1633,7 +1644,19 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [20
 
 ]
-Overfull \hbox (21.6068pt too wide) detected at line 512
+Overfull \hbox (88.92693pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (7.4748pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[21
+
+]
+Overfull \hbox (21.6068pt too wide) detected at line 534
 [] []
  []
 
@@ -1647,27 +1670,9 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[21
-
-]
-Overfull \hbox (88.92693pt too wide) has occurred while \output is active
- [][]  
- []
-
-
-Overfull \hbox (7.4748pt too wide) has occurred while \output is active
- [][][][]  
- []
-
 [22
 
-] <fig/grav_illust.png, id=185, 573.57143pt x 464.59285pt>
-File: fig/grav_illust.png Graphic file (type png)
-
-<use fig/grav_illust.png>
-Package pdftex.def Info: fig/grav_illust.png used on input line 564.
-(pdftex.def)             Requested size: 140.50435pt x 113.81102pt.
-
+]
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1679,7 +1684,13 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [23
 
- <./fig/grav_illust.png>]
+] <fig/grav_illust.png, id=191, 573.57143pt x 464.59285pt>
+File: fig/grav_illust.png Graphic file (type png)
+
+<use fig/grav_illust.png>
+Package pdftex.def Info: fig/grav_illust.png used on input line 587.
+(pdftex.def)             Requested size: 140.50435pt x 113.81102pt.
+
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1691,8 +1702,20 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [24
 
+ <./fig/grav_illust.png>]
+Overfull \hbox (88.92693pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (7.4748pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[25
+
 ]
-Overfull \hbox (5.2644pt too wide) detected at line 603
+Overfull \hbox (5.2644pt too wide) detected at line 628
 \OML/cmm/m/it/8 u[] \OT1/cmr/m/n/8 = \OML/cmm/m/it/8 u[] \OMS/cmsy/m/n/8 ^^@ []
 \OT1/cmr/m/n/8 ([\OML/cmm/m/it/8 A[]\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 u[]\OT1/cmr
 /m/n/8 )][] + \OML/cmm/m/it/8 \OT1/cmr/m/n/8 (\OML/cmm/m/it/8 u[] \OMS/cmsy/m/
@@ -1712,7 +1735,7 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[25
+[26
 
 ]
 Package epstopdf Info: Source file: <fig/Matrix.eps>
@@ -1723,32 +1746,20 @@ Package epstopdf Info: Source file: <fig/Matrix.eps>
 (epstopdf)                    size: 49213 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Matrix-eps-converted-t
 o.pdf fig/Matrix.eps>
-(epstopdf)             \includegraphics on input line 620.
+(epstopdf)             \includegraphics on input line 645.
 Package epstopdf Info: Output file is already uptodate.
- <fig/Matrix-eps-converted-to.pdf, id=206, 607.26875pt x 606.265pt>
+ <fig/Matrix-eps-converted-to.pdf, id=212, 607.26875pt x 606.265pt>
 File: fig/Matrix-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/Matrix-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Matrix-eps-converted-to.pdf used on input line 620
+Package pdftex.def Info: fig/Matrix-eps-converted-to.pdf used on input line 645
 .
 (pdftex.def)             Requested size: 98.33252pt x 82.9616pt.
 
-Overfull \vbox (17.104pt too high) detected at line 620
+Overfull \vbox (17.104pt too high) detected at line 645
  []
 
 
-Overfull \hbox (88.92693pt too wide) has occurred while \output is active
- [][]  
- []
-
-
-Overfull \hbox (7.4748pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[26
-
- <./fig/Matrix-eps-converted-to.pdf>]
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1760,18 +1771,30 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [27
 
+ <./fig/Matrix-eps-converted-to.pdf>]
+Overfull \hbox (88.92693pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (7.4748pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[28
+
 ]
-Overfull \hbox (1.56758pt too wide) detected at line 664
+Overfull \hbox (1.56758pt too wide) detected at line 689
 [] []
  []
 
-<fig/whitegrav.png, id=223, 548.90785pt x 753.09929pt>
+<fig/whitegrav.png, id=229, 548.90785pt x 753.09929pt>
 File: fig/whitegrav.png Graphic file (type png)
  <use fig/whitegrav.png>
-Package pdftex.def Info: fig/whitegrav.png used on input line 664.
+Package pdftex.def Info: fig/whitegrav.png used on input line 689.
 (pdftex.def)             Requested size: 124.42863pt x 170.71652pt.
 
-Overfull \hbox (1.51457pt too wide) in paragraph at lines 664--664
+Overfull \hbox (1.51457pt too wide) in paragraph at lines 689--689
  [][][][][] 
  []
 
@@ -1785,21 +1808,9 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[28
-
- <./fig/whitegrav.png>]
-Overfull \hbox (88.92693pt too wide) has occurred while \output is active
- [][]  
- []
-
-
-Overfull \hbox (7.4748pt too wide) has occurred while \output is active
- [][][][]  
- []
-
 [29
 
-]
+ <./fig/whitegrav.png>]
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1823,12 +1834,7 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [31
 
-] <fig/omp.png, id=251, 314.67563pt x 246.9225pt>
-File: fig/omp.png Graphic file (type png)
- <use fig/omp.png>
-Package pdftex.def Info: fig/omp.png used on input line 793.
-(pdftex.def)             Requested size: 184.3758pt x 144.67702pt.
-
+]
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -1840,12 +1846,11 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [32
 
- <./fig/omp.png>] <fig/cuda.png, id=260, 471.7625pt x 471.7625pt>
-File: fig/cuda.png Graphic file (type png)
-
-<use fig/cuda.png>
-Package pdftex.def Info: fig/cuda.png used on input line 801.
-(pdftex.def)             Requested size: 184.3758pt x 184.37535pt.
+] <fig/omp.png, id=257, 314.67563pt x 246.9225pt>
+File: fig/omp.png Graphic file (type png)
+ <use fig/omp.png>
+Package pdftex.def Info: fig/omp.png used on input line 818.
+(pdftex.def)             Requested size: 184.3758pt x 144.67702pt.
 
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
@@ -1858,17 +1863,12 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [33
 
- <./fig/cuda.png (PNG copy)>]
-Overfull \hbox (24.41484pt too wide) detected at line 815
-[] []
- []
+ <./fig/omp.png>] <fig/cuda.png, id=266, 471.7625pt x 471.7625pt>
+File: fig/cuda.png Graphic file (type png)
 
-<fig/gravy_kiev2014.png, id=267, 575.90157pt x 170.88844pt>
-File: fig/gravy_kiev2014.png Graphic file (type png)
-
-<use fig/gravy_kiev2014.png>
-Package pdftex.def Info: fig/gravy_kiev2014.png used on input line 815.
-(pdftex.def)             Requested size: 307.30023pt x 90.74513pt.
+<use fig/cuda.png>
+Package pdftex.def Info: fig/cuda.png used on input line 826.
+(pdftex.def)             Requested size: 184.3758pt x 184.37535pt.
 
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
@@ -1881,18 +1881,41 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [34
 
+ <./fig/cuda.png (PNG copy)>]
+Overfull \hbox (24.41484pt too wide) detected at line 840
+[] []
+ []
+
+<fig/gravy_kiev2014.png, id=273, 575.90157pt x 170.88844pt>
+File: fig/gravy_kiev2014.png Graphic file (type png)
+
+<use fig/gravy_kiev2014.png>
+Package pdftex.def Info: fig/gravy_kiev2014.png used on input line 840.
+(pdftex.def)             Requested size: 307.30023pt x 90.74513pt.
+
+Overfull \hbox (88.92693pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (7.4748pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[35
+
  <./fig/gravy_kiev2014.png>]
-Underfull \hbox (badness 1043) in paragraph at lines 850--850
+Underfull \hbox (badness 1043) in paragraph at lines 875--875
 []|\T2A/cmss/m/n/7 2. Модиф. метод
  []
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 850--850
+Underfull \hbox (badness 1303) in paragraph at lines 875--875
 []|\T2A/cmss/m/n/7 4. Покомпонентный
  []
 
 
-Overfull \hbox (5.43668pt too wide) in paragraph at lines 850--850
+Overfull \hbox (5.43668pt too wide) in paragraph at lines 875--875
  [] 
  []
 
@@ -1906,7 +1929,7 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[35
+[36
 
 ]
 Package epstopdf Info: Source file: <fig/fields.eps>
@@ -1917,13 +1940,13 @@ Package epstopdf Info: Source file: <fig/fields.eps>
 (epstopdf)                    size: 90352 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/fields-eps-converted-t
 o.pdf fig/fields.eps>
-(epstopdf)             \includegraphics on input line 953.
+(epstopdf)             \includegraphics on input line 978.
 Package epstopdf Info: Output file is already uptodate.
- <fig/fields-eps-converted-to.pdf, id=283, 655.44875pt x 213.79875pt>
+ <fig/fields-eps-converted-to.pdf, id=289, 655.44875pt x 213.79875pt>
 File: fig/fields-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/fields-eps-converted-to.pdf>
-Package pdftex.def Info: fig/fields-eps-converted-to.pdf used on input line 953
+Package pdftex.def Info: fig/fields-eps-converted-to.pdf used on input line 978
 .
 (pdftex.def)             Requested size: 238.45169pt x 77.78018pt.
 
@@ -1936,7 +1959,7 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[36
+[37
 
  <./fig/fields-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <fig/exact_hor.eps>
@@ -1947,15 +1970,15 @@ Package epstopdf Info: Source file: <fig/exact_hor.eps>
 (epstopdf)                    size: 82196 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/exact_hor-eps-converte
 d-to.pdf fig/exact_hor.eps>
-(epstopdf)             \includegraphics on input line 969.
+(epstopdf)             \includegraphics on input line 994.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/exact_hor-eps-converted-to.pdf, id=294, 752.8125pt x 166.6225pt>
+<fig/exact_hor-eps-converted-to.pdf, id=301, 752.8125pt x 166.6225pt>
 File: fig/exact_hor-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/exact_hor-eps-converted-to.pdf>
 Package pdftex.def Info: fig/exact_hor-eps-converted-to.pdf used on input line 
-969.
+994.
 (pdftex.def)             Requested size: 234.26544pt x 51.85213pt.
 Package epstopdf Info: Source file: <fig/levmar.eps>
 (epstopdf)                    date: 2018-02-13 15:27:40
@@ -1965,14 +1988,14 @@ Package epstopdf Info: Source file: <fig/levmar.eps>
 (epstopdf)                    size: 81517 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/levmar-eps-converted-t
 o.pdf fig/levmar.eps>
-(epstopdf)             \includegraphics on input line 969.
+(epstopdf)             \includegraphics on input line 994.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/levmar-eps-converted-to.pdf, id=295, 760.8425pt x 175.65625pt>
+<fig/levmar-eps-converted-to.pdf, id=302, 760.8425pt x 175.65625pt>
 File: fig/levmar-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/levmar-eps-converted-to.pdf>
-Package pdftex.def Info: fig/levmar-eps-converted-to.pdf used on input line 969
+Package pdftex.def Info: fig/levmar-eps-converted-to.pdf used on input line 994
 .
 (pdftex.def)             Requested size: 224.5975pt x 51.85213pt.
 Package epstopdf Info: Source file: <fig/clm.eps>
@@ -1983,65 +2006,15 @@ Package epstopdf Info: Source file: <fig/clm.eps>
 (epstopdf)                    size: 29957 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/clm-eps-converted-to.p
 df fig/clm.eps>
-(epstopdf)             \includegraphics on input line 969.
+(epstopdf)             \includegraphics on input line 994.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/clm-eps-converted-to.pdf, id=296, 749.80125pt x 168.63pt>
+<fig/clm-eps-converted-to.pdf, id=303, 749.80125pt x 168.63pt>
 File: fig/clm-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig/clm-eps-converted-to.pdf>
-Package pdftex.def Info: fig/clm-eps-converted-to.pdf used on input line 969.
+Package pdftex.def Info: fig/clm-eps-converted-to.pdf used on input line 994.
 (pdftex.def)             Requested size: 230.54822pt x 51.85213pt.
-
-Overfull \hbox (88.92693pt too wide) has occurred while \output is active
- [][]  
- []
-
-
-Overfull \hbox (7.4748pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[37
-
- <./fig/exact_hor-eps-converted-to.pdf> <./fig/levmar-eps-converted-to.pdf> <./
-fig/clm-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <fig/lm_noise.eps>
-(epstopdf)                    date: 2018-02-13 15:27:40
-(epstopdf)                    size: 1492041 bytes
-(epstopdf)             Output file: <fig/lm_noise-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-13 15:27:40
-(epstopdf)                    size: 78531 bytes
-(epstopdf)             Command: <repstopdf --outfile=fig/lm_noise-eps-converted
--to.pdf fig/lm_noise.eps>
-(epstopdf)             \includegraphics on input line 981.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/lm_noise-eps-converted-to.pdf, id=314, 756.8275pt x 163.61125pt>
-File: fig/lm_noise-eps-converted-to.pdf Graphic file (type pdf)
-
-<use fig/lm_noise-eps-converted-to.pdf>
-Package pdftex.def Info: fig/lm_noise-eps-converted-to.pdf used on input line 9
-81.
-(pdftex.def)             Requested size: 239.857pt x 51.85213pt.
-Package epstopdf Info: Source file: <fig/clm_noise.eps>
-(epstopdf)                    date: 2018-02-13 15:27:38
-(epstopdf)                    size: 1534901 bytes
-(epstopdf)             Output file: <fig/clm_noise-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-13 15:27:38
-(epstopdf)                    size: 83096 bytes
-(epstopdf)             Command: <repstopdf --outfile=fig/clm_noise-eps-converte
-d-to.pdf fig/clm_noise.eps>
-(epstopdf)             \includegraphics on input line 981.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/clm_noise-eps-converted-to.pdf, id=315, 764.8575pt x 166.6225pt>
-File: fig/clm_noise-eps-converted-to.pdf Graphic file (type pdf)
-
-<use fig/clm_noise-eps-converted-to.pdf>
-Package pdftex.def Info: fig/clm_noise-eps-converted-to.pdf used on input line 
-981.
-(pdftex.def)             Requested size: 238.01369pt x 51.85213pt.
 
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
@@ -2054,7 +2027,45 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [38
 
- <./fig/lm_noise-eps-converted-to.pdf> <./fig/clm_noise-eps-converted-to.pdf>]
+ <./fig/exact_hor-eps-converted-to.pdf> <./fig/levmar-eps-converted-to.pdf> <./
+fig/clm-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <fig/lm_noise.eps>
+(epstopdf)                    date: 2018-02-13 15:27:40
+(epstopdf)                    size: 1492041 bytes
+(epstopdf)             Output file: <fig/lm_noise-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-13 15:27:40
+(epstopdf)                    size: 78531 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/lm_noise-eps-converted
+-to.pdf fig/lm_noise.eps>
+(epstopdf)             \includegraphics on input line 1006.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/lm_noise-eps-converted-to.pdf, id=320, 756.8275pt x 163.61125pt>
+File: fig/lm_noise-eps-converted-to.pdf Graphic file (type pdf)
+
+<use fig/lm_noise-eps-converted-to.pdf>
+Package pdftex.def Info: fig/lm_noise-eps-converted-to.pdf used on input line 1
+006.
+(pdftex.def)             Requested size: 239.857pt x 51.85213pt.
+Package epstopdf Info: Source file: <fig/clm_noise.eps>
+(epstopdf)                    date: 2018-02-13 15:27:38
+(epstopdf)                    size: 1534901 bytes
+(epstopdf)             Output file: <fig/clm_noise-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-02-13 15:27:38
+(epstopdf)                    size: 83096 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/clm_noise-eps-converte
+d-to.pdf fig/clm_noise.eps>
+(epstopdf)             \includegraphics on input line 1006.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/clm_noise-eps-converted-to.pdf, id=321, 764.8575pt x 166.6225pt>
+File: fig/clm_noise-eps-converted-to.pdf Graphic file (type pdf)
+
+<use fig/clm_noise-eps-converted-to.pdf>
+Package pdftex.def Info: fig/clm_noise-eps-converted-to.pdf used on input line 
+1006.
+(pdftex.def)             Requested size: 238.01369pt x 51.85213pt.
+
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -2066,7 +2077,7 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 
 [39
 
-]
+ <./fig/lm_noise-eps-converted-to.pdf> <./fig/clm_noise-eps-converted-to.pdf>]
 Overfull \hbox (88.92693pt too wide) has occurred while \output is active
  [][]  
  []
@@ -2163,6 +2174,18 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 [47
 
 ]
+Overfull \hbox (88.92693pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (7.4748pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[48
+
+]
 \tf@nav=\write6
 \openout6 = `Slides.nav'.
 
@@ -2172,11 +2195,11 @@ Overfull \hbox (7.4748pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `Slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1255.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1255.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1280.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1280.
  (./Slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1255.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1255.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1280.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1280.
 
 Package rerunfilecheck Info: File `Slides.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
@@ -2185,16 +2208,16 @@ Package rerunfilecheck Info: File `Slides.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1255.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1280.
  ) 
 Here is how much of TeX's memory you used:
- 21227 strings out of 493109
- 383941 string characters out of 6132291
- 435703 words of memory out of 5000000
- 24097 multiletter control sequences out of 15000+600000
+ 21231 strings out of 493109
+ 383978 string characters out of 6132291
+ 435767 words of memory out of 5000000
+ 24099 multiletter control sequences out of 15000+600000
  22615 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,16n,57p,1047b,553s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,16n,57p,1128b,553s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Program Files/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 2a.enc}<c:/Program Files/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm
 extra/cmex7.pfb><c:/Program Files/texlive/2014/texmf-dist/fonts/type1/public/am
@@ -2230,10 +2253,10 @@ m Files/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsx0800.pfb><c:/Pr
 ogram Files/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb><c
 :/Program Files/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pf
 b>
-Output written on Slides.pdf (47 pages, 1203207 bytes).
+Output written on Slides.pdf (48 pages, 1205537 bytes).
 PDF statistics:
- 507 PDF objects out of 1000 (max. 8388607)
- 392 compressed objects within 4 object streams
- 100 named destinations out of 1000 (max. 500000)
+ 513 PDF objects out of 1000 (max. 8388607)
+ 397 compressed objects within 4 object streams
+ 102 named destinations out of 1000 (max. 500000)
  127 words of extra memory for PDF output out of 10000 (max. 10000000)
 
