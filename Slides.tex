@@ -221,7 +221,7 @@
 \begin{frame}
 	\begin{itemize}
 		\item регуляризованный метод минимальной ошибки (ММО): $$\min_{\beta}{\|u^k-\beta(A(u^k)-f_{\delta})-z\|^2},\quad u^{k+1} =u^k - \frac{\langle B^{-1}(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|S_\alpha(u^k)\|^2}S_\alpha(u^k),$$
-		\item регуляризованный метод минимальной ошибки (МНС):
+		\item регуляризованный метод наискорейшего спуска (МНС):
 		$$\min_{\beta}\{<A'(u^k)u^{k+1},u^{k+1}>-2<u^{k+1},F(u^k)>\},$$
 		$$ u^{k+1} =u^k - \frac{\langle S_\alpha(u^k), S_\alpha (u^k)\rangle}{\langle B(u^k)S_\alpha(u^k), S_\alpha(u^k)\rangle}(A(u^k)+\alpha(u^k-u^0)-f_\delta)$$
 		\item регуляризованный метод минимальных невязок (ММН):
@@ -299,7 +299,7 @@
 %	$$
 %	Для методов главы 1 имеются оценки 
 %	$\|u_{\alpha(\delta)}^{\delta, k}-u_{\alpha(\delta)}^{\delta}\|\le q^k(\delta)r$
-	В работе$^*$ (теорема 5.1., Васин) приводится оптимальная по порядку оценка погрешности двухэтапного метода с монотонным оператором:
+	В работе$^*$ приводится оптимальная по порядку оценка погрешности двухэтапного метода с монотонным оператором:
 	\begin{equation*}
 	\|u_{\alpha(\delta)}^{\delta, k}-\hat{u}\|\leqslant 4\sqrt{k_0 \delta},
 	\end{equation*}
@@ -514,7 +514,7 @@
 	$k(\delta)=\left [\ln(m\delta^p/N)/\ln q(\delta)\right ],$ при котором справедлива оценка для невязки двухэтапного метода
 	$$\|A(u_{\alpha(\delta),k}^{\delta})-f_\delta\|\leqslant 2m\delta^p, \quad \alpha(\delta)=\delta^p.$$ 
 	{\scriptsize
-		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize 8. В. В. Васин, А. Ф. Скурыдина. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}}
+		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, А. Ф. Скурыдина. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}}
 \end{frame}
 
 \begin{frame}{2.4. Решение модельной задачи магнитометрии}
