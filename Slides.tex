@@ -220,13 +220,13 @@
 
 \begin{frame}
 	\begin{itemize}
-		\item регуляризованный метод минимальной ошибки (ММО): $$\min_{\beta}{\|u^k-\beta(A(u^k)-f_{\delta})-z\|^2},\quad u^{k+1} =u^k - \frac{\langle B^{-1}(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|S_\alpha(u^k)\|^2}S_\alpha(u^k),$$
+		\item регуляризованный метод минимальной ошибки (ММО): $$\min_{\beta}{\|u^k-\beta(A(u^k)-f_{\delta})-z\|^2},\quad u^{k+1} =u^k - \gamma\frac{\langle B^{-1}(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|S_\alpha(u^k)\|^2}S_\alpha(u^k),$$
 		\item регуляризованный метод наискорейшего спуска (МНС):
 		$$\min_{\beta}\{<A'(u^k)u^{k+1},u^{k+1}>-2<u^{k+1},F(u^k)>\},$$
-		$$ u^{k+1} =u^k - \frac{\langle S_\alpha(u^k), S_\alpha (u^k)\rangle}{\langle B(u^k)S_\alpha(u^k), S_\alpha(u^k)\rangle}(A(u^k)+\alpha(u^k-u^0)-f_\delta)$$
+		$$ u^{k+1} =u^k - \gamma\frac{\langle S_\alpha(u^k), S_\alpha (u^k)\rangle}{\langle B(u^k)S_\alpha(u^k), S_\alpha(u^k)\rangle}(A(u^k)+\alpha(u^k-u^0)-f_\delta)$$
 		\item регуляризованный метод минимальных невязок (ММН):
-		$$\min_{\beta}\{\|A'(u^k)(u^k-\beta(A(u^k)-f_{\delta})-F(u^k)\|^2\},$$$$ u^{k+1} =u^k - \frac{\langle B(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|B(u^k)S_\alpha(u^k)\|^2}(A(u^k)+\alpha(u^k-u^0)-f_\delta),$$
-		где $B(u^k)=A'(u^k)+\bar{\alpha}I, \quad S_\alpha(u^k)=A(u^k)+\alpha(u^k-u^0)-f_\delta$.
+		$$\min_{\beta}\{\|A'(u^k)(u^k-\beta(A(u^k)-f_{\delta})-F(u^k)\|^2\},$$$$ u^{k+1} =u^k - \gamma\frac{\langle B(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|B(u^k)S_\alpha(u^k)\|^2}(A(u^k)+\alpha(u^k-u^0)-f_\delta),$$
+		где $B(u^k)=A'(u^k)+\bar{\alpha}I, \quad S_\alpha(u^k)=A(u^k)+\alpha(u^k-u^0)-f_\delta$, \\$\gamma$ --- демпфирующий множитель.
 	\end{itemize}
 \end{frame}
 
@@ -866,7 +866,7 @@
 			1 мин & 7.25 & 65 \\ \hline
 			2. Модиф. метод Ньютона     &         5           & 0.042            & 55 мин                  & 7,5 мин.    &
 			45 сек & 7.33 & 73             \\ \hline
-			3. Метод Ньютона с ленточной матрицей &  4               & 0.041                    & 43 мин                  & 6,8 мин. & 30   & 7.41 & 86        \\ \hline
+			3. Метод Ньютона с ленточной матрицей &  4               & 0.041                    & 43 мин                  & 6,8 мин. & 30 сек   & 7.41 & 86        \\ \hline
 			\rowcolor{Green}
 			4. Покомпонентный метод Ньютона &  6               & 0.041                    & 20 мин  & 2,82 мин.  &  11 сек   & 7.14 & 100            \\ \hline
 		\end{tabular}
