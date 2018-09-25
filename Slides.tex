@@ -39,7 +39,7 @@
 	\footnotesize
 	
 \title[\hspace*{55mm}{\insertpagenumber /\pageref{lastpage}}]{{\small\textbf{Регуляризующие алгоритмы на основе методов 
-Ньютоновского типа и нелинейных аналогов $\alpha$-процессов}}}
+ньютоновского типа и нелинейных аналогов $\alpha$-процессов}}}
 \author[\insertlogo{\em{Алия Фиргатовна Скурыдина}}%
 \hspace*{60mm}]{\textbf{\color{blue}Алия Фиргатовна Скурыдина}}
 \institute[05.13.18]
@@ -58,31 +58,30 @@
 	
 	\smallskip
 	%Теорию решения некорректных задач развивали А.~Н.~Тихонов, М.~М.~Лаврентьев, В.~К.~Иванов, А.~Б.~Бакушинский, Б.~Т.~Поляк, А.~В.~Гончарский, В.~В.~Васин, А.~Л.~Агеев, В.~П.~Танана, А.~Г.~Ягола, A.~Neubauer, O.~Scherzer, B.~Kaltenbacher, U.~Tautenhahn и др.
-	Основы теории некорректно поставленных задач были заложены в 50--60 годы прошлого века в работах выдающихся российских математиков А.~Н.~Тихонова, В.~К.~Иванова, М.~М.~Лаврентьева и дальнейшее ее развитие было продолжено в работах их учеников и последователей. В этих работах исследования относились, главным образом, к линейным уравнениям, но и для нелинейных задач были сформулированы базовые принципы регуляризации.
+	Основы теории некорректно поставленных задач были заложены в 50--60 годы прошлого века в работах выдающихся российских математиков А.~Н.~Тихонова, В.~К.~Иванова, М.~М.~Лаврентьева. % и дальнейшее ее развитие было продолжено в работах их последователей и учеников.
+	%В этих работах исследования относились, главным образом, к линейным уравнениям.% для нелинейных задач были сформулированы базовые принципы регуляризации.
+
+	В работах А.~Б.~Бакушинского предложен принцип итеративной регуляризации метода Ньютона и исследована его сходимость.
 	
 \end{frame}
 
 \begin{frame}{Введение}
 	
-%	Для решения систем нелинейных уравнений проводились исследования в работах Л.~В.~Канторовича, А.~Б.~Бакушинского, М.~Ю.~Кокуриным, Б.~Т.~Поляка, J.~M.~Ortega и W.~C.~Rheinboldt,	A.~Neubauer, M.~J.~D.~Powell, 	J.~C.~Gilbert, J.~Nocedal, S.~J.~Wright.
-%	L.~Landweber, M.~Hanke. %Градиентные методы с применением метода Ландвебера исследовались М.~Ю.~Кокуриным.
-%	%Методы решения структурных обратных задач гравиметрии и магнитометрии предложены в работах В.~Б.~Гласко, В.~Н.~Страхова. 
-%	\vspace*{0.3cm}
-%	
-%	Алгоритмы решения обратных задач математической физики на основе регуляризованных градиентных методов, 
-%методов Гаусса -- Ньютона, Левенберга -- Марквардта разрабатывались в ИММ УрО РАН В.~В.~Васиным, Е.~Н.~Акимовой, 
-%Л.~Ю.~Тимерхановой, Г.~Я.~Пересторониной, В.~Е.~Мисиловым. 
-%	\vspace*{0.3cm}
+Устойчивые методы решения нелинейных некорректных задач 
+строились и исследовались в работах А.~Б.~Бакушинского, В.~В.~Васина,  Б.~Т.~Поляка, A.~Neubauer, B.~Kaltenbacher, H.~W.~Engl, А.~Л.~Агеева, А.~В.~Гончарского, С.~И.~Кабанихина, М.~Ю.~Кокурина, А.~С.~Леонова, В.~А.~Морозова, В.~П.~Тананы, А.~Г.~Яголы, M.~Hanke.
 %
-%Алгоритмы решения геофизических задач на основе метода локальных поправок разрабатывались в ИГФ УрО РАН 
-%П.~С.~Мартышко, И.~Л.~Пруткиным, А.~Г.~Цидаевым. 
-В дальнейшем получили развитие устойчивые (регулярные) методы решения нелинейных некорректных задач на основе принципа итеративной регуляризации и иных подходах в работах А.~Б.~Бакушинского, Б.~Т.~Поляка, А.~В.~Гончарского, М.~Ю.~Кокурина, В.~В.~Васина, В.~Г.~Романова, С.~И.~Кабанихина, Ф.~П.~Васильева, В.~А.~Морозова, А.~Г.~Яголы, А.~С.~Леонова, А.~Л.~Агеева, В.~П.~Тананы, В.~И.~Максимова, А.~И.~Короткого, А.~Б.~Смирновой, A.~Neubauer, B.Kaltenbacher, H.~W.~Engl, M.~Hanke, C.~Boeckmann.
+%%Структурные задачи гравиметрии и магнитометрии --- важный класс нелинейных некорректных задач. При обработке геофизических данных на больших площадях возникает необходимость решать системы нелинейных уравнений большой размерности с использованием параллельных вычислений.
+%\vskip 5pt
+%%Структурные задачи гравиметрии и магнитометрии --- нелинейные некорректные задачи. 
+%%Решение структурных задач гравиметрии и магнитометрии на больших сетках возникает необходимость решать системы нелинейных уравнений большой размерности с использованием параллельных вычислений.
+%\vskip 5pt
+%\vskip 5pt
 
-Структурные задачи гравиметрии и магнитометрии --- важный класс нелинейных некорректных задач. При обработке геофизических данных на больших площадях возникает необходимость решать системы нелинейных уравнений большой размерности с использованием параллельных вычислений.
+В ИММ УрО РАН разработаны и исследованы параллельные алгоритмы на основе регуляризованных методов Ньютона, Левенберга -- Марквардта и процессов градиентного типа (В.~В.~Васин, Е.~Н.~Акимова, Г.~Я.~Пересторонина, Л.~Ю.~Тимерханова, В.~Е.~Мисилов).
 
-В ИГФ УрО РАН разработана методика и алгоритмы решения обратных задач на основе метода локальных поправок (И.~Л.~Пруткин, П.~С.~Мартышко, И.~В.~Ладовский, А.~Г.~Цидаев).  
+В ИГФ УрО РАН разработана оригинальная методика решения обратных задач гравиметрии и магнитометрии с использованием идей регуляризации, построены алгоритмы на основе метода локальных поправок (П.С.~Мартышко,  И.Л.~Пруткин, Н.В.~Федорова, А.Л.~Рублев, И.В.~Ладовский, А.Г.~Цидаев, Д.Д.~Бызов).  
 
-В ИММ УрО РАН разработаны параллельные алгоритмы на основе методов Ньютона, Левенберга -- Марквардта и процессов градиентного типа (В.~В.~Васин, Е.~Н.~Акимова, Л.~Ю.~Тимерханова, Г.~Я.~Пересторонина, В.~Е.~Мисилов).
+При решении обратных задач гравиметрии и магнитометрии на больших сетках используются параллельные алгоритмы и многопроцессорные вычислители.
 \end{frame}
 
 \begin{frame}{Введение}
@@ -94,11 +93,11 @@
 \end{frame}
 
 \begin{frame}{Глава 1. Решение уравнений с монотонным оператором}
-	В первой главе рассматриваются методы решения некорректных задач с нелинейным монотонным оператором. Дано обоснование двухэтапного метода на основе регуляризованного метода Ньютона. Построены методы минимальной ошибки, наискорейшего спуска и минимальных невязок решения нелинейных уравнений и доказывается их сходимость к регуляризованному решению. Приводится оценка погрешности регуляризованного решения.
+	В первой главе рассматриваются методы решения некорректных задач с нелинейным монотонным оператором. Дано обоснование двухэтапного метода на основе метода Ньютона и нелинейных аналогов $\alpha$-процессов. Приводится оценка погрешности регуляризованного решения.
 \end{frame}
 
 \begin{frame}{1.1. Регуляризованный метод Ньютона}
-		Рассматривается нелинейное уравнение $I$ рода с неизвестной функцией $u$ $A: H \to H$
+		Рассматривается уравнение $I$ рода с неизвестной функцией $u$, монотонным $A: H \to H$, $A^{-1}$, $A'(u)^{-1}$ разрывны в окрестности решения
 		$$A(u)=f. \eqno (1.1)$$
 		
 		Регуляризация по схеме Лаврентьева
@@ -109,53 +108,14 @@
 		$$ u^{k+1}=u^k-\gamma(A'(u^k)+\bar\alpha I)^{-1}(A(u^k)+\alpha(u^k-u^0)-f_\delta)\equiv{T(u^k)}, \eqno (1.3)$$
 		где $A'(u^k)$ --- производная по Фреше оператора $A$ уравнения (1.1), \\ $\gamma$ --- демпфирующий множитель, $\bar{\alpha} \geqslant \alpha >0 $ --- параметры регуляризации, \\$T$ --- оператор шага.
 		\scriptsize
-		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize А. Б. Бакушинский. Регуляризующий алгоритм на основе метода Ньютона -- Канторовича ... // ЖВМиМФ, 16:6 (1976). С. 1397--1604.}
+		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize А. Б. Бакушинский. Регуляризующий алгоритм на основе метода Ньютона -- Канторовича ... // ЖВМиМФ, 16:6 (1976). С. 1397--1404.}
 %		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize ** В. В. Васин, Е. Н. Акимова, А. Ф. Миниахметова. Итерационные алгоритмы ньютоновского типа и их приложения к обратной задаче гравиметрии // Вестник ЮУрГУ, 6:3 (2013). С. 26--37.}
-\end{frame}
-
-%\begin{frame}{\small $\alpha$-процессы (Красносельский и др., 1969)}
-%	Рассматривается линейное уравнение в гильбертовом пространстве
-%	$$Ax=y,$$
-%	с ограниченным, самосопряженным, положительно полуопределенным оператором $A$. %, где $A^{-1}$ может не существовать или быть неограниченным.
-%	
-%	\smallskip
-%	Пусть $\alpha \in [-1, \infty)$ --- некоторое фиксированное вещественное число. Определяется итеррационная последовательность
-%	$$x^{k+1}=x^k-\frac{\langle A^\alpha\Delta^k, \Delta^k \rangle}{\langle A^{\alpha +1}\Delta^k, \Delta^k\rangle}\Delta^k,$$
-%	где $\Delta^k=Ax^k-y$.
-%	\begin{itemize}
-%		\item при $\alpha=1$ --- метод минимальных невязок (Красносельский и др., 1969),
-%		\item при $\alpha=0$ --- метод наискорейшего спуска (например, Канторович, Акилов, 1959),
-%		\item при $\alpha=-1$ --- метод минимальной ошибки.
-%	\end{itemize}
-%\end{frame}
-%\begin{frame}{1.1. Регуляризованный метод Ньютона}
-%		
-%%		\bigskip
-%%		Модифицированный вариант {\textbf{\color{red}(Васин, 2013)}}:
-%%		$$ u^{k+1}=u^k-\gamma(A'(u^0)+\bar\alpha I)^{-1}(A(u^k)+\alpha(u^k-u^0)-f_\delta)\equiv{T(u^k)},$$
-%%		где $A'(u^0)$ --- производная в начальной точке итераций.
-%%		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, Е. Н. Акимова, А. Ф. Миниахметова. Итерационные алгоритмы ньютоновского типа и их приложения к обратной задаче гравиметрии // Вестник ЮУрГУ, 6:3 (2013). С. 26–37.}
-%\end{frame}
-\begin{frame}{\small 1.1. Оценка скорости сходимости РМН с монотонным оператором}
-	\begin{block}{\bf Теорема ~1.1.} 
-		Пусть $A$ --- монотонный оператор, для которого выполнены условия 
-		$$\|A(u)-A(v)\|\leqslant N_1\|u-v\|, \quad \forall u, v \in S(u^0;R),$$ 
-		$$\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|, \quad \forall u, v \in S(u^0;R),$$
-		известна оценка для нормы производной в точке $u^0$, т.е.
-		$$	\|A'(u^0)\| \leqslant N_1,$$ 
-		$$0<\alpha \leqslant \bar\alpha,\quad\|u^0-u_\alpha\| \leqslant r,\quad r\leqslant \alpha/N_2.$$ 
-		
-		\smallskip
-		Тогда для процесса (1.3) c $\gamma=1$ имеет место линейная скорость сходимости метода при аппроксимации единственного решения $u_\alpha$ регуляризованного уравнения (1.2)
-		$$\| u^{k}-u_\alpha \| \leqslant q^kr, \quad q=(1-\frac{\alpha}{2\bar\alpha}).$$
-	\end{block}
-	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, А. Ф. Скурыдина. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
 \end{frame}
 
 \begin{frame}{}
 	\begin{block}{\bf Определение} Усиленное свойство Фейера для оператора $T$ означает, что для некоторого $\nu>0$ выполнено соотношение
 		$$\|T(u)-z\|^2\leqslant\|u-z\|^2-\nu\|u-T(u)\|^2,\eqno (1.4)$$
-		где $z\in Fix(T)$---множество неподвижных точек оператора $T$. Это влечет для итерационных точек $u^k$, порождаемых процессом $u^{k+1}=T(u^k)$, выполнение неравенства
+		где $\forall z\in Fix(T)$ --- множеству неподвижных точек оператора $T$. Это влечет для итерационных точек $u^k$, порождаемых процессом $u^{k+1}=T(u^k)$, выполнение неравенства
 		$${\|u^{k+1}-z\|}^2\leqslant{\|u^k-z\|}^2-\nu{\|u^k-u^{k+1}\|}^2.\eqno (1.5)$$
 	\end{block}
 	Применимость фейеровских операторов:
@@ -163,43 +123,41 @@
 		\item построение гибридных методов;
 		\item учет априорных ограничений на решение в виде систем неравенств;
 	\end{itemize}
-\scriptsize
-		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, И. И. Еремин. Операторы и итерационные процессы фейеровского типа. Теория и приложения. Екатеринбург: УрО РАН, 2005.}
+	\scriptsize
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Vasin V.V., Eremin I.I. Operators and Iterative Processes of Fejer Type. Theory and Applications. Berlin/New York: Walter de Gruyter, 2009.}
 \end{frame}
 
-%\begin{frame}
-%	\begin{block}{\bf Теорема ~1.2.}
-%		Пусть для монотонного оператора $A$ выполнены условия $$
-%		\|A(u)-A(v)\|\leqslant N_1\|u-v\|,
-%		\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|, \quad \forall u, v \in U,$$
-%		$$\|A'(u^0)\| \leqslant N_0\leqslant N_1, \quad \|u^0-u_\alpha\| \leqslant r, $$
-%		\smallskip
-%		$A'(u^0)$ --- самосопряженный оператор, $\|u_\alpha-u^0\|\leqslant r \quad  
-%		0\leqslant\alpha\leqslant\bar\alpha,\quad\bar\alpha\geqslant 4N_1,\quad r\leqslant\alpha/8N_2.$
-%		\vspace{3mm}
+%\begin{frame}{\small 1.1. Оценка скорости сходимости РМН с монотонным оператором}
+%	\begin{block}{\bf Теорема ~1.1.} 
+%		Пусть $A$ --- монотонный оператор, для которого выполнены условия 
+%		$$\forall u, v \in S(u^0;R)\quad\|A(u)-A(v)\|\leqslant N_1\|u-v\|,$$ 
+%		$$\forall u, v \in S(u^0;R)\quad\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|,$$
+%		известна оценка для нормы производной в точке $u^0$, т.е.
+%		$$	\|A'(u^0)\| \leqslant N_1,$$ 
+%		$$0<\alpha \leqslant \bar\alpha,\quad\|u^0-u_\alpha\| \leqslant r,\quad r\leqslant \alpha/N_2.$$ 
 %		
-%		Тогда для оператора
-%		$$ F(u)=(A'(u)+\bar\alpha I)^{-1}(A(u)+\alpha(u-u^0)-f_\delta) $$
-%		справедлива оценка снизу
-%		$$\langle F(u), u-u_\alpha \rangle \geqslant\frac{\alpha}{4\bar\alpha}{\|u-u_\alpha\|}^2 \quad \forall u \in S_r(u_\alpha).$$
+%		\smallskip
+%		Тогда для метода Ньютона c $\gamma=1$ имеет место линейная скорость сходимости метода при аппроксимации единственного решения $u_\alpha$ регуляризованного уравнения (1.2)
+%		$$\| u^{k}-u_\alpha \| \leqslant q^kr, \quad q=(1-\frac{\alpha}{2\bar\alpha}).$$
 %	\end{block}
-%\end{frame} 
+%	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, А. Ф. Скурыдина. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}
+%\end{frame}
 
-\begin{frame}
+\begin{frame}{\small 1.1. Оценка скорости сходимости РМН с монотонным оператором}
 	Пусть для монотонного оператора $A$ выполнены условия 
 	$$\forall u, v \in S(u^0;R) \quad \|A(u)-A(v)\|\leqslant N_1\|u-v\|,
 	\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|, \eqno (1.6)$$
 	$$\|A'(u^0)\| \leqslant N_1, \eqno (1.7)$$
-	\smallskip
-	{\textbf{\color{blue}$A'(u^0)$ --- самосопряженный оператор}}, $$  
+	\vskip -2 mm
+	$A'(u^0)$ --- неотрицательно определенный самосопряженный оператор, $$  
 	0<\alpha\leqslant\bar\alpha,\quad\bar\alpha\geqslant 4N_1,\quad \|u_\alpha-u^0\|\leqslant r,\quad r\leqslant\alpha/8N_2. \eqno (1.8)$$
 	\vskip -2 mm
-	\begin{block}{\bf Теорема ~1.2.}
+	\begin{block}{\bf Теорема ~1.3.}
 		Пусть выполнены условия (1.6)--(1.8). Тогда при
 		$\gamma<\frac{\alpha\bar\alpha}{2(N_1+\alpha)^2}$
 		оператор шага $T$ метода Ньютона при
 		$$\nu=\frac{\alpha\bar\alpha}{2\gamma(N_1+\alpha)^2}-1$$
-		удовлетворяет неравенству сильной фейеровости, для итераций $u^k$ справедливо соотношение (1.5) и имеет место сходимость
+		удовлетворяет неравенству сильной фейеровости, последовательность итераций $u^k$ является сильно фейеровской и имеет место сходимость
 		$$\lim_{k\to\infty}\|u^k-u_\alpha\|=0.$$
 		Если параметр $\gamma$ принимает значение ${\gamma}_{opt}=\frac{\alpha\bar\alpha}{4(N_1+\alpha)^2},$ то справедлива оценка $$\|u^k-u_\alpha\|\leqslant q^k r, \quad q=\sqrt{1-\frac{{\alpha}^2}  {16(N_1+\alpha)^2}}.$$
 	\end{block}
@@ -222,24 +180,9 @@
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize М. А. Красносельский, Г. М. Забрейко, П. П. Забрейко и др. Приближенное решение операторных уравнений // М.: Наука, 1969.}
 \end{frame}
 
-\begin{frame}
-	\begin{itemize}
-		\item регуляризованный метод минимальной ошибки (ММО): $$\min_{\beta}{\|u^k-\beta(A(u^k)-f_{\delta})-z\|^2},\quad u^{k+1} =u^k - \gamma\frac{\langle B^{-1}(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|S_\alpha(u^k)\|^2}S_\alpha(u^k),$$
-		\item регуляризованный метод наискорейшего спуска (МНС):
-		$$\min_{\beta}\{\langle A'(u^k)u^{k+1},u^{k+1}\rangle -2\langle u^{k+1},F(u^k)\rangle \},$$
-		$$ u^{k+1} =u^k - \gamma\frac{\langle S_\alpha(u^k), S_\alpha (u^k)\rangle}{\langle B(u^k)S_\alpha(u^k), S_\alpha(u^k)\rangle}S_\alpha(u^k)$$
-		\item регуляризованный метод минимальных невязок (ММН):
-		$$\min_{\beta}\{\|A'(u^k)(u^k-\beta(A(u^k)-f_{\delta})-F(u^k)\|^2\},$$$$ u^{k+1} =u^k - \gamma\frac{\langle B(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|B(u^k)S_\alpha(u^k)\|^2}S_\alpha(u^k),$$
-		\vskip 3mm
-		где $B(u^k)=A'(u^k)+\bar{\alpha}I, \quad S_\alpha(u^k)=A(u^k)+\alpha(u^k-u^0)-f_\delta$, 
-		\vskip 2mm
-		$\gamma$ --- демпфирующий множитель.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Модифицированные варианты на основе $\alpha$-процессов}
-	Рассматривается случай модификации итерационных методов, когда производная оператора задачи вычисляется 
-        в начальном приближении:
+\begin{frame}{Модифицированные варианты на основе аналогов $\alpha$-процессов}
+	Производная оператора задачи вычисляется 
+	в начальном приближении:
 	%$$ u^{k+1}=u^k-\gamma\frac{<(A'(u^0)+\bar\alpha I)^{\varkappa}S_\alpha(u^k), S_\alpha(u^k)>}{<(A'(u^0)+\bar\alpha I)^{\varkappa+1}S_\alpha(u^k), S_\alpha(u^k)>}S_\alpha(u^k)\equiv{T(u^k)},\eqno (3.3)$$
 	%$\varkappa=-1,0,1$.
 	\begin{itemize}
@@ -255,25 +198,26 @@
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Vasin V. V. Regularized modified alpha-processes for nonlinear equations with monotone operators // Dokl. Math. -- 2016. -- Vol.469, pp. 13--16}
 \end{frame}
 
-%\begin{frame}
-%	\begin{block}{\bf Теорема ~1.4.}
-%		Пусть для монотонного оператора $A$ выполнены условия $$\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|, \quad \forall u, v \in U,	$$$$\|A'(u^0)\| \leqslant N_0\leqslant N_1, \quad \|u^0-u_\alpha\| \leqslant r,$$ и $A'(u^0)$ --- самосопряженный оператор. 
-%		
-%		Кроме того, для ММО параметры $\alpha$, $\bar\alpha$, $r$, $N_2$, $N_0$ удовлетворяют дополнительным соотношениям:
-%		$$\alpha \leqslant \bar\alpha, \quad r\leqslant \alpha/8N_2, \quad \bar\alpha \geqslant N_0.$$
-%		
-%		Тогда справедливы соотношения
-%		$$\|F^\varkappa(u)\|^2 \leqslant \mu_\varkappa\langle F^\varkappa(u), u-u_\alpha\rangle, \quad \varkappa=-1,0,1,$$ где
-%		$$
-%		\mu _{-1}=\frac{4(N_1+\alpha)^2}{\alpha\bar\alpha}, \quad \mu _0= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)}{\alpha{\bar\alpha}^2}, $$$$\quad \mu_1= \frac{(N_1+\alpha)^2(N_1+\bar\alpha)^2}{\alpha{\bar\alpha}^3},
-%		$$
-%		соответственно для ММО, МНС, ММН.
-%	\end{block}
-%\end{frame}
+\begin{frame}
+	\begin{itemize}
+		\item регуляризованный метод минимальной ошибки (ММО): $$\min_{\beta}{\|u^k-\beta(A(u^k)-f_{\delta})-z\|^2},\quad u^{k+1} =u^k - \gamma\frac{\langle B^{-1}(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|S_\alpha(u^k)\|^2}S_\alpha(u^k),$$
+		\item регуляризованный метод наискорейшего спуска (МНС):
+		$$\min_{\beta}\{\langle A'(u^k)u^{k+1},u^{k+1}\rangle -2\langle u^{k+1},F(u^k)\rangle \},$$
+		$$ u^{k+1} =u^k - \gamma\frac{\langle S_\alpha(u^k), S_\alpha (u^k)\rangle}{\langle B(u^k)S_\alpha(u^k), S_\alpha(u^k)\rangle}S_\alpha(u^k)$$
+		\item регуляризованный метод минимальных невязок (ММН):
+		$$\min_{\beta}\{\|A'(u^k)(u^k-\beta(A(u^k)-f_{\delta})-F(u^k)\|^2\},$$$$ u^{k+1} =u^k - \gamma\frac{\langle B(u^k)S_\alpha(u^k), S_\alpha (u^k)\rangle}{\|B(u^k)S_\alpha(u^k)\|^2}S_\alpha(u^k),$$
+		\vskip 3mm
+		где $B(u^k)=A'(u^k)+\bar{\alpha}I, \quad S_\alpha(u^k)=A(u^k)+\alpha(u^k-u^0)-f_\delta$, 
+		\vskip 2mm
+		$\gamma$ --- демпфирующий множитель.
+		$$ u^{k+1}=u^k-\gamma\frac{\langle(A'(u^k)+\bar\alpha I)^{\varkappa}S_\alpha(u^k), S_\alpha(u^k)\rangle}{\langle(A'(u^k)+\bar\alpha I)^{\varkappa+1}S_\alpha(u^k), S_\alpha(u^k)\rangle}S_\alpha(u^k)\equiv{T(u^k)},$$
+		$\varkappa=-1,0,1$.
+	\end{itemize}
+\end{frame}
 
-\begin{frame}{\small 1.2. Оценка скорости сходимости нелинейных $\alpha$-процессов}
-		Пусть для монотонного оператора $A$ выполнены условия \\ $\forall u, v \in S(u^0;R)$ $\|A(u)-A(v)\|\leqslant N_1\|u-v\|$, $\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|$,	\\ $\|A'(u^0)\| \leqslant N_1$, и $A'(u^0)$ --- самосопряженный оператор,  $\alpha \leqslant \bar\alpha$, $\bar\alpha \geqslant N_1$, \\для ММО $\|u^0-u_\alpha\| \leqslant r$, $r\leqslant \alpha/8N_2.$
-	\begin{block}{\bf Теорема ~1.3.}
+\begin{frame}{\small 1.2. Оценка скорости сходимости нелинейных аналогов $\alpha$-процессов}
+		Пусть для монотонного оператора $A$ выполнены условия \\ $\forall u, v \in S(u^0;R)$ $\|A(u)-A(v)\|\leqslant N_1\|u-v\|$, $\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|$,	\\ $\|A'(u^0)\| \leqslant N_1$, $\alpha \leqslant \bar\alpha$, $\bar\alpha \geqslant N_1$, \\для ММО $A'(u^0)$ --- самосопряженный оператор, $\|u^0-u_\alpha\| \leqslant r$, $r\leqslant \alpha/8N_2.$
+	\begin{block}{\bf Теорема ~1.5.}
 		Пусть выполнены условия, $\mu _\varkappa$ вычисляется для каждого из трех $\alpha$-процессов. Тогда при
 		$$\gamma <\frac{2}{\mu _\varkappa}\quad (\varkappa=-1,0,1)$$
 		для последовательности $\{u^k\}$, порождаемой $\alpha$-процессом при соответствующем $\varkappa$, имеет место сходимость $\lim_{k\to\infty}\|u^k-u_\alpha\|=0, $ а при 
@@ -295,19 +239,21 @@
 %	$$
 %	Для методов главы 1 имеются оценки 
 %	$\|u_{\alpha(\delta)}^{\delta, k}-u_{\alpha(\delta)}^{\delta}\|\le q^k(\delta)r$
-	Приводится оптимальная по порядку оценка погрешности двухэтапного метода с монотонным оператором:
+$$\|u_{\alpha(\delta)}^{\delta, k}-\hat{u}\|\le\|u_{\alpha(\delta)}^{\delta, k}-u_{\alpha(\delta)}^{\delta}\|+\|u_{\alpha(\delta)}^{\delta}-\hat{u}\|\le rq^k(\delta)+ 2\sqrt{k_0\delta}.$$
+	Получена оценка погрешности двухэтапного метода с монотонным оператором:
 	\begin{equation*}
 	\|u_{\alpha(\delta)}^{\delta, k}-\hat{u}\|\leqslant 4\sqrt{k_0 \delta}
 	\end{equation*}
 	при выборе числа итераций по правилу $$k(\delta)=\left[\frac{\ln(2\sqrt{k_0\delta}/r)}{\ln q(\delta)}\right],$$
-	где приближение $u_{\alpha(\delta)}^{\delta, k}$ зависит от $\delta$, $\hat{u}$ --- решение исходного уравнения, $k_0=(1+N_2\|v\|/2)\|v\|$ ($u^0-\hat{u}=A'(\hat{u})v$ --- истокообразная представимость решения$^{**}$).
-	{ \scriptsize
-	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, А. Ф. Скурыдина. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.} 
+	где приближение $u_{\alpha(\delta)}^{\delta, k}$ зависит от $\delta$, $\hat{u}$ --- решение исходного уравнения, $k_0=(1+N_2\|v\|/2)\|v\|$ \\
+	$u^0-\hat{u}=A'(\hat{u})v$ --- истокообразная представимость решения.
+	{ 
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize U. Tautenhahn. On the method of Lavrentiev regurarization for nonlinear ill-posed problems // Inverse Problem. 2002. Vol. 91, №1. P. 191–207.}
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. К. Иванов, В. В. Васин, В. П. Танана. Теория линейных некорректных задач и её приложения. М.: Наука, 1978. --- 206 с.}
 	}
 \end{frame}
 
-\begin{frame}{1.3. Пример}
+\begin{frame}{1.3. Иллюстрирующий пример}
 %	Рассматривается ДУ с $x(t)$, $y(t)$, $t\in[0, 1]$ с заданной константой $c_0>0$
 %	$$	\frac{dy}{dt}=x(t)y(t), \quad y(0)=c_0,$$
 %	где $x(t), y(t)\in L^2[0,1]$. Интегрируя ДУ, приходим к нелинейному операторному уравнению
@@ -326,62 +272,11 @@
 	Начальное приближение $u^0(t)=0$, $\gamma=1$, $\bar\alpha=1$, $\alpha=10^{-3}$, критерий останова
 	\vskip 1mm
 	 $\frac{\|u^k-z\|}{\|z\|}\leqslant\varepsilon=0.25$, где $u^k$ --- приближение на $k$-й итерации.
-	\vskip 0.3cm	
+	\vskip 0.3cm
+	{\textbf{\color{blue}Результаты:}} проверена применимость методов, получено приближенное решение.	
 
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize U. Tautenhahn. On the method of Lavrentiev regularization for nonlinear 	ill-posed problems // Inverse Problems. 2002. pp. 191--207.}
 \end{frame}
-
-%\begin{frame}{Эксперимент для задачи без шума}
-%	Точное решение --- функция $z(t)=t^2$, начальное приближение $x^0(t)=t^3$, $\bar\alpha=\alpha=10^{-2}$, критерий останова $\frac{\|x^k-z\|}{\|z\|}\leqslant\varepsilon=10^{-2}$, где $x^k$ --- приближение на $k$-й итерации. На рисунке изображено восстановленное решение методом ММН. Точное решение отмечено голубым цветом, начальное приближение --- малиновым, ММН --- зеленым. 
-%	\begin{figure}[h]
-%		\centering
-%		\includegraphics[height=4.0cm]{mmn_ch1}
-%	\end{figure}
-%	\centering
-%	Восстановленное ММН решение.
-%\end{frame}
-%\begin{frame}{}
-%	Точное решение --- функция $z(t)=t^2$, начальное приближение $x^0(t)=t^3$, $\bar\alpha=\alpha=10^{-2}$, критерий останова $\frac{\|x^k-z\|}{\|z\|}\leqslant\varepsilon=10^{-2}$, где $x^k$ --- приближение на $k$-й итерации.
-%	$\Delta=\frac{\|F(x^k)+\alpha(x^k-x^0)-y\|}{\|y\|}$ --- относительная норма невязки. 
-%	\begin{table}[h]
-%		\centering
-%		{\scriptsize Табл.1. Результаты для правой части без шума}
-%		\begin{tabular}{|l|c|c|c|}
-%			\hline
-%			\textbf{Метод}                   & \multicolumn{1}{l|}{\textbf{Параметр шага, $\gamma$}} & \multicolumn{1}{l|}{\textbf{$\Delta$}} & \multicolumn{1}{l|}{\textbf{Число итераций, N}} \\ \hline
-%			ММО                              & \begin{tabular}[c]{@{}c@{}}0.5\end{tabular}                                       & 0.003                                   & 25                                     \\ \hline
-%			\multicolumn{1}{|r|}{ММО модиф.} & 0.5                                                                                                           & 0.003                                   & 22                                     \\ \hline
-%			МНС                              & 0.001                                                                                                         & 0.003                                   & 283                                    \\ \hline
-%			МНС модиф.                       & \begin{tabular}[c]{@{}c@{}}0.02 (c 0-й итер.), \\ 0.005 (c 30-й итер.),\\   0.002 (c 32-й итер.)\end{tabular} & 0.003                                   & 32                                     \\ \hline
-%			ММН                              & 1                                                                                                             & 0.003                                   & 32                                     \\ \hline
-%			ММН модиф.                       & 1                                                                                                             & 0.003                                   & 27                                     \\ \hline
-%			РМН                              & 1                                                                                                             & 0.003                                   & 26                                     \\ \hline
-%			РМН модиф.                       & \begin{tabular}[c]{@{}c@{}}0.75\end{tabular}                                       & 0.003                                   & 6                                      \\ \hline
-%		\end{tabular}
-%	\end{table}
-%\end{frame}
-%\begin{frame}{}
-%	{\textbf{\color{blue}Цель:}}{\textbf{\color{blue}Цель:}} проверить глобальную сходимость методов для задачи с возмущенной правой частью.
-%	
-%	$\delta=0.1$, $\|y-y^{\delta}\|=0.07<\delta$. Точное решение --- функция $z(t)=t^2$. Начальное приближение $x^0(t)=0$, $\gamma=1$, $\bar\alpha=1$, $\alpha=10^{-3}$, критерий останова $\frac{\|x^k-z\|}{\|z\|}\leqslant\varepsilon=0.25$, где $x^k$ --- приближение на $k$-й итерации. 
-%	\begin{table}[H]
-%		\centering
-%		{\scriptsize Табл.1. Результаты для задачи с шумом}
-%		\begin{tabular}{|l|c|c|}
-%			\hline
-%			\textbf{Метод}                   & \multicolumn{1}{l|}{\textbf{$\Delta$}} & \multicolumn{1}{l|}{\textbf{Число итераций, N}} \\ \hline
-%			ММО                              & 0.042                                  & 9                                               \\ \hline
-%			\multicolumn{1}{|r|}{ММО модиф.} & 0.042                                  & 9                                               \\ \hline
-%			МНС                              & 0.041                                  & 9                                               \\ \hline
-%			МНС модиф.                       & 0.040                                  & 9                                               \\ \hline
-%			ММН                              & 0.045                                  & 9                                               \\ \hline
-%			ММН модиф.                       & 0.045                                  & 9                                               \\ \hline
-%			РМН                              & 0.042                                  & 9                                               \\ \hline
-%			РМН модиф.                       & 0.042                                  & 8                                               \\ \hline
-%		\end{tabular}
-%	\end{table}
-%	{\textbf{\color{blue}Вывод:}} удалось достигнуть точности $\varepsilon<\|u^\delta-\hat{u}\|$, относительная норма невязки уменьшается с каждой итерацией.
-%\end{frame}
 
 \begin{frame}{Глава 2. Решение уравнений с немонотонным оператором}
 	
@@ -390,19 +285,9 @@
 	\smallskip
 	Приведены результаты расчетов.
 \end{frame}
-
-%\begin{frame}
-%%	Цель --- обосновать сходимость рассматриваемых процессов в конечномерном случае, когда оператор $A\colon R^n \to R^n$, для которого матрица $A'(u)$ в некоторой окрестности решения имеет спектр, состоящий из различных неотрицательных собственных значений.
-%	\begin{block}{\bf Лемма (Васин, 2017)}
-%		Пусть $n\times n$ матрица $A'(u)$ не имеет кратных собственных значений $\lambda _i$ и числа $\lambda _i$ ($i=1,2,..n$) различны и неотрицательны. Тогда при $\bar\alpha>0$ матрица имеет представление $A'(u)+\bar\alpha I =S(u)\Lambda(u) S^{-1}(u)$ и справедлива оценка
-%		$$\|(A'(u)+\bar\alpha I)^{-1}\|\leqslant \frac{\mu (S(u))}{\bar\alpha+\lambda_{min}} \leqslant \frac{\mu(S(u))}{\bar\alpha}, \eqno (2.1)$$
-%		где столбцы матрицы $S(u)$ составлены из собственных векторов матрицы $A'(u)+\bar\alpha I$, $\Lambda$--- диагональная матрица, ее элементы --- собственные значения матрицы $A'(u)+\bar\alpha I$, $$\mu(S(u))=\|S(u)\|\cdot\|S^{-1}(u)\|,$$
-%		$\mu(S(u))$ --- число обусловленности $S(u)$.
-%	\end{block}
-%\end{frame}
  
 \begin{frame}{\small 2.1. Скорость сходимости РМН с немонотонным оператором}
-$\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\alpha I =S(u)\Lambda(u) S^{-1}(u)$, $\mu(S(u))=\|S(u)\|\cdot\|S^{-1}(u)\|.$
+$A\colon \mathbb{R}^n\to \mathbb{R}^n$, $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\alpha I =S(u)\Lambda(u) S^{-1}(u)$, $\mu(S(u))=\|S(u)\|\cdot\|S^{-1}(u)\|.$
 Имеется оценка:
 	$$\|(A'(u)+\bar\alpha I)^{-1}\|\leqslant \frac{\mu (S(u))}{\bar\alpha+\lambda_{min}} \leqslant \frac{\mu(S(u))}{\bar\alpha}.$$
 	\vskip -1 mm
@@ -411,40 +296,17 @@ $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\
 		$$\|A(u)-A(v)\|\leqslant N_1\|u-v\|,\quad
 		\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|, \quad \forall u, v \in S(u^0;R),$$
 		$$\|A'(u^0)\| \leqslant N_1.$$
-		{\textbf{\color{blue}$A'(u^0)$ --- симметричная матрица, $0<\alpha\leqslant\bar\alpha$, $\bar\alpha\geqslant 4N_0$, $\|u^0-u_\alpha\| \leqslant r$, $r\leqslant\alpha/8N_2\bar S$}}. Тогда для метода (1.3) справедливо заключение теоремы (1.3), где
+		$A'(u^0)$ --- симметричная матрица, $0<\alpha\leqslant\bar\alpha$, $\bar\alpha\geqslant 4N_1$, $\|u^0-u_\alpha\| \leqslant r$, $r\leqslant\alpha/8N_2\bar S$. Тогда для метода (1.3) справедливо заключение теоремы (1.3), где
 		$$\gamma<\frac{\alpha\bar\alpha}{2(N_1+\alpha)^2\bar S^2},
 		\quad
-		{\gamma}_{opt}=\frac{\alpha\bar\alpha}{4(N_1+\alpha)^2\bar S^2},$$ 
+		{\gamma}^{opt}=\frac{\alpha\bar\alpha}{4(N_1+\alpha)^2\bar S^2},$$ 
 		$$\|u^k-u_\alpha\|\leqslant q^k r, \quad q=\sqrt{1-\frac{\alpha ^2}{16(N_1+\alpha)^2\bar S^2}}.$$
 	\end{block}
 \end{frame}
 
-%\begin{frame}
-%	\begin{block}{\bf Замечание~3.1} При доказательстве теоремы достаточно требовать ограниченность величины $$\sup\{\mu(S(u^k)): u^k \in S_r(u_\alpha)\},$$ где $u^k$ --- итерационные точки метода. Причем, при регулярном правиле останова итераций $k(\delta)$, супремум берется по конечному набору номеров $k\leqslant k(\delta)$, что автоматически влечет ограниченность супремума и выполняются оценки аналогичные оценкам в теореме (2.3) при этих значениях $k$. Кроме того, для модифицированного метода Ньютона, в котором производная $A'(u^0)$ вычисляется в фиксированной точке $u^0$, величина $\mu(S(u^0))=\|S(u^0)\|\cdot\|S^{-1}(u^0)\|=\bar S<\infty$.
-%	\end{block}
-%\end{frame}
-%\begin{frame}{2.2. Нелинейные альфа-процессы}
-%	\begin{block}{\bf Теорема ~2.2.}
-%		Пусть выполнены условия леммы, $\|A(u)-A(v)\|\leqslant N_1\|u-v\|,$ \quad $\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|,$ \quad $ \forall u, v \in U,$
-%		$	\|A'(u^0)\| \leqslant N_0\leqslant N_1, \quad \|u^0-u_\alpha\| \leqslant r,$ 
-%%		
-%%		\smallskip
-%%		при $u \in S_r(u_\alpha)$ матрица $A'(u)$ имеет спектр, состоящий из неотрицательных различных собственных значений, $A'(u^0)$ --- самосопряженный неотрицательно определенный оператор, параметры удовлетворяют условиям: 
-%		$$	MMO:\qquad 0<\alpha\leqslant\bar\alpha, \quad r\leqslant\alpha /6\bar SN_2, \quad \bar\alpha \geqslant N_0 $$
-%		$$	MHC:\qquad 0<\alpha\leqslant\bar\alpha, \quad r\leqslant\alpha /3N_2,$$
-%		$$	MMH:\qquad 0<\alpha\leqslant\bar\alpha, \quad r\leqslant\alpha /6N_2.$$
-%%		Тогда для оператора поправки $$F^\varkappa(u)=\frac{\langle(A'(u^k)+\bar\alpha I)^{\varkappa}S_\alpha(u^k), S_\alpha(u^k)\rangle}{\langle(A'(u^k)+\bar\alpha I)^{\varkappa+1}S_\alpha(u^k), S_\alpha(u^k)\rangle}S_\alpha(u^k)$$
-%		справедливо соотношение
-%		$$\|F^\varkappa(u)\|^2 \leqslant \mu_\varkappa\langle F^\varkappa(u), u-u_\alpha\rangle, \quad \varkappa=-1,0,1,$$ где
-%		$$\mu _{-1}=\frac{8\bar S^2(N_1+\alpha)^2}{\alpha\bar\alpha}, \quad 
-%		\mu _0=\frac{18(N_1+\alpha)^2(N_1+\bar\alpha)}{\alpha\bar\alpha ^2}, \quad $$
-%		$$\mu _1=\frac{18(N_1+\alpha)^2(N_1+\bar\alpha)^4}{\alpha\bar\alpha ^5}.$$
-%	\end{block}
-%\end{frame}
-
-\begin{frame}{\small 2.2. Скорость сходимости $\alpha$-процессов с немонотонным оператором}
-	\begin{block}{\bf Теорема ~2.2.}
-		Пусть выполнены условия (пред. слайд), $0<\alpha\leqslant\bar\alpha$, $\|u^0-u_\alpha\| \leqslant r$, для MMO: $r\leqslant\alpha /6\bar SN_2$, $\bar\alpha \geqslant N_0$, \ MHC: $0<\alpha\leqslant\bar\alpha$, $\quad r\leqslant\alpha /3N_2$,
+\begin{frame}{\small 2.2. Скорость сходимости аналогов $\alpha$-процессов с немонотонным оператором}
+	\begin{block}{\bf Теорема ~2.3.}
+		Пусть выполнены условия (пред. слайд), $0<\alpha\leqslant\bar\alpha$, $\|u^0-u_\alpha\| \leqslant r$, для MMO: $r\leqslant\alpha /6\bar SN_2$, $\bar\alpha \geqslant N_1$, \ MHC: $0<\alpha\leqslant\bar\alpha$, $\quad r\leqslant\alpha /3N_2$,
 		MMH: $0<\alpha\leqslant\bar\alpha, \quad r\leqslant\alpha /6N_2$. 
 		
 		Тогда при $\gamma<2/\mu _\varkappa$, $\varkappa=-1,0,1$, с соответствующими $\mu _\varkappa$, последовательности ${u^k}$, порождаемые процессом (1.6) при $\varkappa=-1,0,1$, сходятся к $u_\alpha$, т.е., $$\lim_{k\to\infty}\|u^k-u_\alpha\|=0,$$ а при $
@@ -455,43 +317,26 @@ $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\
 	\end{block}
 \end{frame}
 
-%\begin{frame}{\small\textbf{Модифицированные методы на основе нелинейных альфа-процессов}}
-%	\begin{block}{Теорема 2.4}
-%		Пусть выполнены условия $$\|A(u)-A(v)\|\leqslant N_1\|u-v\|,  \quad \forall u, v \in U,$$ 
-%		$$\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|, \quad \forall u, v \in U,$$
-%		$$\|A'(u^0)\| \leqslant N_0\leqslant N_1, \quad \|u^0-u_\alpha\| \leqslant r,$$ 
-%		
-%		\smallskip
-%		$A'(u^0)$ --- самосопряженный оператор, спектр которого состоит из неотрицательных различных собственных значений, параметры удовлетворяют условиям:
-%		$$0\leqslant\alpha\leqslant\bar{\alpha}, \quad r=\alpha/6N_2, \quad \bar{\alpha}\geqslant N_0.$$
-%		
-%%		Тогда для оператора поправки на итерации
-%%		$$F^\varkappa(u)=\frac{\langle(A'(u^0)+\bar\alpha I)^{\varkappa}S_\alpha(u^k), S_\alpha(u^k)\rangle}{\langle(A'(u^0)+\bar\alpha I)^{\varkappa+1}S_\alpha(u^k), S_\alpha(u^k)\rangle}S_\alpha(u^k)$$ имеет место неравенство
-%		Тогда имеет место неравенство
-%		$$\|F^\varkappa(u)\|^2\leqslant\frac{8(N_1+\alpha)^2}{3\alpha\bar{\alpha}}\langle F^\varkappa(u), u-u_\alpha\rangle,$$
-%		где $ \quad \varkappa=-1, 0, 1,$ для модифицированных вариантов ММО, МНС и ММН соответственно (см. слайд 13).
-%	\end{block}
-%\end{frame}
 
-\begin{frame}{\small 2.2. Сходимость модифицированных $\alpha$-процессов с немонотонным оператотором}
+\begin{frame}{\small 2.3. Модифицированные аналоги $\alpha$-процессов с немонотонным оператором}
 	Пусть выполнены условия:
-	$\|A(u)-A(v)\|\leqslant N_1\|u-v\|, \quad \|A'(u)-A'(v)\|\leqslant N_2\|u-v\|, \quad \forall u, v \in S(u^0;R),$
-	$\|A'(u^0)\| \leqslant N_0\leqslant N_1,$
-	{\textbf{\color{blue}$A'(u^0)$ --- симметричная матрица, спектр которого состоит из неотрицательных различных собственных значений}},
-	$0<\alpha\leqslant\bar{\alpha},\quad \bar{\alpha}\geqslant N_0$, $\|u^0-u_\alpha\| \leqslant r$, $r\leqslant\alpha/6N_2$.
+	$\forall u, v \in S(u^0;R)$ $\|A(u)-A(v)\|\leqslant N_1\|u-v\|$, $\|A'(u)-A'(v)\|\leqslant N_2\|u-v\|,$
+	$\|A'(u^0)\| \leqslant N_1,$
+	$A'(u^0)$ --- симметричная матрица, спектр которого состоит из неотрицательных различных собственных значений,
+	$0<\alpha\leqslant\bar{\alpha},\quad \bar{\alpha}\geqslant N_1$, $\|u^0-u_\alpha\| \leqslant r$, $r\leqslant\alpha/6N_2$.
 	\vskip -1 mm	
-	\begin{block}{Теорема 2.3}
+	\begin{block}{Теорема 2.5}
 		Пусть выполнены условия. Тогда при
 		$$\gamma <\frac{2}{\mu _\varkappa}\quad (\varkappa=-1,0,1)$$
 		для последовательности $\{u^k\}$, порождаемой модифицированным $\alpha$-процессом при соответствующем $\varkappa$, имеет место сходимость $\lim_{k\to\infty}\|u^k-u_\alpha\|=0, $ а при 
 		$\gamma^{opt}=\frac{1}{\mu_\varkappa}$
-		справедлива оценка $$\|u^k-u_\alpha\|\leqslant q{_\varkappa^k}r,$$ где
-		$$q^\varkappa=\sqrt{1-\frac{9\alpha^2}{64(N_1+\alpha)^2}}$$
+		справедлива оценка $$\|u^k-u_\alpha\|\leqslant q^k r,$$ где
+		$$q=\sqrt{1-\frac{9\alpha^2}{64(N_1+\alpha)^2}}$$
 	\end{block}
 \end{frame}
 
 \begin{frame}
-	\begin{block}{\bf Замечание~2.1} Предложенный подход к получению оценок скорости сходимости итерационных процессов полностью переносится на случай, когда спектр матрицы $A'(u^k)$, состоящий из различных вещественных значений, содержит набор малых по абсолютной величине отрицательных собственных значений. Пусть $\lambda _1$ --- наименьшее отрицательное собственное значение с  модулем $|\lambda_1|$ и $\bar\alpha -|\lambda _1|=\bar\alpha _1<\alpha^*$. Тогда оценка 
+	\begin{block}{\bf Замечание~2.4} Предложенный подход к получению оценок скорости сходимости итерационных процессов полностью переносится на случай, когда спектр матрицы $A'(u^k)$, состоящий из различных вещественных значений, содержит набор малых по абсолютной величине отрицательных собственных значений. Пусть $\lambda _1$ --- наименьшее отрицательное собственное значение с  модулем $|\lambda_1|$ и $\bar\alpha -|\lambda _1|=\bar\alpha _1<\alpha^*$. Тогда оценка 
 		$$\|(A'(u)+\bar\alpha I)^{-1}\|\leqslant \frac{\mu (S(u))}{\bar\alpha+\lambda_{min}} \leqslant \frac{\mu(S(u))}{\bar\alpha},$$ 
 		трансформируется в неравенство
 		$$\|(A'(u^k)+\bar\alpha I)^{-1}\|\leqslant\frac{\mu(S(u^k))}{\bar\alpha^*}\leqslant\frac{\bar S}{\bar\alpha^*}$$
@@ -507,8 +352,6 @@ $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\
 	Приравнивая слагаемые в правой части, получаем правило выбора числа итерации
 	$k(\delta)=\left [\ln(m\delta^p/N)/\ln q(\delta)\right ],$ при котором справедлива оценка для невязки двухэтапного метода
 	$$\|A(u_{\alpha(\delta),k}^{\delta})-f_\delta\|\leqslant 2m\delta^p, \quad \alpha(\delta)=\delta^p.$$ 
-	{\scriptsize
-		\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize В. В. Васин, А. Ф. Скурыдина. Двухэтапный метод построения регуляризующих алгоритмов для нелинейных некорректных задач // Труды ИММ УрО РАН Т.23 В.1 (2017), С. 57–74.}}
 \end{frame}
 
 \begin{frame}{2.4. Решение модельной задачи магнитометрии}
@@ -520,11 +363,11 @@ $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\
 	где $\mu_0/{4\pi}=10^{-7}$ Гн/м --- магнитная постоянная, $\Delta J$ --- скачок $z$-компоненты вектора намагниченности, $z=H$ --- асимптотическая плоскость, $ B_z(x,y,0)$ --- функция аномального поля, $z=u(x,y)$ --- искомая функция%, описывающая поверхность раздела сред с различными свойствами намагниченности.
 	
 	\smallskip
-	Точное решение уравнения магнитометрии задается формулой$^*$%\textbf{\color{red}(Акимова, Мисилов, 2014-2016)}
+	Точное решение уравнения магнитометрии задается формулой%$^*$%\textbf{\color{red}(Акимова, Мисилов, 2014-2016)}
 	$$\hat{u}(x,y)=5-2e^{-(x/10-3.5)^6-(y/10-2.5)^6}-3^{-(x/10-5.5)^6-(y/10-4.5)^6} \quad(\textup{км}),$$
 	\vskip -2 mm
-	\textbf{\color{blue}Результаты.} Число обусловленности $\mu(A'_n(u_n^k))\approx 1.8\cdot 10^7$, спектр неотрицательный, состоящий из различных собственных значений, $\bar\alpha=10^{-2}$, $\alpha = 10^{-4}$, $\gamma=1$, относительная погрешность $\varepsilon < 10^{-2}$. Итерационные методы сходятся за 4--5 итераций, у модифицированных меньше время счета.
-\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize * Е. Н. Акимова, В. Е. Мисилов, А. Ф. Скурыдина. Параллельные алгоритмы решения структурной обратной задачи магнитометрии ... // Вестник УГАТУ,  Т.18, №2 (2014). С. 208--217.}
+	\textbf{\color{blue}Результаты.} Число обусловленности $\mu(A'_n(u_n^k))\approx 1.8\cdot 10^7$, спектр неотрицательный, состоящий из различных собственных значений, $\bar\alpha=10^{-2}$, $\alpha = 10^{-4}$, $\gamma=1$, относительная погрешность $\varepsilon < 10^{-2}$ получена за 4--5 итераций, у модифицированных меньше время счета.
+\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Е. Н. Акимова, В. Е. Мисилов, А. Ф. Скурыдина. Параллельные алгоритмы решения структурной обратной задачи магнитометрии ... // Вестник УГАТУ,  Т.18, №2 (2014). С. 208--217.}
 \end{frame}
 
 %\begin{frame}{}
@@ -551,7 +394,7 @@ $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\
 %\end{frame}
 
 \begin{frame}{Глава 3. Покомпонентные методы ньютоновского типа решения обратных структурных задач гравиметрии и магнитометрии}
-	В третьей главе предложены покомпонентные методы типа Ньютона и типа Левенберга -- Марквардта, а также вычислительная оптимизация методов типа Ньютона. 
+	В третьей главе предложены покомпонентные методы типа Ньютона и типа Левенберга -- Марквардта, а также вычислительная оптимизация метода Ньютона. 
 	
 	Параллельные алгоритмы реализованы в виде комплекса программ на многоядерных и графических процессорах (видеокартах) для вычислений на сетках большого размера. Приводятся результаты расчетов модельных задач на многоядерных процессорах и графических ускорителях. 
 	
@@ -580,22 +423,63 @@ $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\
 	\end{columns}
 \end{frame}
 
-\begin{frame}{3.1. Покомпонентный метод типа Ньютона}
-	В уравнении гравиметрии
-	$$A(u)=f,$$
-	обозначим $A(u)=\int_{a}^{b}\int_{c}^{d}K(x,y, x',y',u^k(x,y))dxdy$ --- интегральный оператор.
+\begin{frame}{Вычислительная оптимизация метода Ньютона}
+	Прозводная оператора $A$ в точке $u^0(x,y)$ определяется формулой:
+	\begin{itemize}
+		\item в задаче гравиметрии
+		$$ [A'(u^0)]h=\iint_{D} \frac{u^0(x',y')h(x',y')}{[(x-x')^2+(y-y')^2+(u^0(x',y'))^2]^{3/2}}dx'dy',$$
+		\item в задаче магнитометрии
+		$$ [A'(u^0)]h=\iint_{D} \frac{(x-x')^2+(y-y')^2-2(u^0(x',y'))^2}{[(x-x')^2+(y-y')^2+(u^0(x',y'))^2]^{5/2}}h(x',y')dx'dy'.$$
+	\end{itemize}
 	
-	Итерации в методе Ньютона строятся по схеме
-	$$A'(u^k)(\Delta u^k)=-(A(u^k)-f),$$ где $\Delta u^k=u^{k+1}-u^k$.
-	Для задачи гравиметрии
-	$$f\Delta\sigma\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y))\Delta u^k(x,y) dxdy=A(u(x',y'))-f(x',y').$$
- %\textbf{Замечание 3.1. (ИГФ)} {\color{blue}  На значение гравитационного поля в точке $(x',y')$ наибольшее влияние оказывает глубина залегания поверхности в точке $(x',y')$ .} 
-
-\textbf{\color{blue}Заменим} $\Delta u^k(x,y)=\Delta u^k(x',y')=const$ относительно переменных интегрирования, т.к. изменение в правой части в основном зависит от значений $\Delta u^k(x',y')$, и вынесем за знак интеграла $\Delta u^k(x',y')$
-	$$f\Delta\sigma{\color{blue}(\Delta u^k(x',y'))}\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y)) dxdy\approx A(u(x',y'))-f(x',y').$$
-	$$f\Delta\sigma \Delta u^k_{m,l}\sum\limits_{i=1}^{M}\sum\limits_{j=1}^{N}
-	\Delta x\Delta y K'_u(x_j,y_i,x_k,y_l,u_{m,l})\approx \{A[u^k]\}_{m,l}-f_{m,l}.$$
+	Матрица $A'_n(u^0)$ имеет диагональное преобладание.
+	При расчетах используется лента матрицы $A'_n(u^k)$.
+	\begin{figure}
+		\includegraphics[width=0.32\linewidth, height=0.32\textheight]{Matrix}
+	\end{figure}
+	\centering \scriptsize Схема матрицы производной оператора $A$
 \end{frame}
+
+\begin{frame}
+	\begin{block}{Замечание 3.2.}
+		В структурных обратных задачах грави- магнитометрии при решении методом Ньютона без существенной потери точности можно не учитывать значения элементов, отстоящих от диагонали далее, чем на  $\beta$-ю часть  размерности матрицы производной, то есть те значения $a_{ij}$, для которых  $j \in \{i-h(\beta),..i+h(\beta)\} $, где $h(\beta)$ --- полуширина ленты матрицы, $i, j$ --- индекс элемента.
+		
+		В формуле (1.3) вместо матрицы $A'(u^k)=\{a_{i,j}\}$ используется диагональная матрица $\overline{A}=\{\overline{a_{i,j}}\}, \quad \overline{a_{i,j}}=
+		\begin{cases}
+		a_{i,j},\quad  |i-j|\leq\beta \cdot n, \\
+		0, \quad \quad | i-j|>\beta \cdot n. 
+		\end{cases}$
+	\end{block}
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Miniakhmetova A., Martyshko M. Optimization and parallelization of Newton type methods for solving structurial gravimetry and magnetometry inverse problems // EAGE Geoinformatics 2014}
+\end{frame}
+
+\begin{frame}{3.1. Покомпонентный метод типа Ньютона}
+	Рассмотрим нелинейное интегральное уравнение:
+	$$[A(u)](t)=\int_{a}^{b}K(t,s,u(s))ds=f(t).$$
+Поправка в методе Ньютона $\Delta u^k$ определяется из решения линейного интегрального уравнения:
+$$A'(u^k)\Delta u^k=\int_{a}^{b}K'_u(t,s,u^k(s))\Delta u^k(s)ds=A(u^k)-f.$$
+После дискретизации получаем систему уравнений:
+$$\sum\limits_{j=1}^{n}h K'_u(t,s_j,u^k(s_j))\Delta u^k(s_j)=[A(u^k)](t)-f(t)|_{t=t_i}, \quad 1\leqslant i\leqslant n.$$
+Теперь в каждом $i$-м уравнении полагаем, что все поправки $\Delta u^k(s_j)=\Delta u^k(s_i)$, то есть все компоненты вектора $\{\Delta u^k(s_j)\}_1^n$ одинаковы. $\Delta u^k(s_i)$ вынесем за знак суммы.
+$$\Delta u^k(s_i)=\frac{[A(u^k)](t)-f(t)|_{t=t_i}}{\sum\limits_{j=1}^{n}h K'_u(t,s_j,u^k(s_j))}, \quad 1\leqslant i\leqslant n.$$
+\end{frame}
+
+%\begin{frame}{3.1. Покомпонентный метод типа Ньютона}
+%	В уравнении гравиметрии
+%	$$A(u)=f,$$
+%	обозначим $A(u)=\int_{a}^{b}\int_{c}^{d}K(x,y, x',y',u^k(x,y))dxdy$ --- интегральный оператор.
+%	
+%	Итерации в методе Ньютона строятся по схеме
+%	$$A'(u^k)(\Delta u^k)=-(A(u^k)-f),$$ где $\Delta u^k=u^{k+1}-u^k$.
+%	Для задачи гравиметрии
+%	$$f\Delta\sigma\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y))\Delta u^k(x,y) dxdy=A(u(x',y'))-f(x',y').$$
+% %\textbf{Замечание 3.1. (ИГФ)} {\color{blue}  На значение гравитационного поля в точке $(x',y')$ наибольшее влияние оказывает глубина залегания поверхности в точке $(x',y')$ .} 
+%
+%\textbf{\color{blue}Заменим} $\Delta u^k(x,y)=\Delta u^k(x',y')=const$ относительно переменных интегрирования, т.к. изменение в правой части в основном зависит от значений $\Delta u^k(x',y')$, и вынесем за знак интеграла $\Delta u^k(x',y')$
+%	$$f\Delta\sigma{\color{blue}(\Delta u^k(x',y'))}\int_{a}^{b}\int_{c}^{d}K'_u(x,y, x',y',u^k(x,y)) dxdy\approx A(u(x',y'))-f(x',y').$$
+%	$$f\Delta\sigma \Delta u^k_{m,l}\sum\limits_{i=1}^{M}\sum\limits_{j=1}^{N}
+%	\Delta x\Delta y K'_u(x_j,y_i,x_k,y_l,u_{m,l})\approx \{A[u^k]\}_{m,l}-f_{m,l}.$$
+%\end{frame}
 
 \begin{frame}{}
 	 Регуляризованный метод Ньютона:
@@ -620,49 +504,6 @@ $\forall i,j$ $\lambda _i>0$, $\lambda _i\neq\lambda_j$, $i\neq j$, $A'(u)+\bar\
 	\Delta x\Delta y\frac{u_{ij}}{[(x_k-x'_j)^2+(y_l-y'_i)^2+(u_{ij})^2]^{3/2}}.$$
 	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Skurydina A. A componentwise Newton type method for solving the structural inverse gravity problem // EAGE Geoinformatics 2015}
 \end{frame}
-
-\begin{frame}{3.2. Вычислительная оптимизация метода Ньютона}
-	Прозводная оператора $A$ в точке $u^0(x,y)$ определяется формулой:
-	\begin{itemize}
-		\item в задаче гравиметрии
-		$$ [A'(u^0)]h=\iint_{D} \frac{u^0(x',y')h(x',y')}{[(x-x')^2+(y-y')^2+(u^0(x',y'))^2]^{3/2}}dx'dy',$$
-		\item в задаче магнитометрии
-		$$ [A'(u^0)]h=\iint_{D} \frac{(x-x')^2+(y-y')^2-2(u^0(x',y'))^2}{[(x-x')^2+(y-y')^2+(u^0(x',y'))^2]^{5/2}}h(x',y')dx'dy'.$$
-	\end{itemize}
-
-Матрица $A'_n(u^0)$ имеет диагональное преобладание.
-При расчетах используется лента матрицы $A'_n(u^k)$.
-\begin{figure}
-	\includegraphics[width=0.32\linewidth, height=0.32\textheight]{Matrix}
-\end{figure}
-\centering \scriptsize Схема матрицы производной оператора $A$
-\end{frame}
-
-\begin{frame}
-	\begin{block}{Замечание 3.2.}
-		В структурных обратных задачах грави- магнитометрии при решении методом Ньютона без существенной потери точности можно не учитывать значения элементов, отстоящих от диагонали далее, чем на  $\beta$-ю часть  размерности матрицы производной, то есть те значения $a_{ij}$, для которых  $j \in \{i-h(\beta),..i+h(\beta)\} $, где $h(\beta)$ --- полуширина ленты матрицы, $i, j$ --- индекс элемента.
-	
-        В формуле $\eqref{equ_rmn}$ вместо матрицы $A'(u^k)=\{a_{i,j}\}$ используется диагональная матрица $\overline{A'}=\{\overline{a_{i,j}}\}, \quad \overline{a_{i,j}}=
-\begin{cases}
-a_{i,j},\quad \| i-j\|\leq\beta, \\
-0, \quad \quad \| i-j\|>\beta. 
-\end{cases}$
-	\end{block}
-	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize Akimova E., Miniakhmetova A., Martyshko M. Optimization and parallelization of Newton type methods for solving structurial gravimetry and magnetometry inverse problems // EAGE Geoinformatics 2014}
-\end{frame}
-
-
-
-%\begin{frame}{\small\textbf{Регуляризованный метод Левенберга -- Марквардта (Васин В.В.)}}
-%	Регуляризованный метод Левенберга -- Марквардта \textbf{\color{red}(Васин, 2012)}
-%	\begin{equation}\label{LM_Vasin}
-%	u^{k+1}=u^k-\gamma[A'(u^k)^*A'(u^k)+\alpha I]^{-1} [A'(u^k)^*(A(u^k)-f_\delta)]
-%	\end{equation} и его модифицированный вариант \textbf{\color{red}(Васин, Пересторонина, 2011)}
-%	\begin{equation}\label{LM_modif_Vasin}
-%	u^{k+1}=u^k-\gamma[A'(u^0)^*A'(u^0)+\alpha I]^{-1} [A'(u^k)^*(A(u^k)-f_\delta)]
-%	\end{equation}
-%	где $\gamma$ --- демпфирующий множитель, $u^0$ --- некоторое приближение к $u_\alpha$, $\alpha>0$.
-%\end{frame}
 
 \begin{frame}{Постановка обратной задачи гравиметрии восстановления нескольких поверхностей раздела}
 	\begin{columns}
@@ -700,11 +541,11 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 %	%Рис.3. Модель многослойной среды.
 %\end{frame}
 
-\begin{frame}{3.3. Покомпонентный метод типа \\ Левенберга -- Марквардта}
+\begin{frame}{3.2. Покомпонентный метод типа \\ Левенберга -- Марквардта}
 	\vskip -2 mm
-	Регуляризованный метод Левенберга -- Марквардта %\textbf{\color{red}(Васин, 2012)}
+	Регуляризованный метод Левенберга -- Марквардта с весовыми множителями %\textbf{\color{red}(Васин, 2012)}
 	$$	u^{k+1}=u^k-\gamma{\color{red}[A'(u^k)^T A'(u^k)+\alpha I]^{-1} }\Lambda[A'(u^k)^T(A(u^k)-f_\delta)]$$
-	По аналогии с ПМН, имеем покомпонентный метод типа Левенберга -- Марквардта:
+	По аналогии с ПМН, получим покомпонентный метод типа Левенберга -- Марквардта:
 	\vskip -3 mm
 	$$ u_l^{k+1}=u_l^k-\gamma{\color{blue}\frac{1}{\varphi_l(x',y')+\bar{\alpha}}}\Lambda[ A'(u_l^k)^T(A(u^k)-f_\delta)],$$
 	где $l$ --- номер границы раздела, $l=1,..,L$, $\Lambda$ --- диагональный весовой оператор, 
@@ -795,7 +636,7 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 %	\end{table}
 %\end{frame}
 
-\begin{frame}{3.4. Описание комплекса параллельных программ}
+\begin{frame}{3.3. Описание комплекса параллельных программ}
 	\begin{itemize}
 		\item на основе предложенных методов разработаны параллельные алгоритмы для вычислений на многоядерных процессорах и графических ускорителей;
 		\item используются инструменты: OpenMP, CUDA;
@@ -821,7 +662,7 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 %%	Структура комплекса
 %\end{frame}
 
-\begin{frame}{Технология OpenMP}
+\begin{frame}{Технология OpenMP для многоядерных процессоров}
 	\begin{figure}[h]
 		\centering 
 		\includegraphics[width=0.6\textwidth]{omp}
@@ -829,7 +670,7 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 	\centering
 	Принцип работы потоков в OpenMP.
 \end{frame}
-\begin{frame}{Технология CUDA}
+\begin{frame}{Технология CUDA для видеокарт}
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\textwidth]{cuda}
@@ -837,7 +678,7 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 	\centering
 	Иерархия компонентов вычислительной сетки GPU.
 \end{frame}
-\begin{frame}{3.5. Задача 1 (сравнение методов решения задачи гравиметрии в двухслойной среде)}
+\begin{frame}{3.4. Задача 1 (сравнение методов решения задачи гравиметрии в двухслойной среде)}
 	
 	Точное решение уравнения гравиметрии, определяющее поверхность раздела сред, задается формулой
 	\begin{equation*}
@@ -858,14 +699,15 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 \begin{itemize}
 	\item критерий останова итераций $\delta=\frac{\|u_e-u_a\|}{\|u_e\|}\leqslant 0.025$, параметры регуляризации $\alpha=\bar{\alpha}=10^{-3}$, $\Delta=\|A(u^k)+\alpha(u^k-u^0)-f_\delta\|/\|f_\delta\|$,
 	%\item параметр регуляризации $\alpha=\bar{\alpha}=10^{-3}$,
-	\item полуширина ленты матрицы производной $\beta=1/4$, $\gamma=1.2$ для ПМН,
+	%\item полуширина ленты матрицы производной $\beta=1/4$, $\gamma=1.2$ для ПМН,
 	%\item $\Delta=\|A(u^k)+\alpha(u^k-u^0)-f_\delta\|/\|f_\delta\|$,
-	\item размер $A'_n(u^k)$  $\approx 2.6*10^5\times2.6*10^5$.
+	\item размер $A'_n(u^k)$  $\approx 2.6*10^5\times2.6*10^5$,
+	\item $T_1$ --- Intel Xeon (1 ядро), $T_8$ --- Intel Xeon (8 ядер), $T_{\textup{GPU}}$ --- NVIDIA Tesla M2050.
 \end{itemize}
 	
 	\begin{table}[]
 		\centering
-		\renewcommand{\arraystretch}{1.5}
+		%\renewcommand{\arraystretch}{1.5}
 		\scriptsize{Табл. Сравнение методов решения задачи гравиметрии на сетке $512\times512$}
 		\label{table3.1}
 		\begin{tabular}{|p{0.25\textwidth}|l|l|l|l|l|l|l|}
@@ -887,96 +729,16 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 		\textbf{\color{blue}Вывод:} ПМН является самым экономичным по вычислительным затратам: в 3 раза быстрее методов 1--2 и в 2 раза быстрее метода 4.
 \end{frame}
 
-%\begin{frame}
-%	Точное решение уравнения магнитометрии, определяющее поверхность раздела сред, задается формулой
-%	$$\hat{u}(x,y)=5-2e^{-(x/10-3.5)^6-(y/10-2.5)^6}-3e^{-(x/10-5.5)^6-(y/10-4.5)^6},$$
-%	\centering
-%	\includegraphics[width=\textwidth, height=0.3\textheight]{magne_kiev2014.png}
-%	
-%	Рис.5. Модельная поверхность (слева) и приближенное решение (справа): $D=\{0\leqslant x\leqslant 300, \,\,0\leqslant y\leqslant 300\}$, \\ $  H=5,\,\,\Delta x=\Delta y=0.3,\,\,\Delta J=0.4$ А/м.
-%\end{frame}
-%\begin{frame}
-%	В таблице приведены результаты расчетов, критерий останова итераций 
-%	$$\delta=\frac{\|u_e-u_a\|}{\|u_e\|}\leqslant 0.025,$$ параметр регуляризации $\alpha=\bar{\alpha}=10^{-3}$, полуширина ленты матрицы производной $\beta=1/5$ для задачи магнитометрии.
-%	\begin{table}[]
-%		\centering
-%		{\scriptsize Табл.4. Решение обратной задачи магнитометрии в двухслойной среде}
-%		\begin{tabular}{|p{0.25\textwidth}|p{0.05\textwidth}|l|l|l|l|l|}
-%			\hline
-%			\multicolumn{1}{|c|}{Метод}        & \multicolumn{1}{c|}{$N$} &
-%			\multicolumn{1}{c|}{$\Delta$} &
-%			\multicolumn{1}{c|}{$T_1$} & \multicolumn{1}{c|}{$T_8$} &	\multicolumn{1}{c|}{$S_8$}&\multicolumn{1}{c|}{$E_8$} \\ \hline
-%			Метод Ньютона                      &   3             & 0.05                  &     9 мин                   &      1 мин 30 сек   
-%			& 6 &        0.75     \\ \hline
-%			Модифицированный метод Ньютона     &              6           & 0.051           & 15 мин 30 сек                & 2 мин  & 7.75 & 0.96\\ \hline
-%			Метод Ньютона с ленточной матрицей &   5                    & 0.05               & 9 мин 36 сек    & 1 мин 12 сек & 8 & 1   \\ \hline
-%		\end{tabular}
-%	\end{table}
-%	{\bfseries \large Вывод.} Исключение из матрицы производной оператора $A'(u^k)$ элементов, далеко отстоящих от диагонали, почти не влияет на сходимость метода Ньютона.
-%\end{frame}
 
-%\begin{frame}{\small 3.5. Задача 2 (сравнение методов типа Ньютона на больших сетках)}
-%	%\textbf{\color{blue}Цель:} Решить задачу гравиметрии и сравнить модифицированный метод Ньютона и покомпонентный метод Ньютона на больших сетках.
-%	
-%	Точное решение уравнения гравиметрии, определяющее поверхность раздела сред, задается формулой
-%	\begin{equation*}
-%	\begin{aligned}
-%	\hat{u}(x,y)=5-3.21e^{-(x/10.13-6.62)^6-(y/9.59-2.93)^6}-2.78e^{-(x/9.89-4.12)^6-(y/8.63-7.435)^6}\\+3.19e^{-(x/9.89-4.82)^6-(y/8.72-4.335)^6},
-%	\end{aligned} 
-%	\end{equation*}
-%%	\centering
-%%	\includegraphics[width=\textwidth, height=0.35\textheight]{gravy_kiev2015.png}
-%%	
-%%	Рис.6. Модельная поверхность (слева) и синтетическое гравитационное поле (справа): $D=\{0\leqslant x\leqslant 300, \,\,0\leqslant y\leqslant 330\}$, \\ $  H=5,\,\,\Delta x=\Delta y=0.33,\,\,\Delta\sigma=0.21$ г/см$^3$.
-%\includegraphics[width=\textwidth, height=0.35\textheight]{gravy_kiev2015_methods.png}
-%
-%\centering
-%Решение, полученное модиф. методом Ньютона (слева) и решение, полученное покомпонентным методом (справа).
-%
-%\end{frame}
-%\begin{frame}
-%	\includegraphics[width=\textwidth, height=0.35\textheight]{gravy_kiev2015_methods.png}
-%	
-%	\centering
-%	Рис.7. Решение, полученное модиф. методом Ньютона (слева) и решение, полученное покомпонентным методом (справа).
-%	
-%	\flushleft
-%	1. Параметр регуляризации взят $\alpha=\bar{\alpha}=10^{-3}$,
-%	
-%	2. Демпфирующий параметр $\gamma=1.8$ для покомпонентного метода Ньютона.
-%	
-%	Критерий останова итераций $$\varepsilon=\frac{\|u_e-u_a\|}{\|u_e\|}=10^{-2}.$$
-%\end{frame}
-%\begin{frame}
-%	Параметры регуляризации $\alpha=\bar{\alpha}=10^{-3}$, $\gamma=1.8$ для покомпонентного метода Ньютона, критерий останова $\varepsilon=\frac{\|u_e-u_a\|}{\|u_e\|}=10^{-2}.$
-%	\begin{table}[]
-%		\centering
-%		{\scriptsize Табл.5. Сравнение ММН и ПМН}
-%		\begin{tabular}{|l|c|c|}
-%			\hline
-%			\textbf{Показатели}                                                        & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Модифицированный\\ метод Ньютона\end{tabular}}} & \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Покомпонентный\\ метод типа Ньютона\end{tabular}}} \\ \hline
-%			\begin{tabular}[c]{@{}l@{}}Число итераций,\\ $N$\end{tabular}              & 16                                                                                                     & 21                                                                                                        \\ \hline
-%			\begin{tabular}[c]{@{}l@{}}Отн. норма\\ невязки, $\Delta$\end{tabular}     & 0.002                                                                                                  & 0.002                                                                                                                                                                                                       \\ \hline
-%			\rowcolor{Green}
-%			\textbf{\begin{tabular}[c]{@{}l@{}}Время, $T_1$ \\ на сетке 512$\times$512\end{tabular}} & \textbf{61 мин}                                                                                        & \textbf{19 мин}                                                                                           \\ \hline
-%			\textbf{\begin{tabular}[c]{@{}l@{}}Время, $T_8$ \\ на сетке 512$\times$512\end{tabular}} & \textbf{7 мин 50 сек}                                                                                  & \textbf{2 мин 33 сек}                                                                                     \\ \hline
-%			Ускорение, $S_8$                                                                      & 7.82                                                                                                   & 7.45                                                                                                      \\ \hline
-%			Эффективность, $E_8$                                                                      & 0.97                                                                                                   & 0.93                                                                                                      \\ \hline    
-%		\end{tabular}
-%	\end{table}
-%	{\textcolor{blue}{Вывод.}} Покомпонентный метод Ньютона снижает время решения задачи в три раза по сравнению с модифицированным методом Ньютона. Разработанные параллельные алгоритмы демонстрируют высокую эффективность.
-%	%Проведенные эксперименты наглядно демонстрируют выгоду использования покомпонентного метода Ньютона для решения обратных задач на больших сетках.
-%\end{frame}
-
-\begin{frame}{3.5. Задача 2 \small (сравнение методов Левенберга -- Марквардта решения задачи гравиметрии в многослойной среде}
+\begin{frame}{3.4. Задача 2 \small (сравнение методов Левенберга -- Марквардта решения задачи гравиметрии в многослойной среде}
 %	\textcolor{blue}{Цель:} сравнить по точности решения и по машинным затратам регуляризованный Левенберга -- Марквардта и покомпонентный типа Левенберга -- Марквардта.
 	\begin{figure}
 		\centering
-		\includegraphics[height=0.3\textheight]{fields}
-		
-		\centering\textit{Суммарное поле и поле с шумом 22\% (мГал), $\mu=1$, $\sigma=1.15$.}
+		\includegraphics[height=0.3\textheight]{fields}\\
+		\centering\textit{Суммарное поле и поле с шумом 22\% (мГал)}
 \flushleft
-Модельные поверхности схожи с границами раздела из работы*.
+\vskip -5pt
+Модельные поверхности построены по аналогии с границами раздела из статьи.
 %		\centering
 %		\includegraphics[height=0.2\textheight]{exact_hor}
 %		
@@ -985,11 +747,12 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 %	
 	\vskip -3 mm
 	$H_1=8$ км, $H_2=15$ км и $H_3=30$ км. Скачки плотности $\Delta\sigma_1=0.2$ г/см$^3$, $\Delta\sigma_2=0.1$ г/см$^3$, $\Delta\sigma_3=0.1$ г/см$^3$. Шаги сетки $\Delta x=2$ км, $\Delta y=3$ км.
+	
+	Аддитивный гауссовский шум с $\mu=1$, $\sigma=1.15$, $\quad\textnormal{noise}=\frac{\mu+3\sigma}{f_{\textnormal{max}}}\cdot 100\%=22\%$.
 
-	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize *  П. С. Мартышко, Е.Н. Акимова, В. Е. Мисилов. О решении структурной обратной задачи гравиметрии модифицированными методами градиентного типа // Физика земли. 2016. № 5. С. 82--86.}
-
+	\let\thefootnote\relax\let\thefootnote\relax\footnotetext{\footnotesize П. С. Мартышко, Е.Н. Акимова, В. Е. Мисилов. О решении структурной обратной задачи гравиметрии модифицированными методами градиентного типа // Физика земли. 2016. № 5. С. 82--86.}
 \end{frame}
-\begin{frame}
+\begin{frame}{Решения, полученные для данных без шума}
 	\begin{figure}
 		\centering
 		\includegraphics[height=0.2\textheight]{exact_hor}
@@ -1005,7 +768,7 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 
 %$H_1=8$ км, $H_2=15$ км и $H_3=30$ км. Скачки плотности $\Delta\sigma_1=0.2$ г/см$^3$, $\Delta\sigma_2=0.1$ г/см$^3$, $\Delta\sigma_3=0.1$ г/см$^3$. Шаги сетки $\Delta x=2$ км, $\Delta y=3$ км.
 \end{frame}
-\begin{frame}
+\begin{frame}{Решения, полученные для данных с шумом}
 	\begin{figure}
 		\centering
 		\includegraphics[height=0.2\textheight]{lm_noise}
@@ -1021,7 +784,7 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 	\begin{itemize}
 		\item сетка $1000\times1000$, матрица производных $10^6\times 3*10^6$,
 		\item параметр регуляризации $\alpha=10^{-3}$ и демпфирующий множитель $\gamma=1$,
-		\item $\varepsilon=\frac{\|A(u_a)+\alpha u_a-f_\delta\|}{\|f_\delta\|}|=0.1$,
+		\item $\varepsilon=\frac{\|A(u)+\alpha u-f_\delta\|}{\|f_\delta\|}|=0.1$,
 		\item относительные погрешности $\delta_i=\|u_a-u_e\|/\|u_e\|$,
 		\item $T_1$ --- Intel Xeon (1 ядро), $T_8$ --- Intel Xeon (8 ядер),	
 		\item $T_{\textup{GPU}}$ --- NVIDIA Tesla M2050.
@@ -1040,7 +803,7 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 \end{tabular}
 	\end{table}
 
-\textbf{\color{blue}Вывод:} покомпонентный метод Левенберга -- Марквардта решает задачу в 10 раз быстрее.
+\textbf{\color{blue}Вывод:} покомпонентный метод Левенберга -- Марквардта решает задачу в 10 раз быстрее, ускорение на видеокарте в более, чем в 20 раз.
 \end{frame}
 
 %\begin{frame}{}
@@ -1062,22 +825,16 @@ a_{i,j},\quad \| i-j\|\leq\beta, \\
 %\end{frame}
 
 \begin{frame}{Основные результаты}
-	1. Для нелинейного уравнения с монотонным оператором дано обоснование двухэтапного метода на основе регуляризованного метода Ньютона. 
-	Построены нелинейные аналоги $\alpha$-процессов:  регуляризованные методы градиентного типа для решения нелинейного уравнения с монотонным оператором: метод минимальной ошибки, метод наискорейшего спуска, метод минимальных невязок. Доказаны теоремы сходимости и сильная фейеровость итерационных процессов при аппроксимации регуляризованного решения. Для задачи с немонотонным оператором, производная которого имеет неотрицательный спектр, доказаны теоремы сходимости для метода  Ньютона и нелинейных $\alpha$-процессов к регуляризованному решению.
+	1. Для уравнения с монотонным оператором дано обоснование двухэтапного метода на основе метода Ньютона и нелинейных аналогов $\alpha$-процессов: метода минимальной ошибки, метода наискорейшего спуска, метода минимальных невязок. Доказаны теоремы сходимости и сильная фейеровость итерационных процессов при аппроксимации регуляризованного решения. Результаты обобщены на конечномерный случай для задачи с немонотонным оператором, производная которого имеет неотрицательный спектр.
+	
+	2. Для решения нелинейных интегральных уравнений обратных задач гравиметрии предложены экономичные покомпонентные методы 
+	типа Ньютона и типа Левенберга – Марквардта. Предложена вычислительная оптимизация метода 
+	Ньютона при решении задач гравиметрии и магнитометрии.
+	
+	3. Разработан комплекс параллельных программ для многоядерных и графических процессоров (видеокарт) решения обратных задач гравиметрии и магнитометрии на сетках большой размерности методами ньютоновского типа и покомпонентными методами. 
 	  	
 \end{frame}
 
-\begin{frame}{Основные результаты}
-	2. Для решения нелинейных интегральных уравнений обратных задач гравиметрии предложены экономичные покомпонентные методы 
-	типа Ньютона и типа Левенберга – Марквардта. Предложена вычислительная оптимизация метода 
-	Ньютона и его модифицированного варианта при решении задач 
-	с матрицей производной с диагональным преобладанием. 
-	
-
-	\vskip 0.5cm
-	3. Разработан комплекс параллельных программ для многоядерных и графических процессоров (видеокарт) решения обратных задач гравиметрии и магнитометрии на сетках большой размерности методами ньютоновского типа и покомпонентными методами.  
-
-\end{frame}
 	
 \begin{frame}{Апробация работы}
 	Основные результаты по материалам диссертационной работы докладывались на конференциях:
